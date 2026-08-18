@@ -413,16 +413,16 @@ export function Header({ variant = 'default', title, showShare = false }) {
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-[82vw] max-w-[320px] bg-[#011a14] z-[201] flex flex-col overflow-hidden"
-              style={{ boxShadow: '-8px 0 40px rgba(0,0,0,0.5)' }}
+              className="fixed top-0 right-0 bottom-0 w-[82vw] max-w-[320px] bg-white z-[201] flex flex-col overflow-hidden"
+              style={{ boxShadow: '-8px 0 40px rgba(0,0,0,0.15)' }}
             >
-              {/* Top green accent bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-[#022A21] via-indigo-600 to-yellow-400" />
+              {/* Top blue accent bar */}
+              <div className="h-1.5 w-full bg-indigo-600" />
 
               {/* Header */}
-              <div className="flex items-center justify-between px-5 pt-8 pb-5 border-b border-white/[0.07]">
+              <div className="flex items-center justify-between px-5 pt-8 pb-5 border-b border-gray-100">
                 <div>
-                  <p className="text-white font-extrabold text-xl tracking-widest" style={{ fontFamily: 'inherit' }}>
+                  <p className="text-gray-900 font-extrabold text-xl tracking-widest" style={{ fontFamily: 'inherit' }}>
                     Aradhana Apparels
                   </p>
                   <p className="text-indigo-600 text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5">
@@ -430,35 +430,35 @@ export function Header({ variant = 'default', title, showShare = false }) {
                   </p>
                 </div>
                 <button onClick={() => setMenuOpen(false)}
-                  className="w-9 h-9 rounded-full bg-white/[0.07] border border-white/10 flex items-center justify-center hover:bg-white/15 transition-colors">
-                  <X className="w-4.5 h-4.5 text-white" />
+                  className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <X className="w-4.5 h-4.5 text-gray-500" />
                 </button>
               </div>
 
               {/* User section */}
-              <div className="px-5 py-4 border-b border-white/[0.07]">
+              <div className="px-5 py-4 border-b border-gray-100">
                 {token && user ? (
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-yellow-400 flex items-center justify-center shadow-lg shadow-indigo-600/30">
+                    <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30">
                       <span className="text-white font-black text-lg">{user.name?.[0]?.toUpperCase() || 'U'}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-white font-bold text-[15px] truncate">{user.name}</p>
-                      <p className="text-white/40 text-xs truncate">{user.email}</p>
+                      <p className="text-gray-900 font-bold text-[15px] truncate">{user.name}</p>
+                      <p className="text-gray-500 text-xs truncate">{user.email}</p>
                     </div>
                     <button onClick={() => { navigate('/profile'); setMenuOpen(false); }}
-                      className="w-8 h-8 rounded-xl bg-white/[0.07] flex items-center justify-center border border-white/10 hover:bg-white/15 transition-colors">
-                      <ChevronRight className="w-4 h-4 text-white/60" />
+                      className="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center border border-gray-200 hover:bg-gray-100 transition-colors">
+                      <ChevronRight className="w-4 h-4 text-gray-400" />
                     </button>
                   </div>
                 ) : (
                   <div className="flex gap-2">
                     <button onClick={() => { navigate('/login'); setMenuOpen(false); }}
-                      className="flex-1 bg-gradient-to-r from-indigo-600 to-yellow-400 text-white font-bold py-2.5 rounded-xl text-sm shadow-md hover:shadow-indigo-600/40 hover:opacity-90 transition-all">
+                      className="flex-1 bg-indigo-600 text-white font-bold py-2.5 rounded-xl text-sm shadow-md hover:shadow-indigo-600/40 hover:bg-indigo-700 transition-all">
                       Login
                     </button>
                     <button onClick={() => { navigate('/signup'); setMenuOpen(false); }}
-                      className="flex-1 border border-white/15 text-white font-semibold py-2.5 rounded-xl text-sm hover:bg-white/8 transition-colors">
+                      className="flex-1 border border-gray-200 text-gray-700 font-semibold py-2.5 rounded-xl text-sm hover:bg-gray-50 transition-colors">
                       Sign Up
                     </button>
                   </div>
@@ -469,51 +469,51 @@ export function Header({ variant = 'default', title, showShare = false }) {
               <div className="flex-1 overflow-y-auto px-3 py-3">
 
                 {/* Main nav */}
-                <p className="text-white/30 text-[9px] font-black tracking-[0.2em] uppercase mb-2 px-3">Menu</p>
+                <p className="text-gray-400 text-[9px] font-black tracking-[0.2em] uppercase mb-2 px-3">Menu</p>
                 {[
-                  { icon: <Home className="w-4.5 h-4.5" />, label: 'Home', path: '/', color: 'text-white' },
-                  { icon: <ShoppingBag className="w-4.5 h-4.5" />, label: 'Shop All', path: '/category/all', color: 'text-purple-400' },
-                  { icon: <Zap className="w-4.5 h-4.5 fill-current" />, label: 'Offers & Deals', path: '/offers', color: 'text-yellow-400' },
-                  { icon: <Package className="w-4.5 h-4.5" />, label: 'My Orders', path: '/my-orders', color: 'text-blue-400', badge: null },
-                  { icon: <Heart className="w-4.5 h-4.5" />, label: 'Wishlist', path: '/wishlist', color: 'text-red-400', badge: wishlistCount > 0 ? wishlistCount : null },
-                  { icon: <ShoppingCart className="w-4.5 h-4.5" />, label: 'Cart', path: '/cart', color: 'text-green-400', badge: cartCount > 0 ? cartCount : null },
-                  { icon: <User className="w-4.5 h-4.5" />, label: 'My Profile', path: token ? '/profile' : '/login', color: 'text-indigo-600' },
-                  { icon: <Gift className="w-4.5 h-4.5" />, label: 'Refer & Earn', path: '/refer', color: 'text-pink-400' },
+                  { icon: <Home className="w-4.5 h-4.5" />, label: 'Home', path: '/', color: 'text-gray-700' },
+                  { icon: <ShoppingBag className="w-4.5 h-4.5" />, label: 'Shop All', path: '/category/all', color: 'text-gray-700' },
+                  { icon: <Zap className="w-4.5 h-4.5 fill-current text-yellow-500" />, label: 'Offers & Deals', path: '/offers', color: 'text-gray-700' },
+                  { icon: <Package className="w-4.5 h-4.5 text-blue-500" />, label: 'My Orders', path: '/my-orders', color: 'text-gray-700', badge: null },
+                  { icon: <Heart className="w-4.5 h-4.5 text-red-500" />, label: 'Wishlist', path: '/wishlist', color: 'text-gray-700', badge: wishlistCount > 0 ? wishlistCount : null },
+                  { icon: <ShoppingCart className="w-4.5 h-4.5 text-green-500" />, label: 'Cart', path: '/cart', color: 'text-gray-700', badge: cartCount > 0 ? cartCount : null },
+                  { icon: <User className="w-4.5 h-4.5 text-indigo-500" />, label: 'My Profile', path: token ? '/profile' : '/login', color: 'text-gray-700' },
+                  { icon: <Gift className="w-4.5 h-4.5 text-pink-500" />, label: 'Refer & Earn', path: '/refer', color: 'text-gray-700' },
                 ].map(item => (
                   <button key={item.path}
                     onClick={() => { navigate(item.path); setMenuOpen(false); }}
-                    className="w-full flex items-center gap-3.5 px-3 py-3 rounded-xl hover:bg-white/[0.06] transition-colors text-left group mb-0.5">
-                    <div className={`w-8 h-8 rounded-xl bg-white/[0.07] flex items-center justify-center shrink-0 group-hover:bg-white/[0.12] transition-colors ${item.color}`}>
+                    className="w-full flex items-center gap-3.5 px-3 py-3 rounded-xl hover:bg-gray-50 transition-colors text-left group mb-0.5">
+                    <div className="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 group-hover:bg-gray-100 transition-colors">
                       {item.icon}
                     </div>
-                    <span className="text-white/85 font-semibold text-[14px] group-hover:text-white transition-colors flex-1">{item.label}</span>
+                    <span className={`font-semibold text-[14px] group-hover:text-indigo-600 transition-colors flex-1 ${item.color}`}>{item.label}</span>
                     {item.badge && (
                       <span className="bg-indigo-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{item.badge}</span>
                     )}
-                    <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white/40 transition-colors" />
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-400 transition-colors" />
                   </button>
                 ))}
 
                 {/* Categories */}
                 {categories.length > 0 && (
                   <>
-                    <p className="text-white/30 text-[9px] font-black tracking-[0.2em] uppercase mt-4 mb-2 px-3">Categories</p>
+                    <p className="text-gray-400 text-[9px] font-black tracking-[0.2em] uppercase mt-4 mb-2 px-3">Categories</p>
                     {categories.slice(0, 6).map(cat => (
                       <button key={cat.id}
                         onClick={() => { navigate(`/category/${cat.slug || cat.id}`); setMenuOpen(false); }}
-                        className="w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl hover:bg-white/[0.06] transition-colors text-left group mb-0.5">
-                        <div className="w-8 h-8 rounded-xl bg-white/[0.07] flex items-center justify-center shrink-0 group-hover:bg-white/[0.12] transition-colors">
+                        className="w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left group mb-0.5">
+                        <div className="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 group-hover:bg-gray-100 transition-colors">
                           <Tag className="w-4 h-4 text-indigo-600/70" />
                         </div>
-                        <span className="text-white/70 font-medium text-[14px] group-hover:text-white transition-colors flex-1">{cat.name}</span>
-                        <ChevronRight className="w-3.5 h-3.5 text-white/15 group-hover:text-white/35 transition-colors" />
+                        <span className="text-gray-600 font-medium text-[14px] group-hover:text-indigo-600 transition-colors flex-1">{cat.name}</span>
+                        <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-indigo-400 transition-colors" />
                       </button>
                     ))}
                   </>
                 )}
 
                 {/* Info links */}
-                <p className="text-white/30 text-[9px] font-black tracking-[0.2em] uppercase mt-4 mb-2 px-3">Info</p>
+                <p className="text-gray-400 text-[9px] font-black tracking-[0.2em] uppercase mt-4 mb-2 px-3">Info</p>
                 {[
                   { icon: <Info className="w-4 h-4" />, label: 'About Us', path: '/about' },
                   { icon: <Phone className="w-4 h-4" />, label: 'Contact Us', path: '/contact' },
@@ -522,12 +522,12 @@ export function Header({ variant = 'default', title, showShare = false }) {
                 ].map(item => (
                   <button key={item.path}
                     onClick={() => { navigate(item.path); setMenuOpen(false); }}
-                    className="w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl hover:bg-white/[0.06] transition-colors text-left group mb-0.5">
-                    <div className="w-8 h-8 rounded-xl bg-white/[0.07] flex items-center justify-center shrink-0 text-white/40 group-hover:bg-white/[0.12] group-hover:text-white/70 transition-colors">
+                    className="w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors text-left group mb-0.5">
+                    <div className="w-8 h-8 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 text-gray-400 group-hover:bg-gray-100 group-hover:text-indigo-600 transition-colors">
                       {item.icon}
                     </div>
-                    <span className="text-white/50 font-medium text-[13px] group-hover:text-white/80 transition-colors">{item.label}</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-white/15 ml-auto group-hover:text-white/30 transition-colors" />
+                    <span className="text-gray-500 font-medium text-[13px] group-hover:text-indigo-600 transition-colors">{item.label}</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 ml-auto group-hover:text-indigo-400 transition-colors" />
                   </button>
                 ))}
 
@@ -535,14 +535,14 @@ export function Header({ variant = 'default', title, showShare = false }) {
               </div>
 
               {/* Footer: logout + tagline */}
-              <div className="border-t border-white/[0.07] px-4 py-4">
+              <div className="border-t border-gray-100 px-4 py-4 bg-gray-50/50">
                 {token ? (
                   <button onClick={() => { handleLogout(); setMenuOpen(false); }}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-red-500/10 border border-red-500/15 text-red-400 font-semibold text-[14px] hover:bg-red-500/20 transition-colors mb-3">
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-red-50 border border-red-100 text-red-500 font-semibold text-[14px] hover:bg-red-100 transition-colors mb-3">
                     <LogOut className="w-4 h-4" /> Sign Out
                   </button>
                 ) : null}
-                <p className="text-white/20 text-[10px] text-center font-medium">
+                <p className="text-gray-400 text-[10px] text-center font-medium">
                   © 2025 Aradhana Apparels · Crafted with ♥
                 </p>
               </div>
