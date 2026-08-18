@@ -22,7 +22,6 @@ const NAV = [
   { href: "/admin/support", label: "Support", icon: <HeadphonesIcon className="w-4 h-4" /> },
   { href: "/admin/subscriptions", label: "Subscriptions", icon: <CreditCard className="w-4 h-4" /> },
   { href: "/admin/offers", label: "Offers", icon: <Percent className="w-4 h-4" /> },
-  { href: "/admin/advertisements", label: "Advertisements", icon: <Megaphone className="w-4 h-4" /> },
   { href: "/admin/product-requests", label: "Product Requests", icon: <ClipboardList className="w-4 h-4" /> },
 ];
 
@@ -38,7 +37,7 @@ export function AdminLayout({ children }) {
     const token = localStorage.getItem("token");
     if (!token) {
       // Mocking admin login for demo purposes based on requirements
-      setAdmin({ name: "Admin User", email: "admin@swabhivarshoppers.com" });
+      setAdmin({ name: "Admin User", email: "admin@Aradhana Apparelsshoppers.com" });
       return;
     }
 
@@ -67,7 +66,7 @@ export function AdminLayout({ children }) {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-[#036e26]/10 px-4 py-3 flex items-center justify-between z-50">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Swabhivar Shoppers" className="h-8 object-contain mix-blend-multiply" />
+          <img src={logo} alt="Aradhana Apparels" className="h-8 object-contain mix-blend-multiply" />
           <span className="font-bold text-lg"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span> <span className="text-sm font-normal text-gray-500">Admin</span></span>
         </div>
         <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#036e26]">
@@ -86,7 +85,7 @@ export function AdminLayout({ children }) {
       }`}>
         <div className="p-5 border-b border-[#036e26]/10">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Swabhivar Shoppers" className="h-10 object-contain mix-blend-multiply" />
+            <img src={logo} alt="Aradhana Apparels" className="h-10 object-contain mix-blend-multiply" />
             <div>
               <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span></p>
               <div className="flex items-center gap-1 mt-1">

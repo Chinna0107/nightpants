@@ -62,7 +62,7 @@ export function ShippingPolicyPage() {
               <h2 className="text-xl font-bold text-[#022A21] font-serif">Damages</h2>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              SWABHIVAR SHOPPER takes utmost care with packaging but is not directly liable for products damaged or lost during shipping. If you received your order damaged, please contact our support team immediately so we can assist you with a replacement or claim.
+              Aradhana Apparels takes utmost care with packaging but is not directly liable for products damaged or lost during shipping. If you received your order damaged, please contact our support team immediately so we can assist you with a replacement or claim.
             </p>
           </section>
 

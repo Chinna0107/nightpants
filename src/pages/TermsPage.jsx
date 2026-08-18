@@ -34,29 +34,29 @@ export function TermsPage() {
           
           <section>
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">1. Acceptance of Terms</h2>
-            <p>By accessing and using <strong>SWABHIVAR SHOPPER</strong>, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services.</p>
+            <p>By accessing and using <strong>Aradhana Apparels</strong>, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services.</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">2. Provision of Services</h2>
-            <p className="mb-3">SWABHIVAR SHOPPER is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the services which we provide may change from time to time without prior notice to you.</p>
+            <p className="mb-3">Aradhana Apparels is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the services which we provide may change from time to time without prior notice to you.</p>
             <p>As part of this continuing innovation, you acknowledge and agree that we may stop (permanently or temporarily) providing the services (or any features within the services) to you or to users generally at our sole discretion, without prior notice to you.</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">3. Use of the Services</h2>
             <p className="mb-3">In order to access certain services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the service, or as part of your continued use of the services.</p>
-            <p>You agree that any registration information you give to SWABHIVAR SHOPPER will always be accurate, correct and up to date.</p>
+            <p>You agree that any registration information you give to Aradhana Apparels will always be accurate, correct and up to date.</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">4. Limitation of Liability</h2>
-            <p>You expressly understand and agree that SWABHIVAR SHOPPER shall not be liable to you for any direct, indirect, incidental, special consequential or exemplary damages which may be incurred by you, however caused and under any theory of liability. This shall include, but not be limited to, any loss of profit (whether incurred directly or indirectly), any loss of goodwill or business reputation, any loss of data suffered, cost of procurement of substitute goods or services, or other intangible loss.</p>
+            <p>You expressly understand and agree that Aradhana Apparels shall not be liable to you for any direct, indirect, incidental, special consequential or exemplary damages which may be incurred by you, however caused and under any theory of liability. This shall include, but not be limited to, any loss of profit (whether incurred directly or indirectly), any loss of goodwill or business reputation, any loss of data suffered, cost of procurement of substitute goods or services, or other intangible loss.</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">5. Changes to the Terms</h2>
-            <p>SWABHIVAR SHOPPER may make changes to the Universal Terms or Additional Terms from time to time. When these changes are made, we will make a new copy of the Universal Terms available and any new Additional Terms will be made available to you from within, or through, the affected services.</p>
+            <p>Aradhana Apparels may make changes to the Universal Terms or Additional Terms from time to time. When these changes are made, we will make a new copy of the Universal Terms available and any new Additional Terms will be made available to you from within, or through, the affected services.</p>
           </section>
           
         </div>

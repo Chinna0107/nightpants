@@ -83,15 +83,15 @@ export function SignupPage() {
 
         <div className="relative z-10 flex flex-col items-center">
           <div className="relative mb-3">
-            <div className="w-[88px] h-[88px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.15] flex items-center justify-center shadow-2xl">
-              <img src={logo} alt="SWABHIVAR" className="h-14 w-14 object-contain drop-shadow-xl" />
+            <div className="w-[88px] h-[88px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.15] flex items-center justify-center overflow-hidden shadow-2xl">
+              <img src={logo} alt="Aradhana Apparels" className="h-20 w-20 scale-[1.25] object-contain drop-shadow-xl" />
             </div>
             <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-brand-orange to-yellow-500 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
               <span className="text-white text-[9px] font-black">✦</span>
             </div>
           </div>
           <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.15em' }}>
-            SWABHIVAR
+            Aradhana Apparels
           </h1>
           <p className="text-brand-orange text-[10px] font-bold tracking-[0.25em] uppercase mt-0.5">Your Choice, From Anywhere.</p>
 
@@ -129,7 +129,7 @@ export function SignupPage() {
             <>
               <div className="mb-6">
                 <h2 className="text-2xl font-extrabold text-[#022A21]" style={{ fontFamily: 'Georgia, serif' }}>Create Account ✨</h2>
-                <p className="text-[13px] text-gray-500 mt-1.5">Join thousands of happy SWABHIVAR shoppers</p>
+                <p className="text-[13px] text-gray-500 mt-1.5">Join thousands of happy Aradhana Apparels</p>
               </div>
 
               {displayError && (

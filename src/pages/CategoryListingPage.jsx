@@ -3,7 +3,6 @@ import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { Search, SlidersHorizontal, ArrowLeft, Filter, X, ChevronDown, Check } from 'lucide-react';
 import { Header } from '../components/Header';
 import { ProductCard } from '../components/ProductCard';
-import { AdBanner } from '../components/AdBanner';
 import { useStoreData } from '../store/useStoreData';
 import imgAarti from '../assets/story_aarti.png';
 import imgMeditation from '../assets/story_meditation.png';
@@ -250,70 +249,18 @@ export function CategoryListingPage() {
     <div className="bg-transparent min-h-screen pb-20">
       <Header title={categoryName} showShare={true} />
       
-      {/* Category Banner */}
-      <div className="bg-white mx-4 lg:mx-8 rounded-3xl mt-6 relative overflow-hidden shadow-sm border border-gray-100">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-50/50 to-transparent pointer-events-none" />
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between p-6 md:px-12 md:py-10 gap-6 relative z-10">
-          <div className="text-center md:text-left text-gray-900 max-w-2xl">
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight font-serif text-[#022A21]">{categoryName}</h1>
-            <p className="text-gray-600 font-sans text-sm md:text-lg leading-relaxed max-w-xl">
-              Explore our handpicked collection of authentic, premium essentials for your divine rituals. Each item is crafted with devotion and purity.
-            </p>
-          </div>
-          <div className="w-28 h-28 md:w-40 md:h-40 shrink-0 rounded-full bg-white p-2 border border-brand-orange/30 shadow-sm hidden md:block group-hover:shadow-md transition-all">
-            <img src={bannerImg} alt={categoryName} className="w-full h-full object-cover rounded-full" />
-          </div>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-6 md:py-10">
         
-        {/* Categories Ribbon */}
-        <div className="bg-white border-gray-100 rounded-3xl mb-8 px-4 py-6 overflow-x-auto hide-scrollbar shadow-sm">
-          <div className="flex gap-6 md:gap-10 justify-start md:justify-center min-w-max mx-auto px-2">
-            <Link to="/category/all" className="flex flex-col items-center gap-3 group">
-              <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center border overflow-hidden transition-all ${categoryId === 'all' ? 'border-brand-orange border-2 shadow-sm bg-orange-50/50' : 'border-gray-200 bg-white group-hover:border-brand-orange group-hover:shadow-sm'}`}>
-                <div className={`w-full h-full flex items-center justify-center font-extrabold text-sm text-center leading-tight ${categoryId === 'all' ? 'text-brand-orange' : 'text-gray-600 group-hover:text-brand-orange'}`}>All<br/>Products</div>
-              </div>
-              <span className={`text-[13px] md:text-sm font-bold text-center transition-colors ${categoryId === 'all' ? 'text-brand-orange' : 'text-gray-600 group-hover:text-gray-900'}`}>All Products</span>
-            </Link>
-            {categories.map(cat => (
-              <Link key={cat.id} to={`/category/${cat.id}`} className="flex flex-col items-center gap-3 group">
-                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center border overflow-hidden transition-all ${categoryId === cat.id.toString() ? 'border-brand-orange border-2 shadow-sm bg-orange-50/50' : 'border-gray-200 bg-white p-1 group-hover:border-brand-orange group-hover:shadow-sm'}`}>
-                  {cat.image_url ? (
-                    <img src={cat.image_url} alt={cat.name} className="w-full h-full object-cover rounded-xl" />
-                  ) : (
-                    <img src={imgAarti} alt="Cat" className="w-full h-full object-cover opacity-50 rounded-xl mix-blend-multiply" />
-                  )}
-                </div>
-                <span className={`text-[13px] md:text-sm font-bold text-center transition-colors ${categoryId === cat.id.toString() ? 'text-brand-orange' : 'text-gray-600 group-hover:text-gray-900'}`}>{cat.name}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Ad Block */}
-        {banners.length > 0 ? (
-          <AdBanner 
-            imageUrl={banners[0].image_url} 
-            altText={banners[0].title || "Category Special Ad"} 
-            link={banners[0].link_url || "/category/all"}
-          />
-        ) : (
-          <AdBanner 
-            imageUrl={imgMeditation} 
-            altText="Category Special Ad" 
-          />
-        )}
-
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-[0_2px_15px_rgba(0,0,0,0.04)] border border-gray-100/50 sticky top-[110px] z-40 gap-4">
           <div className="flex items-center justify-between w-full sm:w-auto gap-4">
-            <span className="text-sm font-extrabold text-[#022A21] bg-orange-50/50 border border-brand-orange/30 px-4 py-2 rounded-xl">{filteredProducts.length} Items</span>
+            <span className="text-[13px] font-extrabold text-[#022A21] bg-brand-orange/10 px-4 py-2.5 rounded-xl">{filteredProducts.length} Items</span>
             
             {/* Mobile Filter Trigger */}
             <button 
               onClick={() => setShowMobileFilters(true)}
-              className="lg:hidden flex items-center gap-2 text-sm font-bold text-white bg-[#022A21] px-5 py-2 rounded-xl shadow-md"
+              className="lg:hidden flex items-center gap-2 text-[13px] font-extrabold text-white bg-[#022A21] px-5 py-2.5 rounded-xl shadow-md shadow-[#022A21]/20 active:scale-95 transition-all"
             >
               <Filter className="w-4 h-4" />
               Filters
@@ -329,6 +276,30 @@ export function CategoryListingPage() {
           </div>
         </div>
 
+        {/* Categories Ribbon */}
+        <div className="md:hidden mb-5 -mx-4 px-4 overflow-x-auto hide-scrollbar">
+          <div className="flex gap-4 min-w-max pb-2">
+            <Link to="/category/all" className="flex flex-col items-center gap-2 group w-[76px]">
+              <div className={`w-[76px] h-[76px] rounded-2xl flex items-center justify-center border transition-all shadow-sm ${categoryId === 'all' ? 'border-brand-orange border-2 bg-orange-50/50' : 'border-gray-200 bg-white hover:border-brand-orange'}`}>
+                <div className={`w-full h-full flex items-center justify-center font-extrabold text-[12px] text-center leading-tight ${categoryId === 'all' ? 'text-brand-orange' : 'text-gray-600 group-hover:text-brand-orange'}`}>All<br/>Products</div>
+              </div>
+              <span className={`text-[11px] font-extrabold text-center transition-colors truncate w-full ${categoryId === 'all' ? 'text-brand-orange' : 'text-gray-500'}`}>All Products</span>
+            </Link>
+            {categories.map(cat => (
+              <Link key={cat.id} to={`/category/${cat.id}`} className="flex flex-col items-center gap-2 group w-[76px]">
+                <div className={`w-[76px] h-[76px] rounded-2xl flex items-center justify-center border transition-all shadow-sm ${categoryId === cat.id.toString() ? 'border-brand-orange border-2 bg-orange-50/50' : 'border-gray-200 bg-white hover:border-brand-orange p-1'}`}>
+                  {cat.image_url ? (
+                    <img src={cat.image_url} alt={cat.name} className="w-full h-full object-cover rounded-xl" />
+                  ) : (
+                    <img src={imgAarti} alt="Cat" className="w-full h-full object-cover opacity-50 rounded-xl mix-blend-multiply" />
+                  )}
+                </div>
+                <span className={`text-[11px] font-extrabold text-center transition-colors truncate w-full ${categoryId === cat.id.toString() ? 'text-brand-orange' : 'text-gray-500'}`}>{cat.name}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div className="flex gap-8 items-start">
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block w-72 shrink-0 bg-white p-6 rounded-3xl shadow-md border border-gray-100 sticky top-28">
@@ -339,26 +310,9 @@ export function CategoryListingPage() {
           <div className="flex-1">
             <div className={layout === 'grid' ? 'grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6' : 'flex flex-col gap-4'}>
               {filteredProducts.map((product, index) => {
-                const isAdSlot = (index + 1) % 14 === 0;
                 return (
                   <React.Fragment key={product.id}>
                     <ProductCard product={product} layout={layout} />
-                    {isAdSlot && (
-                      <div className="col-span-full">
-                        {banners.length > 1 ? (
-                          <AdBanner 
-                            imageUrl={banners[1 % banners.length].image_url} 
-                            altText={banners[1 % banners.length].title || "In-Feed Ad"} 
-                            link={banners[1 % banners.length].link_url || "/category/all"}
-                          />
-                        ) : (
-                          <AdBanner 
-                            imageUrl={imgAarti} 
-                            altText="In-Feed Ad" 
-                          />
-                        )}
-                      </div>
-                    )}
                   </React.Fragment>
                 );
               })}
@@ -379,25 +333,7 @@ export function CategoryListingPage() {
           </div>
         </div>
 
-        {/* Bottom Ad Block */}
-        {banners.length > 2 ? (
-          <AdBanner 
-            imageUrl={banners[2 % banners.length].image_url} 
-            altText={banners[2 % banners.length].title || "Category Bottom Ad"} 
-            link={banners[2 % banners.length].link_url || "/category/all"}
-          />
-        ) : banners.length > 0 ? (
-          <AdBanner 
-            imageUrl={banners[0].image_url} 
-            altText={banners[0].title || "Category Bottom Ad"} 
-            link={banners[0].link_url || "/category/all"}
-          />
-        ) : (
-          <AdBanner 
-            imageUrl={imgAarti} 
-            altText="Category Bottom Ad" 
-          />
-        )}
+
       </div>
 
       {/* Mobile Filters Drawer/Modal */}

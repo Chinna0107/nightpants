@@ -77,7 +77,7 @@ export function SplashScreen({ onComplete }) {
         <div ref={logo} className="relative w-full max-w-sm md:max-w-md flex justify-center">
           <img
             src={logoImg}
-            alt="Swabhivar Shopper"
+            alt="Aradhana Apparels"
             className="w-4/5 md:w-full object-contain filter drop-shadow-sm"
           />
         </div>

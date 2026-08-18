@@ -34,11 +34,11 @@ export function WishlistPage() {
            <div className="bg-white p-5 mb-6 rounded-3xl flex items-center gap-4 shadow-sm border border-gray-100 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-orange-50 to-transparent rounded-bl-full pointer-events-none opacity-50 blur-xl"></div>
               <div className="w-14 h-14 bg-gray-100 border border-gray-200 rounded-full overflow-hidden shrink-0 shadow-inner group-hover:shadow-md transition-all">
-                <img src="https://ui-avatars.com/api/?name=SWABHIVAR+User&background=fe6603&color=fff" alt="Profile" />
+                <img src="https://ui-avatars.com/api/?name=Aradhana Apparels+User&background=fe6603&color=fff" alt="Profile" />
               </div>
               <div className="relative z-10">
                 <div className="text-[12px] text-gray-500">Hello,</div>
-                <div className="font-bold text-[16px] text-[#022A21]">SWABHIVAR User</div>
+                <div className="font-bold text-[16px] text-[#022A21]">Aradhana Apparels User</div>
               </div>
            </div>
            

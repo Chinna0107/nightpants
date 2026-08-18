@@ -51,7 +51,6 @@ import { AdminVendorOrdersPage } from './pages/admin/AdminVendorOrdersPage';
 import { AdminSupportPage } from './pages/admin/AdminSupportPage';
 import { AdminSubscriptionsPage } from './pages/admin/AdminSubscriptionsPage';
 import { AdminOffersPage } from './pages/admin/AdminOffersPage';
-import { AdminAdvertisementsPage } from './pages/admin/AdminAdvertisementsPage';
 import { AdminProductRequestsPage } from './pages/admin/AdminProductRequestsPage';
 
 import { SupportLayout } from './components/support/SupportLayout';
@@ -89,9 +88,12 @@ function PageTransition({ children }) {
 
 function AnimatedAppRoutes() {
   const location = useLocation();
+  // Use the root path as key so changing category IDs doesn't trigger a full page unmount animation
+  const pageKey = location.pathname.split('/')[1] || 'home';
+  
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={pageKey}>
         <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
         <Route path="/about" element={<PageTransition><AboutPage /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
@@ -163,7 +165,6 @@ function App() {
                   <Route path="support" element={<AdminSupportPage />} />
                   <Route path="subscriptions" element={<AdminSubscriptionsPage />} />
                   <Route path="offers" element={<AdminOffersPage />} />
-                  <Route path="advertisements" element={<AdminAdvertisementsPage />} />
                   <Route path="product-requests" element={<AdminProductRequestsPage />} />
                 </Routes>
               </AdminLayout>
@@ -190,7 +191,6 @@ function App() {
                   <Route path="vendor-orders" element={<AdminVendorOrdersPage />} />
                   <Route path="subscriptions" element={<AdminSubscriptionsPage />} />
                   <Route path="offers" element={<AdminOffersPage />} />
-                  <Route path="advertisements" element={<AdminAdvertisementsPage />} />
                   {/* Vendor-scope support pages */}
                   <Route path="wallet" element={<VendorWalletPage />} />
                   <Route path="profile" element={<VendorProfilePage />} />

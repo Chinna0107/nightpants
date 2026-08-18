@@ -48,7 +48,7 @@ export function AboutPage() {
                 Redefining Your <br/><span className="text-brand-orange">Spiritual Journey</span>
               </h1>
               <p className="text-gray-200 text-lg md:text-xl font-medium">
-                Discover a world of premium traditional products and sacred essentials. Welcome to SWABHIVAR.
+                Discover a world of premium traditional products and sacred essentials. Welcome to Aradhana Apparels.
               </p>
             </motion.div>
           </div>
@@ -73,7 +73,7 @@ export function AboutPage() {
               Purity & Trust <br/>at our core.
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Welcome to <strong className="text-[#022A21] font-extrabold">SWABHIVAR SHOPPER</strong>. Our journey began with a simple yet powerful vision: to bridge the gap between authentic traditional products and seamless convenience.
+              Welcome to <strong className="text-[#022A21] font-extrabold">Aradhana Apparels</strong>. Our journey began with a simple yet powerful vision: to bridge the gap between authentic traditional products and seamless convenience.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               We understand that trust is the foundation of a great spiritual experience. That's why we meticulously source our products from top artisans. Whether it's puja essentials, festive decor, or traditional wear, we ensure that every item meets the highest standards of purity.
@@ -116,7 +116,7 @@ export function AboutPage() {
 
         {/* Our Core Values */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#022A21] mb-4 font-serif">The SWABHIVAR Promise</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#022A21] mb-4 font-serif">The Aradhana Apparels Promise</h2>
           <p className="text-lg text-gray-600">We hold ourselves to the highest standards of purity to ensure your complete satisfaction.</p>
         </div>
 

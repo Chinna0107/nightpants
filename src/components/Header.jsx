@@ -349,30 +349,40 @@ export function Header({ variant = 'default', title, showShare = false }) {
           )}
         </AnimatePresence>
 
-        <div className="h-[135px]" />
-        <header className="fixed top-0 left-0 z-50 w-full bg-[#022A21] px-4 py-2 shadow-sm border-b border-[#054335]">
+        <div className="h-[110px]" />
+        <header className="fixed top-0 left-0 z-50 w-full bg-[#022A21] px-4 py-3 shadow-md border-b border-[#054335]">
           <div className="w-full max-w-lg mx-auto">
-            {/* Location & Refer row */}
-            <div className="flex items-center justify-between mb-1.5">
-              <div className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-brand-orange fill-brand-orange/20" />
-                <span className="text-[11px] text-gray-300 font-medium">Deliver to Hyderabad 500081</span>
-              </div>
-              <Link to="/refer" className="flex items-center gap-1.5 bg-gradient-to-r from-brand-orange to-yellow-500 px-2.5 py-0.5 rounded-full shadow-[0_0_8px_rgba(255,165,0,0.4)] border border-yellow-300/30 animate-pulse hover:scale-105 transition-transform">
-                <Gift className="w-3 h-3 text-white" />
-                <span className="text-[10px] text-white font-extrabold tracking-wide drop-shadow-sm">Refer & Earn ₹501</span>
-              </Link>
-            </div>
-
             {/* Title and Actions row */}
-            <div className="flex items-center justify-between mb-2 mt-1">
-              <div className="flex-1 -ml-2">
-                <Link to="/">
-                  <img src={logo} alt="Logo" className="h-14 md:h-16 w-auto max-w-[240px] object-contain filter drop-shadow-lg" />
+            <div className="flex items-center justify-between">
+              
+              {/* Left Side: Menu */}
+              <div className="flex items-center flex-1">
+                <button
+                  onClick={() => setMenuOpen(true)}
+                  className="relative p-2.5 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
+                >
+                  <Menu className="w-5 h-5 text-white" />
+                </button>
+              </div>
+
+              {/* Center: Logo */}
+              <div className="flex items-center justify-center shrink-0 mx-2">
+                <Link to="/" className="flex items-center justify-center relative group">
+                  <div className="absolute inset-0 bg-white/10 blur-[24px] rounded-full scale-[1.3] group-hover:bg-white/20 transition-all duration-300"></div>
+                  <img src={logo} alt="Logo" className="h-24 md:h-28 w-auto max-w-[260px] object-contain relative z-10 filter drop-shadow-[0_4px_24px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-transform duration-500" />
                 </Link>
               </div>
 
-              <div className="flex items-center gap-3">
+              {/* Right Side: Search + Cart */}
+              <div className="flex items-center justify-end gap-2.5 flex-1">
+                {/* Search Icon */}
+                <button
+                  onClick={() => navigate('/search')}
+                  className="relative p-2 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
+                >
+                  <Search className="w-5 h-5 text-white" />
+                </button>
+
                 {/* Cart icon */}
                 <button
                   onClick={() => navigate('/cart')}
@@ -385,30 +395,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                     </span>
                   )}
                 </button>
-
-                {/* Menu button */}
-                <button
-                  onClick={() => setMenuOpen(true)}
-                  className="relative p-2 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
-                >
-                  <Menu className="w-5 h-5 text-white" />
-                </button>
               </div>
-
-            </div>
-
-            {/* Search Bar */}
-            <div
-              className="relative flex items-center cursor-text"
-              onClick={() => navigate('/search')}
-            >
-              <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search sarees, kurtis, brands..."
-                readOnly
-                className="w-full bg-[#054335] border border-[#065A46] rounded-full py-3 pl-11 pr-4 text-sm text-white placeholder-gray-400 focus:outline-none transition-all shadow-sm cursor-text"
-              />
             </div>
           </div>
         </header>
@@ -439,7 +426,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
               <div className="flex items-center justify-between px-5 pt-8 pb-5 border-b border-white/[0.07]">
                 <div>
                   <p className="text-white font-extrabold text-xl tracking-widest" style={{ fontFamily: 'Georgia, serif' }}>
-                    SWABHIVAR
+                    Aradhana Apparels
                   </p>
                   <p className="text-brand-orange text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5">
                     Your Choice, From Anywhere.
@@ -559,7 +546,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                   </button>
                 ) : null}
                 <p className="text-white/20 text-[10px] text-center font-medium">
-                  © 2025 SWABHIVAR · Crafted with ♥
+                  © 2025 Aradhana Apparels · Crafted with ♥
                 </p>
               </div>
             </motion.div>

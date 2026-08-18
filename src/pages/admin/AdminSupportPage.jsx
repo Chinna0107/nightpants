@@ -36,7 +36,6 @@ const ADMIN_PAGES = [
   { path: "/support/vendor-orders", label: "Vendor Orders" },
   { path: "/support/subscriptions", label: "Subscriptions" },
   { path: "/support/offers", label: "Offers" },
-  { path: "/support/advertisements", label: "Advertisements" },
 ];
 
 function AddAgentModal({ onClose, onAdd, accent }) {
@@ -72,7 +71,7 @@ function AddAgentModal({ onClose, onAdd, accent }) {
                 onChange={e => setForm(p => ({ ...p, [field]: e.target.value }))}
                 className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:border-transparent"
                 style={{ "--tw-ring-color": accent }}
-                placeholder={field === "email" ? "agent@swabhivarshoppers.com" : field === "password" ? "••••••••" : "Full name"}
+                placeholder={field === "email" ? "agent@aradhanaapparels.com" : field === "password" ? "••••••••" : "Full name"}
               />
             </div>
           ))}

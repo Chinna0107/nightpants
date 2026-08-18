@@ -127,7 +127,7 @@ export function ProductCard({ product, layout = 'grid' }) {
     e.preventDefault(); e.stopPropagation();
     const url = window.location.origin + `/product/${product.id}`;
     if (navigator.share) {
-      navigator.share({ title: product.name, text: `Check out ${product.name} on SWABHIVAR!`, url }).catch(console.error);
+      navigator.share({ title: product.name, text: `Check out ${product.name} on Aradhana Apparels!`, url }).catch(console.error);
     } else {
       navigator.clipboard.writeText(url);
     }
@@ -143,93 +143,75 @@ export function ProductCard({ product, layout = 'grid' }) {
   /* ── LIST LAYOUT ── */
   if (layout === 'list') {
     return (
-      <Link to={`/product/${product.id}`}
-        className="flex gap-4 p-4 rounded-2xl mb-3 relative hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-100 group bg-white">
-        <div className="w-24 h-24 bg-gray-50 rounded-xl flex-shrink-0 overflow-hidden border border-gray-100">
+      <div onClick={handleCardClick}
+        className="flex gap-4 p-4 rounded-3xl mb-3 relative hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-500 border border-gray-100/50 group bg-white cursor-pointer">
+        <div className="w-28 h-28 bg-gray-50 rounded-2xl flex-shrink-0 overflow-hidden relative">
           <img src={imgErr ? fallbackImg : firstImg} alt={product.name}
             onError={() => setImgErr(true)}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
         </div>
-        <div className="flex flex-col justify-center flex-grow pr-8">
-          <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 leading-snug mb-1 group-hover:text-[#022A21] transition-colors">{product.name}</h3>
-          <div className="flex items-center gap-1 mb-2">
-            <Star className="w-3.5 h-3.5 fill-brand-orange text-brand-orange" />
-            <span className="text-[10px] font-medium text-gray-600">4.5</span>
-            <span className="text-[10px] text-gray-400 ml-1">(1,256)</span>
+        <div className="flex flex-col justify-center flex-grow pr-2">
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="text-[15px] font-extrabold text-gray-900 line-clamp-2 leading-snug group-hover:text-brand-orange transition-colors pr-8" style={{ fontFamily: 'Georgia, serif' }}>{product.name}</h3>
+            <button onClick={handleWishlist}
+              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center hover:scale-110 hover:bg-gray-100 transition-all duration-300">
+              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-400'}`} strokeWidth={isWishlisted ? 0 : 2} />
+            </button>
           </div>
-          <div className="flex items-center justify-between mt-auto">
+          
+          <div className="flex items-center justify-between mt-auto pt-2">
             <div className="flex items-center gap-2">
-              <span className="text-base font-bold text-brand-orange">₹{displayPrice?.toLocaleString('en-IN')}</span>
-              <span className="text-xs text-gray-400 line-through">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
+              <span className="text-lg font-black text-gray-900 tracking-tight">₹{displayPrice?.toLocaleString('en-IN')}</span>
+              <span className="text-xs text-gray-400 line-through font-medium">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
             </div>
             <button onClick={handleAddToCart}
-              className="bg-[#022A21] hover:bg-[#054335] transition-colors p-2.5 rounded-xl relative z-20 active:scale-95">
-              <ShoppingCart className="w-4 h-4 text-white" strokeWidth={2} />
+              className="bg-[#022A21] hover:bg-brand-orange transition-colors p-2.5 rounded-xl relative z-20 active:scale-95 shadow-sm hover:shadow-md hover:shadow-brand-orange/20">
+              <ShoppingCart className="w-4 h-4 text-white" strokeWidth={2.5} />
             </button>
           </div>
         </div>
-        <div className="absolute top-3 right-3 flex flex-col gap-2 z-10">
-          <button onClick={handleWishlist} className="hover:scale-110 transition-transform">
-            <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-400 hover:text-gray-900'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
-          </button>
-          <button onClick={handleShare} className="hover:scale-110 transition-transform mt-1">
-            <Share2 className="w-4 h-4 text-gray-400 hover:text-gray-900" strokeWidth={1.5} />
-          </button>
-        </div>
-      </Link>
+      </div>
     );
   }
 
   /* ── GRID LAYOUT ── */
   return (
     <div onClick={handleCardClick}
-      className="group flex flex-col rounded-[1.5rem] md:rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] h-full relative bg-white border border-gray-100 pb-3">
-
-      {/* Discount badge */}
-      <div className="absolute top-3 left-3 bg-[#7A1D25] text-white text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full z-20 shadow-sm tracking-wide">
-        {(Math.round(((displayPrice * 1.4 - displayPrice) / (displayPrice * 1.4)) * 100))}% OFF
-      </div>
-
-      {/* Wishlist */}
-      <div className="absolute top-3 right-3 z-20">
-        <button onClick={handleWishlist}
-          className="w-8 h-8 md:w-9 md:h-9 bg-white rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform">
-          <Heart className={`w-4 h-4 md:w-4.5 md:h-4.5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-900'}`} strokeWidth={isWishlisted ? 0 : 2} />
-        </button>
-      </div>
+      className="group flex flex-col rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1 h-full relative bg-white border border-gray-100/50 pb-4">
 
       {/* Image */}
-      <div className="relative bg-gray-50 w-full aspect-[4/5] overflow-hidden rounded-b-2xl md:rounded-b-3xl">
+      <div className="relative bg-gray-50 w-full aspect-[4/5] overflow-hidden">
         <img
           src={imgErr ? fallbackImg : firstImg}
           alt={product.name}
           onError={() => setImgErr(true)}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
         />
+        {/* Subtle overlay for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        {/* Wishlist Button Overlay */}
+        <button onClick={handleWishlist}
+          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:scale-110 hover:bg-white transition-all duration-300">
+          <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-600'}`} strokeWidth={isWishlisted ? 0 : 2} />
+        </button>
       </div>
 
       {/* Info */}
-      <div className="flex flex-col flex-grow px-3 pt-4 md:px-4">
-        <p className="text-gray-400 text-[10px] md:text-[11px] font-medium tracking-widest uppercase mb-1">
-          {product.brand || product.category || 'KANCHI HERITAGE'}
-        </p>
-        
-        <h3 className="text-[15px] md:text-[17px] font-bold text-gray-900 line-clamp-2 leading-snug mb-2 font-serif" style={{ fontFamily: 'Georgia, serif' }}>
+      <div className="flex flex-col flex-grow px-4 pt-4 md:px-5">
+        <h3 className="text-[15px] md:text-[17px] font-extrabold text-gray-900 line-clamp-2 leading-snug mb-3 group-hover:text-brand-orange transition-colors" style={{ fontFamily: 'Georgia, serif' }}>
           {product.name}
         </h3>
 
-        <div className="flex items-end gap-2 mb-2">
-          <span className="text-lg md:text-xl font-extrabold text-gray-900">₹{displayPrice?.toLocaleString('en-IN')}</span>
-          <span className="text-xs md:text-sm text-gray-400 line-through mb-0.5">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
-        </div>
-
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-[#3EA361] text-[10px] md:text-[11px] font-medium">₹100 wallet cash</span>
-          <span className="text-[#9061DF] text-[10px] md:text-[11px] font-medium">+50 pts</span>
-        </div>
-
-        <div className="mt-auto pt-1">
-          <p className="text-gray-500 text-[11px] md:text-xs">4-day replacements</p>
+        <div className="flex items-center justify-between mt-auto">
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-400 line-through mb-0.5 font-medium">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
+            <span className="text-lg md:text-xl font-black text-gray-900 tracking-tight leading-none">₹{displayPrice?.toLocaleString('en-IN')}</span>
+          </div>
+          <button onClick={handleAddToCart}
+            className="bg-[#022A21] hover:bg-brand-orange transition-colors p-2.5 md:p-3 rounded-2xl relative z-20 active:scale-95 shadow-md shadow-[#022A21]/20 hover:shadow-lg hover:shadow-brand-orange/30 flex items-center justify-center group/btn">
+            <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 text-white group-hover/btn:scale-110 transition-transform" strokeWidth={2.5} />
+          </button>
         </div>
       </div>
     </div>

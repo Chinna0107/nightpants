@@ -85,7 +85,7 @@ export function LoginPage() {
   const inputClass = "w-full border-2 border-gray-100 rounded-2xl px-4 py-3.5 pl-11 text-[15px] text-gray-900 focus:outline-none focus:border-[#022A21] focus:bg-white transition-all bg-gray-50 placeholder-gray-400 font-medium";
 
   const stepMeta = {
-    login: { emoji: '👋', title: 'Welcome Back', sub: 'Sign in to your SWABHIVAR account' },
+    login: { emoji: '👋', title: 'Welcome Back', sub: 'Sign in to your Aradhana Apparels account' },
     forgot_email: { emoji: '🔑', title: 'Reset Password', sub: 'Enter your registered email to get an OTP' },
     forgot_otp: { emoji: '📨', title: 'Verify OTP', sub: `Code sent to ${form.email}` },
     forgot_reset: { emoji: '🔒', title: 'New Password', sub: 'Set a strong new password for your account' },
@@ -115,14 +115,14 @@ export function LoginPage() {
 
         <div className="relative z-10 flex flex-col items-center">
           <div className="relative mb-4">
-            <div className="w-[90px] h-[90px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.14] flex items-center justify-center shadow-[0_16px_48px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]">
-              <img src={logo} alt="SWABHIVAR" className="h-14 w-14 object-contain drop-shadow-2xl" />
+            <div className="w-[90px] h-[90px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.14] flex items-center justify-center overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]">
+              <img src={logo} alt="Aradhana Apparels" className="h-20 w-20 scale-[1.25] object-contain drop-shadow-2xl" />
             </div>
             <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-brand-orange to-yellow-400 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
               <ShieldCheck className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
           </div>
-          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.18em' }}>SWABHIVAR</h1>
+          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.18em' }}>Aradhana Apparels</h1>
           <p className="text-brand-orange text-[10px] font-bold tracking-[0.28em] uppercase mt-1">Your Choice, From Anywhere.</p>
           <div className="flex items-center gap-5 mt-5">
             {['10K+ Members', '100% Secure', 'Free Replacements'].map(t => (

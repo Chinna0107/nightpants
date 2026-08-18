@@ -23,7 +23,7 @@ export function PrivacyPolicyPage() {
             Privacy Policy
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-gray-300 text-lg">
-            How we protect your data at SWABHIVAR SHOPPER
+            How we protect your data at Aradhana Apparels
           </motion.p>
         </div>
       </div>
@@ -32,7 +32,7 @@ export function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 md:px-8 -mt-12 relative z-20 pb-24">
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12 text-gray-700 leading-relaxed space-y-8">
           <p className="text-lg">
-            At <strong>SWABHIVAR SHOPPER</strong>, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a purchase.
+            At <strong>Aradhana Apparels</strong>, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a purchase.
           </p>
 
           <section>
@@ -67,10 +67,10 @@ export function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold text-[#022A21] mb-4 font-serif">4. Contact Us</h2>
             <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
             <div className="mt-4 p-6 bg-[#f9f9f9] rounded-2xl border border-gray-100">
-              <p className="font-bold text-[#022A21] mb-1">SWABHIVAR SHOPPER</p>
+              <p className="font-bold text-[#022A21] mb-1">Aradhana Apparels</p>
               <p className="text-gray-600 mb-1">1-1-738, Vinayaka temple road, Koratla, Telangana, India</p>
               <p className="text-gray-600 mb-1">Phone: +91 90326 75205</p>
-              <p className="text-brand-orange font-medium">Email: swabhivarshoppers@gmail.com</p>
+              <p className="text-brand-orange font-medium">Email: aradhanaapparels@gmail.com</p>
             </div>
           </section>
         </div>

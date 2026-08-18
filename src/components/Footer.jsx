@@ -13,7 +13,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-12 border-b border-[#054335] relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-[#033429] p-8 md:p-10 rounded-3xl border border-[#065A46] shadow-xl">
           <div className="max-w-xl text-center md:text-left">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: 'Georgia, serif' }}>Join the SWABHIVAR VIP Club</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: 'Georgia, serif' }}>Join the Aradhana Apparels VIP Club</h3>
             <p className="text-gray-300 text-sm md:text-base">Subscribe to get exclusive access to premium collections, special offers, and styling tips directly to your inbox.</p>
           </div>
           <div className="w-full md:w-auto flex-1 max-w-md flex items-center gap-2 relative">
@@ -35,10 +35,10 @@ export function Footer() {
           {/* Brand Info */}
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3">
-              <img src={logoUrl} alt="Swabhivar" className="w-16 md:w-20 object-contain filter drop-shadow-sm" />
-              <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-serif" style={{ fontFamily: 'Georgia, serif' }}>
-                SWABHIVAR
-              </h2>
+              <img src={logoUrl} alt="Aradhana Apparels" className="w-16 md:w-20 object-contain filter drop-shadow-sm" />
+              {/* <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white font-serif" style={{ fontFamily: 'Georgia, serif' }}>
+                Aradhana Apparels
+              </h2> */}
             </div>
             <p className="text-[14px] text-gray-300 leading-relaxed pr-4">
               Your ultimate online shopping destination for premium ethnic wear and modern fashion. Experience quality and luxury delivered to your doorstep.
@@ -121,7 +121,7 @@ export function Footer() {
               <div className="w-9 h-9 rounded-full bg-[#054335] border border-brand-orange/20 flex items-center justify-center shrink-0 group-hover:bg-brand-orange group-hover:border-brand-orange transition-all text-brand-orange group-hover:text-white">
                 <Mail className="w-4 h-4" />
               </div>
-              <span className="font-medium group-hover:text-white transition-colors">swabhivarshoppers@gmail.com</span>
+              <span className="font-medium group-hover:text-white transition-colors">aradhanaapparels@gmail.com</span>
             </div>
           </div>
 
@@ -129,7 +129,7 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-[#054335] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[14px] text-gray-400 font-medium tracking-wide">
-            &copy; {new Date().getFullYear()} SWABHIVAR SHOPPER. All rights reserved.
+            &copy; {new Date().getFullYear()} Aradhana Apparels. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link to="/privacy-policy" className="text-[14px] text-gray-400 hover:text-brand-orange transition-colors font-medium">Privacy Policy</Link>

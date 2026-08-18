@@ -92,7 +92,7 @@ export function ProductDetailPage() {
     e.preventDefault(); e.stopPropagation();
     const url = window.location.href;
     if (navigator.share) {
-      navigator.share({ title: product.name, text: `Check out ${product.name} on SWABHIVAR!`, url }).catch(console.error);
+      navigator.share({ title: product.name, text: `Check out ${product.name} on Aradhana Apparels!`, url }).catch(console.error);
     } else {
       navigator.clipboard.writeText(url);
     }
@@ -119,24 +119,27 @@ export function ProductDetailPage() {
       {/* ── MOBILE: Full-width image section ── */}
       <div className="md:hidden">
         {/* Image container */}
-        <div className="relative w-full aspect-[3/4] bg-gray-100">
+        <div className="relative w-full h-[60vh] bg-gray-50 overflow-hidden">
           {/* Back + actions */}
-          <div className="absolute top-safe pt-4 left-0 right-0 z-20 flex items-center justify-between px-4">
+          <div className="absolute top-safe pt-5 left-0 right-0 z-20 flex items-center justify-between px-5">
             <button onClick={() => navigate(-1)}
-              className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
-              <ChevronLeft className="w-6 h-6 text-gray-800" />
+              className="w-11 h-11 bg-white/70 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.1)] active:scale-95 transition-transform">
+              <ChevronLeft className="w-6 h-6 text-gray-900" />
             </button>
             <div className="flex gap-3">
               <button onClick={(e) => { e.stopPropagation(); toggleWishlist(product.id); }}
-                className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
-                <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-[#88313A] text-[#88313A]' : 'text-gray-800'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
+                className="w-11 h-11 bg-white/70 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.1)] active:scale-95 transition-transform">
+                <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-900'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
               </button>
               <button onClick={handleShare}
-                className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm">
-                <Share2 className="w-5 h-5 text-gray-800" strokeWidth={1.5} />
+                className="w-11 h-11 bg-white/70 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.1)] active:scale-95 transition-transform">
+                <Share2 className="w-5 h-5 text-gray-900" strokeWidth={1.5} />
               </button>
             </div>
           </div>
+
+          {/* Bottom Gradient overlay for readability */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none"></div>
 
           {/* Main image */}
           <div className="w-full h-full" onClick={() => setIsImageModalOpen(true)}>
@@ -154,7 +157,7 @@ export function ProductDetailPage() {
           <div className="flex gap-2 px-4 py-3 bg-white border-b border-gray-100 overflow-x-auto hide-scrollbar">
             {productImages.map((img, i) => (
               <button key={i} onClick={() => { setMainImg(img); setImgError(false); }}
-                className={`w-16 h-16 rounded-xl flex-shrink-0 overflow-hidden border-2 transition-all ${mainImg === img ? 'border-[#88313A]' : 'border-transparent'}`}>
+                className={`w-16 h-16 rounded-xl flex-shrink-0 overflow-hidden border-2 transition-all ${mainImg === img ? 'border-brand-orange' : 'border-transparent'}`}>
                 <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover" onError={(e) => { e.target.src = PLACEHOLDER; }} />
               </button>
             ))}
@@ -163,7 +166,7 @@ export function ProductDetailPage() {
       </div>
 
       {/* ── MAIN CONTENT ── */}
-      <div className="max-w-[1400px] mx-auto md:px-8 lg:px-12 md:mt-6 md:grid md:grid-cols-[45%_55%] md:gap-8 lg:gap-12">
+      <div className="max-w-[1400px] mx-auto md:px-8 lg:px-12 md:pt-10 lg:pt-12 md:pb-8 md:grid md:grid-cols-[45%_55%] md:gap-8 lg:gap-12">
 
         {/* ── DESKTOP LEFT: Images ── */}
         <div className="hidden md:block">
@@ -205,48 +208,60 @@ export function ProductDetailPage() {
           </div>
 
           {/* Desktop action buttons */}
-          <div className="flex gap-3 mt-5">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex gap-4 mt-6">
             <button onClick={handleAddToCart}
-              className="flex-1 border-2 border-brand-orange text-brand-orange font-bold py-4 rounded-2xl text-[15px] flex items-center justify-center gap-2 hover:bg-orange-50 transition-all shadow-sm active:scale-95">
-              <ShoppingCart className="w-5 h-5" /> Add to Cart
+              className="group flex-1 bg-[#022A21]/5 border border-[#022A21]/20 text-[#022A21] font-bold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 hover:bg-[#022A21] hover:text-white hover:border-[#022A21] transition-all duration-300 shadow-sm active:scale-95">
+              <ShoppingCart className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" /> Add to Cart
             </button>
             <button onClick={handleBuyNow}
-              className="flex-[1.4] bg-gradient-to-r from-brand-orange to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] flex items-center justify-center gap-2 shadow-md hover:shadow-[0_8px_25px_rgba(254,102,3,0.4)] hover:-translate-y-0.5 transition-all active:scale-95">
-              <Zap className="w-5 h-5 fill-white" /> Buy Now
+              className="group flex-[1.4] relative overflow-hidden bg-gradient-to-r from-brand-orange via-yellow-500 to-brand-orange bg-[length:200%_auto] hover:bg-right text-white font-extrabold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(255,165,0,0.4)] hover:shadow-[0_12px_30px_rgba(255,165,0,0.5)] hover:-translate-y-1 transition-all duration-500 active:scale-95">
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none rounded-[1.25rem]"></div>
+              <Zap className="w-5 h-5 fill-white group-hover:scale-110 transition-transform duration-300 relative z-10" /> 
+              <span className="relative z-10 tracking-wide">Buy Now</span>
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* ── RIGHT / MOBILE BOTTOM: Product Info ── */}
-        <div className="bg-white md:rounded-3xl md:shadow-md md:border md:border-gray-100 px-4 py-5 md:p-8 mt-0 md:mt-0">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="bg-white rounded-t-3xl md:rounded-[2rem] md:shadow-2xl md:border md:border-gray-100 px-5 py-8 md:p-10 relative -mt-6 z-20 md:mt-0 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] pb-32 md:pb-10"
+        >
+          {/* Mobile Drag Handle Indicator */}
+          <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6 md:hidden"></div>
 
           {/* Category tag */}
           {product.category && (
-            <div className="text-gray-500 text-[11px] font-semibold mb-1 uppercase tracking-wide">
-              {product.category} · KANCHIPURAM, TN
+            <div className="inline-flex items-center gap-2 bg-[#FFF8E7] text-brand-orange px-3 py-1 rounded-full text-xs font-extrabold mb-3 uppercase tracking-widest shadow-[0_2px_10px_rgba(255,165,0,0.05)] w-fit border border-[#FDE1B9]/30">
+              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+              {product.category}
             </div>
           )}
 
           {/* Title */}
-          <h1 className="text-[22px] md:text-3xl font-bold text-gray-900 leading-snug tracking-tight mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className="text-3xl md:text-[2.5rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4" style={{ fontFamily: 'Georgia, serif' }}>
             {product.name}
           </h1>
 
           {/* Ratings */}
-          <div className="flex items-center gap-1.5 mb-3">
-            <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-            <span className="text-gray-900 font-bold text-[13px]">4.7</span>
-            <span className="text-gray-500 text-[13px]">(214 reviews)</span>
+          <div className="flex items-center gap-2 mb-6 bg-gray-50/50 w-fit px-3 py-1.5 rounded-full border border-gray-100">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <span className="text-gray-900 font-bold text-sm">4.7</span>
+            <span className="text-gray-400 text-sm font-medium">| &nbsp;214 reviews</span>
           </div>
 
           {/* Price */}
-          <div className="flex items-center gap-2 mb-6">
-            <span className="text-2xl font-bold text-gray-900">₹{selectedSizeObj.price.toLocaleString()}</span>
+          <div className="flex items-end gap-3 mb-8">
+            <span className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">₹{selectedSizeObj.price.toLocaleString()}</span>
             {originalPrice > selectedSizeObj.price && (
-              <>
-                <span className="text-sm text-gray-400 line-through">₹{originalPrice.toLocaleString()}</span>
-                <span className="text-[10px] font-bold text-[#D97706] bg-[#FEF3C7] px-2 py-0.5 rounded-full ml-1.5">{discountPercent}% OFF</span>
-              </>
+              <div className="flex items-center gap-3 pb-1">
+                <span className="text-lg text-gray-400 line-through font-medium">₹{originalPrice.toLocaleString()}</span>
+                <span className="text-xs font-bold text-white bg-gradient-to-r from-brand-orange to-yellow-500 px-3 py-1 rounded-full shadow-md shadow-brand-orange/20 tracking-wider">
+                  {discountPercent}% OFF
+                </span>
+              </div>
             )}
           </div>
 
@@ -273,18 +288,18 @@ export function ProductDetailPage() {
 
           {/* Sizes */}
           {currentSizesArray && currentSizesArray.length > 0 && (
-            <div className="mb-5 pb-5 border-b border-gray-100">
+            <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-bold text-gray-700 uppercase tracking-wide">Size</span>
-                {selectedSizeObj?.size && <span className="text-sm text-gray-500">{selectedSizeObj.size}</span>}
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Select Size</span>
+                {selectedSizeObj?.size && <span className="text-sm font-semibold text-gray-900">{selectedSizeObj.size}</span>}
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {currentSizesArray.map((sizeObj, idx) => (
                   <button key={idx}
                     onClick={() => setSelectedSizeIdx(idx)}
-                    className={`px-4 py-2 rounded-xl border-2 transition-all text-sm font-semibold ${selectedSizeIdx === idx
-                      ? 'border-brand-orange text-brand-orange bg-orange-50'
-                      : 'border-gray-200 text-gray-600 hover:border-brand-orange/50'}`}>
+                    className={`px-5 py-2.5 rounded-xl transition-all duration-300 text-sm font-bold shadow-sm ${selectedSizeIdx === idx
+                      ? 'bg-brand-orange text-white shadow-brand-orange/30 translate-y-[1px]'
+                      : 'bg-white border-2 border-gray-100 text-gray-600 hover:border-brand-orange/50 hover:text-brand-orange'}`}>
                     {sizeObj.size}
                   </button>
                 ))}
@@ -293,78 +308,86 @@ export function ProductDetailPage() {
           )}
 
           {/* Quantity */}
-          <div className="mb-5 pb-5 border-b border-gray-100">
-            <span className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-3">Quantity</span>
-            <div className="flex items-center gap-3">
+          <div className="mb-8">
+            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-3">Quantity</span>
+            <div className="inline-flex items-center bg-gray-50/80 rounded-2xl p-1 border border-gray-100/80 shadow-inner">
               <button onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                className="w-10 h-10 rounded-xl border-2 border-gray-200 flex items-center justify-center text-gray-700 hover:border-brand-orange hover:text-brand-orange font-bold text-xl transition-all">−</button>
-              <span className="text-lg font-bold text-gray-900 w-8 text-center">{quantity}</span>
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white hover:shadow-sm hover:text-gray-900 font-bold text-xl transition-all">−</button>
+              <span className="text-lg font-bold text-gray-900 w-12 text-center">{quantity}</span>
               <button onClick={() => setQuantity(q => q + 1)}
-                className="w-10 h-10 rounded-xl border-2 border-gray-200 flex items-center justify-center text-gray-700 hover:border-brand-orange hover:text-brand-orange font-bold text-xl transition-all">+</button>
+                className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-600 hover:bg-white hover:shadow-sm hover:text-gray-900 font-bold text-xl transition-all">+</button>
             </div>
           </div>
 
           {/* Delivery */}
-          <div className="mb-5 pb-5 border-b border-gray-100">
-            <span className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-3">Delivery</span>
-            <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 mb-3 focus-within:border-[#022A21] transition-colors">
-              <MapPin className="w-4 h-4 text-gray-400 shrink-0" />
-              <input type="text" placeholder="Enter pincode to check delivery"
+          <div className="mb-8 bg-[#FFFBF4] rounded-[1.5rem] p-5 shadow-sm border border-[#F4E6D4]/50 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+            <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">Delivery Options</span>
+            <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 mb-4 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-gray-100 focus-within:ring-2 focus-within:ring-brand-orange/20 transition-all">
+              <MapPin className="w-5 h-5 text-brand-orange shrink-0" />
+              <input type="text" placeholder="Enter pincode"
                 value={pincode} onChange={(e) => setPincode(e.target.value)}
-                className="flex-1 outline-none text-sm placeholder-gray-400 font-medium bg-transparent text-gray-900" maxLength={6} />
-              <button className="text-brand-orange font-bold text-sm hover:opacity-80 transition-opacity">Check</button>
+                className="flex-1 outline-none text-[15px] placeholder-gray-400 font-medium bg-transparent text-gray-900" maxLength={6} />
+              <button className="text-brand-orange font-bold text-sm hover:opacity-80 transition-opacity bg-brand-orange/10 px-4 py-1.5 rounded-lg">Check</button>
             </div>
-            <p className="text-sm text-gray-700 font-medium">
-              Delivery by <span className="font-bold text-gray-900">{deliveryDate}</span> &nbsp;|&nbsp;
-              <span className="text-green-600 font-bold">Free</span>
-              <span className="text-gray-400 line-through ml-1 text-xs">₹40</span>
-            </p>
-            <p className="text-xs text-gray-400 mt-1">If ordered before 4:00 PM</p>
+            <div className="space-y-1">
+              <p className="text-[15px] text-gray-700 font-medium flex items-center gap-2">
+                Delivery by <span className="font-bold text-gray-900">{deliveryDate}</span> 
+                <span className="text-gray-300">|</span>
+                <span className="text-[#3EA361] font-bold">Free</span>
+                <span className="text-gray-400 line-through text-xs">₹40</span>
+              </p>
+              <p className="text-xs text-gray-500">If ordered before 4:00 PM</p>
+            </div>
           </div>
 
           {/* Trust badges */}
-          <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-gray-100">
+          <div className="grid grid-cols-3 gap-3 mb-8 pb-8 border-b border-gray-100">
             {[
-              { icon: <Truck className="w-5 h-5 text-[#022A21]" />, label: 'Free Delivery' },
-              { icon: <ShieldCheck className="w-5 h-5 text-[#022A21]" />, label: '100% Genuine' },
-              { icon: <RefreshCcw className="w-5 h-5 text-[#022A21]" />, label: 'Easy Returns' },
+              { icon: <Truck className="w-6 h-6 text-brand-orange" strokeWidth={1.5} />, label: 'Free Delivery', bg: 'bg-brand-orange/10' },
+              { icon: <ShieldCheck className="w-6 h-6 text-[#3EA361]" strokeWidth={1.5} />, label: '100% Genuine', bg: 'bg-[#3EA361]/10' },
+              { icon: <RefreshCcw className="w-6 h-6 text-[#022A21]" strokeWidth={1.5} />, label: 'Easy Returns', bg: 'bg-[#022A21]/10' },
             ].map(b => (
-              <div key={b.label} className="flex flex-col items-center gap-1.5 bg-gray-50 rounded-2xl p-3 text-center border border-gray-100">
-                {b.icon}
-                <span className="text-[11px] font-semibold text-gray-700">{b.label}</span>
+              <div key={b.label} className="flex flex-col items-center gap-3 p-4 bg-white rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                <div className={`${b.bg} p-3.5 rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
+                  {b.icon}
+                </div>
+                <span className="text-[11px] font-extrabold text-gray-800 tracking-wide uppercase text-center leading-tight">{b.label}</span>
               </div>
             ))}
           </div>
 
           {/* Description */}
-          <div className="mb-6 pb-6 border-b border-gray-100">
-            <h2 className="font-bold text-lg text-gray-900 mb-3 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
-              <span className="w-1 h-5 bg-brand-orange rounded-full inline-block" />
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'Georgia, serif' }}>
+              <span className="w-1.5 h-6 bg-gradient-to-b from-brand-orange to-yellow-500 rounded-full" />
               Product Description
             </h2>
-            <p className="text-[14px] text-gray-600 leading-relaxed">
-              {product.description || 'Experience the perfect blend of tradition and quality. This product is carefully crafted to meet your daily needs while maintaining an authentic feel. Suitable for all occasions and built to last.'}
-            </p>
+            <div className="bg-gray-50/80 p-5 rounded-[1.5rem] border border-gray-100">
+              <p className="text-[14.5px] text-gray-700 leading-relaxed font-medium">
+                {product.description || 'Experience the perfect blend of tradition and quality. This product is carefully crafted to meet your daily needs while maintaining an authentic feel. Suitable for all occasions and built to last.'}
+              </p>
+            </div>
           </div>
 
           {/* Specs */}
           {(product.category || currentVariant?.color || Object.keys(customAttrs).length > 0) && (
             <div className="mb-4">
-              <h2 className="font-bold text-lg text-gray-900 mb-3 flex items-center gap-2" style={{ fontFamily: 'Georgia, serif' }}>
-                <span className="w-1 h-5 bg-brand-orange rounded-full inline-block" />
+              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'Georgia, serif' }}>
+                <span className="w-1.5 h-6 bg-gradient-to-b from-[#022A21] to-[#054335] rounded-full" />
                 Specifications
               </h2>
-              <div className="rounded-2xl overflow-hidden border border-gray-100">
+              <div className="grid grid-cols-2 gap-3">
                 {[
                   product.category && { k: 'Category', v: product.category },
                   currentVariant?.color && { k: 'Color', v: currentVariant.color },
                   ...Object.entries(customAttrs).map(([k, v]) => ({ k: k.replace(/_/g, ' '), v })),
-                ].filter(Boolean).map((row, i) => (
-                  <div key={row.k} className={`flex gap-4 px-4 py-3 text-sm ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                    <span className="text-gray-500 w-32 shrink-0 capitalize font-medium">{row.k}</span>
-                    <span className="text-gray-900 font-semibold">
+                ].filter(Boolean).map((row) => (
+                  <div key={row.k} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-1 hover:border-gray-200 transition-colors">
+                    <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">{row.k}</span>
+                    <span className="text-[14px] text-gray-900 font-extrabold truncate">
                       {String(row.v).startsWith('http')
-                        ? <a href={row.v} target="_blank" rel="noreferrer" className="text-brand-orange hover:underline">View</a>
+                        ? <a href={row.v} target="_blank" rel="noreferrer" className="text-brand-orange hover:underline">View Link</a>
                         : row.v}
                     </span>
                   </div>
@@ -372,7 +395,7 @@ export function ProductDetailPage() {
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
 
       {/* Related Products */}
@@ -392,15 +415,20 @@ export function ProductDetailPage() {
       )}
 
       {/* ── MOBILE sticky action bar ── */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 flex gap-3 px-4 py-3 z-[60]">
-        <button onClick={handleAddToCart}
-          className="flex-1 bg-white text-[#88313A] border border-[#88313A] font-semibold py-3.5 rounded-full text-[15px] active:scale-95 transition-transform">
-          Add to Cart
-        </button>
-        <button onClick={handleBuyNow}
-          className="flex-1 bg-[#88313A] text-white font-semibold py-3.5 rounded-full text-[15px] active:scale-95 transition-transform shadow-md shadow-[#88313A]/20">
-          Buy Now
-        </button>
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[60]">
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/95 to-white/0 pointer-events-none -top-8"></div>
+        <div className="relative bg-white/80 backdrop-blur-xl border-t border-gray-100/50 flex gap-3 px-5 py-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pb-safe-4">
+          <button onClick={handleAddToCart}
+            className="group flex-[1] bg-[#022A21]/5 text-[#022A21] border border-[#022A21]/20 font-bold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:bg-[#022A21] hover:text-white">
+            <ShoppingCart className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" /> Cart
+          </button>
+          <button onClick={handleBuyNow}
+            className="group flex-[1.5] relative overflow-hidden bg-gradient-to-r from-brand-orange via-yellow-500 to-brand-orange bg-[length:200%_auto] hover:bg-right text-white font-extrabold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-500 shadow-[0_8px_20px_rgba(255,165,0,0.3)] flex items-center justify-center gap-2">
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none rounded-[1.25rem]"></div>
+            <Zap className="w-5 h-5 fill-white group-hover:scale-110 transition-transform relative z-10" /> 
+            <span className="relative z-10 tracking-wide">Buy Now</span>
+          </button>
+        </div>
       </div>
 
       {/* ── Image Zoom Modal ── */}
