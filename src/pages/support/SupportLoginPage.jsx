@@ -119,7 +119,7 @@ export function SupportLoginPage() {
             <img src={logo} alt="Aradhana Apparels" className="h-12 mx-auto mix-blend-multiply" />
           </Link>
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Headphones className="w-6 h-6 text-[#036e26]" />
+            <Headphones className="w-6 h-6 text-gray-900" />
             <h1 className="text-3xl font-bold text-gray-900">
               {step === 'login' ? 'Support Portal' : step === 'forgot_reset' ? 'Create New Password' : 'Reset Password'}
             </h1>
@@ -132,11 +132,11 @@ export function SupportLoginPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#036e26]/10 relative">
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-800/10 relative">
           {step !== 'login' && (
             <button 
               onClick={() => { setStep('login'); clearForm(); }}
-              className="absolute top-6 left-6 text-gray-400 hover:text-[#036e26] transition-colors flex items-center gap-1 text-sm font-medium"
+              className="absolute top-6 left-6 text-gray-400 hover:text-gray-900 transition-colors flex items-center gap-1 text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" /> Back
             </button>
@@ -176,12 +176,12 @@ export function SupportLoginPage() {
               </div>
 
               <div className="flex justify-end">
-                <button type="button" onClick={() => { setStep('forgot_email'); clearForm(); }} className="text-sm font-medium text-[#036e26] hover:text-[#025a1f]">
+                <button type="button" onClick={() => { setStep('forgot_email'); clearForm(); }} className="text-sm font-medium text-gray-900 hover:text-[#025a1f]">
                   Forgot password?
                 </button>
               </div>
 
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#036e26] text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
                 {loading ? 'Signing in...' : 'Sign In'} {!loading && <ArrowRight className="w-5 h-5" />}
               </button>
             </form>
@@ -202,7 +202,7 @@ export function SupportLoginPage() {
                   />
                 </div>
               </div>
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#036e26] text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
                 {loading ? 'Sending OTP...' : 'Send OTP'}
               </button>
             </form>
@@ -219,7 +219,7 @@ export function SupportLoginPage() {
                 />
                 <p className="text-xs text-gray-500 mt-2 text-center">Sent to {email}</p>
               </div>
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#036e26] text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
                 {loading ? 'Verifying...' : 'Verify OTP'}
               </button>
             </form>
@@ -261,7 +261,7 @@ export function SupportLoginPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#036e26] text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white py-3.5 rounded-xl font-medium hover:bg-[#025a1f] transition-colors disabled:opacity-50">
                 {loading ? 'Resetting...' : 'Reset Password'}
               </button>
             </form>

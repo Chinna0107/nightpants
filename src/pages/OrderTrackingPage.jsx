@@ -58,7 +58,7 @@ export function OrderTrackingPage() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center space-y-3 mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-serif font-bold text-gray-900">Order Placed Successfully!</h1>
+          <h1 className="text-3xl md:text-4xl font-sans font-bold text-gray-900">Order Placed Successfully!</h1>
           <p className="text-gray-500 text-sm md:text-base">Thank you for shopping with Aradhana Apparels. Your items are being prepared.</p>
         </motion.div>
 
@@ -74,10 +74,10 @@ export function OrderTrackingPage() {
             <div className="flex items-center justify-between border-b border-gray-100 pb-5">
               <div>
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Order Number</p>
-                <p className="text-lg font-bold text-brand-orange">#{orderId}</p>
+                <p className="text-lg font-bold text-indigo-600">#{orderId}</p>
               </div>
               <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center">
-                <Package className="w-6 h-6 text-brand-orange" />
+                <Package className="w-6 h-6 text-indigo-600" />
               </div>
             </div>
 
@@ -102,7 +102,7 @@ export function OrderTrackingPage() {
         >
           <button 
             onClick={() => navigate('/category/all')}
-            className="w-full bg-gradient-to-r from-brand-orange to-brand-maroon text-white font-bold text-base rounded-2xl py-4 shadow-lg shadow-brand-orange/20 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+            className="w-full bg-gradient-to-r from-indigo-600 to-gray-900 text-white font-bold text-base rounded-2xl py-4 shadow-lg shadow-indigo-600/20 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
           >
             Continue Shopping
             <ShoppingBag className="w-5 h-5" />

@@ -39,14 +39,14 @@ export function SupportCategoriesPage() {
             <div key={c.id} className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center gap-4">
               {c.image
                 ? <img src={c.image} alt={c.name} className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
-                : <div className="w-14 h-14 rounded-xl bg-[#036e26]/10 flex items-center justify-center flex-shrink-0 text-[#036e26] font-bold text-lg">
+                : <div className="w-14 h-14 rounded-xl bg-gray-900/10 flex items-center justify-center flex-shrink-0 text-gray-900 font-bold text-lg">
                     {c.name?.[0]?.toUpperCase()}
                   </div>}
               <div className="min-w-0">
                 <p className="font-semibold text-gray-900 text-sm truncate">{c.name}</p>
                 {c.description && <p className="text-gray-400 text-xs mt-0.5 line-clamp-2">{c.description}</p>}
                 {c.product_count !== undefined && (
-                  <p className="text-[#036e26] text-xs font-semibold mt-1">{c.product_count} products</p>
+                  <p className="text-gray-900 text-xs font-semibold mt-1">{c.product_count} products</p>
                 )}
               </div>
             </div>

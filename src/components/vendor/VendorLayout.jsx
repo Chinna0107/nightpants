@@ -46,19 +46,19 @@ export function VendorLayout({ children }) {
 
   if (!vendor) return (
     <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
-      <div className="w-10 h-10 border-4 border-[#fe6603]/20 border-t-[#fe6603] rounded-full animate-spin" />
+      <div className="w-10 h-10 border-4 border-[#4f46e5]/20 border-t-[#4f46e5] rounded-full animate-spin" />
     </div>
   );
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex">
       {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-[#fe6603]/10 px-4 py-3 flex items-center justify-between z-50">
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-[#4f46e5]/10 px-4 py-3 flex items-center justify-between z-50">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Aradhana Apparels Vendor" className="h-8 object-contain mix-blend-multiply" />
-          <span className="font-bold text-lg"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span> <span className="text-sm font-normal text-gray-500">Vendor</span></span>
+          <span className="font-bold text-lg"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span> <span className="text-sm font-normal text-gray-500">Vendor</span></span>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#fe6603]">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#4f46e5]">
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -69,39 +69,39 @@ export function VendorLayout({ children }) {
       )}
 
       {/* Sidebar */}
-      <aside className={`w-64 bg-white border-r border-[#fe6603]/10 flex flex-col fixed h-full z-50 transition-transform ${
+      <aside className={`w-64 bg-white border-r border-[#4f46e5]/10 flex flex-col fixed h-full z-50 transition-transform ${
         mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       }`}>
-        <div className="p-5 border-b border-[#fe6603]/10">
+        <div className="p-5 border-b border-[#4f46e5]/10">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Aradhana Apparels Vendor" className="h-10 object-contain mix-blend-multiply" />
             <div>
-              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span></p>
+              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span></p>
               <div className="flex items-center gap-1 mt-1">
-                <Store className="w-3 h-3 text-[#fe6603]" />
-                <p className="text-[#fe6603] text-[10px] font-sans font-semibold">Vendor Portal</p>
+                <Store className="w-3 h-3 text-[#4f46e5]" />
+                <p className="text-[#4f46e5] text-[10px] font-sans font-semibold">Vendor Portal</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-4 border-b border-[#fe6603]/10">
-          <p className="font-sans font-semibold text-[#fe6603] text-sm truncate">{vendor.name}</p>
-          <p className="text-[#fe6603]/60 text-[10px] font-sans truncate">{vendor.email}</p>
+        <div className="p-4 border-b border-[#4f46e5]/10">
+          <p className="font-sans font-semibold text-[#4f46e5] text-sm truncate">{vendor.name}</p>
+          <p className="text-[#4f46e5]/60 text-[10px] font-sans truncate">{vendor.email}</p>
         </div>
 
         <nav className="flex-1 p-4 space-y-1">
           {NAV.map((item) => (
             <Link key={item.href} to={item.href} onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium transition-colors ${
-                pathname === item.href ? "bg-[#fe6603]/10 text-[#fe6603]" : "text-[#fe6603]/60 hover:text-[#fe6603] hover:bg-[#FDFBF7]"
+                pathname === item.href ? "bg-[#4f46e5]/10 text-[#4f46e5]" : "text-[#4f46e5]/60 hover:text-[#4f46e5] hover:bg-[#FDFBF7]"
               }`}>
               {item.icon} {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="p-4 border-t border-[#fe6603]/10">
+        <div className="p-4 border-t border-[#4f46e5]/10">
           <button onClick={handleLogout}
             className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors w-full">
             <LogOut className="w-4 h-4" /> Logout

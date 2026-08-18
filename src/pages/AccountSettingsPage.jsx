@@ -56,7 +56,7 @@ export function AccountSettingsPage() {
       <div className="max-w-3xl mx-auto px-4 py-8 space-y-6">
         {/* Avatar */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center gap-3">
-          <div className="w-20 h-20 rounded-full bg-brand-orange text-white text-2xl font-bold flex items-center justify-center shadow-md">
+          <div className="w-20 h-20 rounded-full bg-indigo-600 text-white text-2xl font-bold flex items-center justify-center shadow-md">
             {user?.name?.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase() || 'U'}
           </div>
           <div className="text-center">
@@ -71,7 +71,7 @@ export function AccountSettingsPage() {
         {/* Profile Form */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
           <h2 className="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <User className="w-4 h-4 text-brand-orange" /> Personal Information
+            <User className="w-4 h-4 text-indigo-600" /> Personal Information
           </h2>
           <form onSubmit={handleProfileSave} className="space-y-3">
             <div>
@@ -93,7 +93,7 @@ export function AccountSettingsPage() {
               <p className={`text-xs font-semibold ${profileMsg.includes('!') ? 'text-green-600' : 'text-red-500'}`}>{profileMsg}</p>
             )}
             <button type="submit" disabled={saving}
-              className="w-full bg-brand-orange text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors disabled:opacity-60">
+              className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors disabled:opacity-60">
               {saving ? 'Saving...' : 'Save Changes'}
             </button>
           </form>
@@ -102,7 +102,7 @@ export function AccountSettingsPage() {
         {/* Password Form */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
           <h2 className="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <Lock className="w-4 h-4 text-brand-orange" /> Change Password
+            <Lock className="w-4 h-4 text-indigo-600" /> Change Password
           </h2>
           <form onSubmit={handlePasswordChange} className="space-y-3">
             {[

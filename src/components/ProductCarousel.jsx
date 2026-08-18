@@ -38,8 +38,8 @@ export function ProductCarousel({ title = "You May Also Like", maxItems = 4, cat
   return (
     <div ref={container} className="py-16 md:py-24 border-t border-gray-100 mt-12 w-full">
       <div className="flex justify-between items-end mb-12 carousel-item px-4 md:px-0">
-        <h2 className="font-serif text-3xl md:text-4xl text-brand-maroon">{title}</h2>
-        <Link to="/category/all" className="hidden md:block uppercase font-bold tracking-[0.2em] text-xs border-b border-brand-maroon pb-1 hover:text-brand-orange transition-colors">
+        <h2 className="font-sans text-3xl md:text-4xl text-gray-900">{title}</h2>
+        <Link to="/category/all" className="hidden md:block uppercase font-bold tracking-[0.2em] text-xs border-b border-gray-900 pb-1 hover:text-indigo-600 transition-colors">
           View All
         </Link>
       </div>

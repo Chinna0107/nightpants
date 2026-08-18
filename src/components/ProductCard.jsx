@@ -152,10 +152,10 @@ export function ProductCard({ product, layout = 'grid' }) {
         </div>
         <div className="flex flex-col justify-center flex-grow pr-2">
           <div className="flex justify-between items-start mb-1">
-            <h3 className="text-[15px] font-extrabold text-gray-900 line-clamp-2 leading-snug group-hover:text-brand-orange transition-colors pr-8" style={{ fontFamily: 'Georgia, serif' }}>{product.name}</h3>
+            <h3 className="text-[15px] font-extrabold text-gray-900 line-clamp-2 leading-snug group-hover:text-indigo-600 transition-colors pr-8" style={{ fontFamily: 'inherit' }}>{product.name}</h3>
             <button onClick={handleWishlist}
               className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center hover:scale-110 hover:bg-gray-100 transition-all duration-300">
-              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-400'}`} strokeWidth={isWishlisted ? 0 : 2} />
+              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-indigo-600 text-indigo-600' : 'text-gray-400'}`} strokeWidth={isWishlisted ? 0 : 2} />
             </button>
           </div>
           
@@ -165,7 +165,7 @@ export function ProductCard({ product, layout = 'grid' }) {
               <span className="text-xs text-gray-400 line-through font-medium">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
             </div>
             <button onClick={handleAddToCart}
-              className="bg-[#022A21] hover:bg-brand-orange transition-colors p-2.5 rounded-xl relative z-20 active:scale-95 shadow-sm hover:shadow-md hover:shadow-brand-orange/20">
+              className="bg-gray-900 hover:bg-indigo-600 transition-colors p-2.5 rounded-xl relative z-20 active:scale-95 shadow-sm hover:shadow-md hover:shadow-indigo-600/20">
               <ShoppingCart className="w-4 h-4 text-white" strokeWidth={2.5} />
             </button>
           </div>
@@ -177,40 +177,38 @@ export function ProductCard({ product, layout = 'grid' }) {
   /* ── GRID LAYOUT ── */
   return (
     <div onClick={handleCardClick}
-      className="group flex flex-col rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-1 h-full relative bg-white border border-gray-100/50 pb-4">
+      className="group flex flex-col rounded-[20px] overflow-hidden cursor-pointer transition-all duration-300 shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.06)] hover:-translate-y-1 h-full relative bg-white border border-gray-100">
 
       {/* Image */}
-      <div className="relative bg-gray-50 w-full aspect-[4/5] overflow-hidden">
+      <div className="relative bg-white w-full aspect-square overflow-hidden flex items-center justify-center p-0 md:p-0">
         <img
           src={imgErr ? fallbackImg : firstImg}
           alt={product.name}
           onError={() => setImgErr(true)}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
         />
-        {/* Subtle overlay for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         
         {/* Wishlist Button Overlay */}
         <button onClick={handleWishlist}
-          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm hover:scale-110 hover:bg-white transition-all duration-300">
-          <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-600'}`} strokeWidth={isWishlisted ? 0 : 2} />
+          className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white flex items-center justify-center transition-all duration-200">
+          <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-gray-400 text-gray-400' : 'text-gray-400'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
         </button>
       </div>
 
       {/* Info */}
-      <div className="flex flex-col flex-grow px-4 pt-4 md:px-5">
-        <h3 className="text-[15px] md:text-[17px] font-extrabold text-gray-900 line-clamp-2 leading-snug mb-3 group-hover:text-brand-orange transition-colors" style={{ fontFamily: 'Georgia, serif' }}>
+      <div className="flex flex-col flex-grow px-3 pt-2 pb-3">
+        <h3 className="text-[13px] md:text-[14px] font-semibold text-gray-800 line-clamp-2 leading-tight mb-1">
           {product.name}
         </h3>
 
-        <div className="flex items-center justify-between mt-auto">
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-400 line-through mb-0.5 font-medium">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
-            <span className="text-lg md:text-xl font-black text-gray-900 tracking-tight leading-none">₹{displayPrice?.toLocaleString('en-IN')}</span>
-          </div>
+        <div className="text-[15px] md:text-[16px] font-bold text-indigo-600 tracking-tight mb-3">
+          ₹{displayPrice?.toLocaleString('en-IN')}
+        </div>
+        
+        <div className="mt-auto pt-1">
           <button onClick={handleAddToCart}
-            className="bg-[#022A21] hover:bg-brand-orange transition-colors p-2.5 md:p-3 rounded-2xl relative z-20 active:scale-95 shadow-md shadow-[#022A21]/20 hover:shadow-lg hover:shadow-brand-orange/30 flex items-center justify-center group/btn">
-            <ShoppingCart className="w-4 h-4 md:w-5 md:h-5 text-white group-hover/btn:scale-110 transition-transform" strokeWidth={2.5} />
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 rounded-md transition-colors active:scale-95 flex items-center justify-center uppercase tracking-wider">
+            ADD TO CART
           </button>
         </div>
       </div>

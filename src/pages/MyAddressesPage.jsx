@@ -40,13 +40,13 @@ function AddressForm({ onClose, onSave, saving }) {
         </div>
         <label className="flex items-center gap-2.5 mt-4 cursor-pointer">
           <div onClick={() => setForm({ ...form, is_default: !form.is_default })}
-            className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-colors ${form.is_default ? 'bg-brand-orange border-brand-orange' : 'border-gray-300'}`}>
+            className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-colors ${form.is_default ? 'bg-indigo-600 border-indigo-600' : 'border-gray-300'}`}>
             {form.is_default && <Check className="w-3 h-3 text-white" />}
           </div>
           <span className="text-sm text-gray-700 font-medium">Set as default address</span>
         </label>
         <button onClick={() => onSave(form)} disabled={saving}
-          className="w-full mt-5 bg-brand-orange text-white font-bold py-3.5 rounded-xl text-sm hover:bg-orange-600 transition-colors disabled:opacity-60">
+          className="w-full mt-5 bg-indigo-600 text-white font-bold py-3.5 rounded-xl text-sm hover:bg-orange-600 transition-colors disabled:opacity-60">
           {saving ? 'Saving...' : 'Save Address'}
         </button>
       </div>
@@ -77,9 +77,9 @@ export function MyAddressesPage() {
       <Header title="My Addresses" />
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-serif font-bold text-brand-orange">Saved Addresses</h2>
+          <h2 className="text-2xl font-sans font-bold text-indigo-600">Saved Addresses</h2>
           <button onClick={() => setShowForm(true)}
-            className="flex items-center gap-2 text-sm font-bold text-white bg-brand-orange px-4 py-2.5 rounded-xl hover:bg-orange-600 transition-colors shadow-sm">
+            className="flex items-center gap-2 text-sm font-bold text-white bg-indigo-600 px-4 py-2.5 rounded-xl hover:bg-orange-600 transition-colors shadow-sm">
             <Plus className="w-4 h-4" /> Add New Address
           </button>
         </div>
@@ -93,7 +93,7 @@ export function MyAddressesPage() {
             <p className="text-gray-500 font-semibold">No saved addresses</p>
             <p className="text-xs text-gray-400">Add an address for faster checkout</p>
             <button onClick={() => setShowForm(true)}
-              className="bg-brand-orange text-white text-sm font-bold px-6 py-2.5 rounded-xl hover:bg-orange-600 transition-colors">
+              className="bg-indigo-600 text-white text-sm font-bold px-6 py-2.5 rounded-xl hover:bg-orange-600 transition-colors">
               Add Address
             </button>
           </div>
@@ -107,7 +107,7 @@ export function MyAddressesPage() {
               )}
               <div className="flex items-start gap-3">
                 <div className="w-9 h-9 bg-orange-50 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
-                  <Home className="w-4 h-4 text-brand-orange" />
+                  <Home className="w-4 h-4 text-indigo-600" />
                 </div>
                 <div className="flex-1 pr-8">
                   <p className="text-sm font-bold text-gray-900">{addr.name}</p>

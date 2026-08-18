@@ -64,14 +64,14 @@ export function SplashScreen({ onComplete }) {
   return (
     <div
       ref={container}
-      className="fixed inset-0 z-[100] bg-[#022A21] flex flex-col items-center justify-center w-full h-full overflow-hidden"
+      className="fixed inset-0 z-[100] bg-gray-900 flex flex-col items-center justify-center w-full h-full overflow-hidden"
     >
       {/* Background Ambient Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#054335] via-[#022A21] to-[#022A21] pointer-events-none" />
       
       <div className="relative flex flex-col items-center justify-center gap-8 z-10 w-full px-4">
         {/* Dynamic Center Glow */}
-        <div ref={glowRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-80 md:h-80 bg-brand-orange/10 rounded-full blur-[80px] pointer-events-none" />
+        <div ref={glowRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-80 md:h-80 bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none" />
         
         {/* Logo */}
         <div ref={logo} className="relative w-full max-w-sm md:max-w-md flex justify-center">

@@ -100,7 +100,7 @@ function ProductDetailModal({ product, onClose, onApprove, onReject }) {
                 <XCircle className="w-4 h-4" /> Reject
               </button>
               <button onClick={() => { onApprove(product.id); onClose(); }}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#036e26] text-white font-semibold rounded-xl hover:bg-[#025a1f] transition-colors text-sm">
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 text-white font-semibold rounded-xl hover:bg-[#025a1f] transition-colors text-sm">
                 <CheckCircle className="w-4 h-4" /> Approve & Publish
               </button>
             </>
@@ -188,7 +188,7 @@ export function AdminProductRequestsPage() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Search by product name, category, or vendor..."
-          className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-gray-100 text-gray-900 text-sm focus:outline-none focus:border-[#036e26]/30 shadow-sm"
+          className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-gray-100 text-gray-900 text-sm focus:outline-none focus:border-gray-800/30 shadow-sm"
         />
       </div>
 
@@ -246,7 +246,7 @@ export function AdminProductRequestsPage() {
                   </span>
                 </div>
                 {product.price > 0 && (
-                  <p className="text-sm font-bold text-[#036e26] mt-1">₹{product.price}</p>
+                  <p className="text-sm font-bold text-gray-900 mt-1">₹{product.price}</p>
                 )}
               </div>
 
@@ -258,7 +258,7 @@ export function AdminProductRequestsPage() {
                 <button
                   onClick={() => setSelectedProduct(product)}
                   title="View Details"
-                  className="p-2 rounded-xl bg-gray-50 text-gray-500 hover:bg-[#036e26]/10 hover:text-[#036e26] transition-colors"
+                  className="p-2 rounded-xl bg-gray-50 text-gray-500 hover:bg-gray-900/10 hover:text-gray-900 transition-colors"
                 >
                   <Eye className="w-4 h-4" />
                 </button>
@@ -272,7 +272,7 @@ export function AdminProductRequestsPage() {
                 <button
                   onClick={() => handleApprove(product.id)}
                   title="Approve"
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#036e26] text-white text-xs font-semibold hover:bg-[#025a1f] transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-900 text-white text-xs font-semibold hover:bg-[#025a1f] transition-colors"
                 >
                   <CheckCircle className="w-3.5 h-3.5" /> Approve
                 </button>

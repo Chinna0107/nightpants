@@ -66,7 +66,7 @@ export function VendorProfilePage() {
           fetchProfile();
         },
         prefill: { name: vendor?.name, email: vendor?.email, contact: vendor?.phone },
-        theme: { color: '#fe6603' },
+        theme: { color: '#4f46e5' },
       };
       new window.Razorpay(options).open();
     } catch (err) {
@@ -128,12 +128,12 @@ export function VendorProfilePage() {
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <CreditCard className="w-5 h-5 text-[#fe6603]" />
+            <CreditCard className="w-5 h-5 text-[#4f46e5]" />
             <h2 className="font-bold text-gray-900">Subscription</h2>
           </div>
           {!isExpired && (
             <button onClick={() => setShowPlans(!showPlans)}
-              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#fe6603]/10 text-[#fe6603] rounded-xl text-xs font-semibold hover:bg-[#fe6603]/20 transition-colors">
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-[#4f46e5]/10 text-[#4f46e5] rounded-xl text-xs font-semibold hover:bg-[#4f46e5]/20 transition-colors">
               <RefreshCw className="w-3.5 h-3.5" /> Renew / Upgrade
             </button>
           )}
@@ -159,7 +159,7 @@ export function VendorProfilePage() {
           <div className="text-center py-6">
             <p className="text-gray-400 text-sm mb-3">No active subscription found.</p>
             <button onClick={() => setShowPlans(true)}
-              className="px-5 py-2 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
+              className="px-5 py-2 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
               Subscribe Now
             </button>
           </div>
@@ -181,16 +181,16 @@ export function VendorProfilePage() {
 
                 return (
                   <button key={plan.id} type="button" onClick={() => setSelectedPlan(plan)}
-                    className={`relative p-5 rounded-2xl border-2 text-left transition-all flex flex-col ${selectedPlan?.id === plan.id ? 'border-[#fe6603] bg-[#fe6603]/5' : 'border-gray-200 hover:border-[#fe6603]/40'}`}>
-                    {selectedPlan?.id === plan.id && <CheckCircle2 className="absolute top-4 right-4 w-5 h-5 text-[#fe6603]" />}
+                    className={`relative p-5 rounded-2xl border-2 text-left transition-all flex flex-col ${selectedPlan?.id === plan.id ? 'border-[#4f46e5] bg-[#4f46e5]/5' : 'border-gray-200 hover:border-[#4f46e5]/40'}`}>
+                    {selectedPlan?.id === plan.id && <CheckCircle2 className="absolute top-4 right-4 w-5 h-5 text-[#4f46e5]" />}
                     <p className="font-bold text-gray-900 text-lg">{plan.name}</p>
-                    <p className="text-[#fe6603] font-extrabold text-2xl mt-1">₹{plan.price}</p>
+                    <p className="text-[#4f46e5] font-extrabold text-2xl mt-1">₹{plan.price}</p>
                     <p className="text-gray-500 text-sm mt-0.5 mb-4">{plan.months} month{plan.months > 1 ? 's' : ''}</p>
                     
                     <ul className="space-y-2 mt-auto">
                       {featureList.map((f, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                          <CheckCircle2 className="w-4 h-4 text-[#fe6603] mt-0.5 flex-shrink-0" />
+                          <CheckCircle2 className="w-4 h-4 text-[#4f46e5] mt-0.5 flex-shrink-0" />
                           <span>{f.label}{f.value ? `: ${f.value}` : ''}</span>
                         </li>
                       ))}
@@ -200,7 +200,7 @@ export function VendorProfilePage() {
               })}
             </div>
             <button onClick={handleRenew} disabled={renewLoading || !selectedPlan}
-              className="w-full py-3 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50">
+              className="w-full py-3 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50">
               {renewLoading ? 'Opening payment...' : selectedPlan ? `Pay ₹${selectedPlan.price}` : 'Select a plan'}
             </button>
           </div>
@@ -209,10 +209,10 @@ export function VendorProfilePage() {
 
       {/* Profile Card */}
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div className="h-32 bg-gradient-to-r from-[#fe6603] to-[#ff8c42]" />
+        <div className="h-32 bg-gradient-to-r from-[#4f46e5] to-[#ff8c42]" />
         <div className="px-8 pb-8">
           <div className="relative flex justify-between items-end -mt-12 mb-6">
-            <div className="w-24 h-24 bg-white rounded-2xl shadow-sm border-4 border-white flex items-center justify-center text-[#fe6603]">
+            <div className="w-24 h-24 bg-white rounded-2xl shadow-sm border-4 border-white flex items-center justify-center text-[#4f46e5]">
               <Store className="w-10 h-10" />
             </div>
             <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize border ${

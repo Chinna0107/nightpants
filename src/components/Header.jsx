@@ -41,7 +41,7 @@ function AvatarDropdown({ user, onLogout }) {
   return (
     <div ref={ref} className="relative">
       <button onClick={() => setOpen(!open)} className="flex items-center gap-1.5 group">
-        <div className="w-8 h-8 rounded-full bg-brand-orange text-white text-xs font-bold flex items-center justify-center shadow-sm ring-2 ring-orange-200 group-hover:ring-orange-400 transition-all">
+        <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shadow-sm ring-2 ring-orange-200 group-hover:ring-orange-400 transition-all">
           {initials}
         </div>
         <ChevronDown className={`w-3 h-3 text-gray-500 transition-transform hidden md:block ${open ? 'rotate-180' : ''}`} />
@@ -54,7 +54,7 @@ function AvatarDropdown({ user, onLogout }) {
           </div>
           {items.map(({ icon: Icon, label, path }) => (
             <button key={path} onClick={() => { navigate(path); setOpen(false); }}
-              className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-brand-orange transition-colors text-left">
+              className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-indigo-600 transition-colors text-left">
               <Icon className="w-4 h-4 shrink-0" />
               {label}
             </button>
@@ -82,19 +82,19 @@ function CategoriesDropdown() {
     <div ref={ref} className="relative py-4 -my-4"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-colors">
+      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-indigo-600 transition-colors">
         Categories <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 w-56 bg-[#022A21] rounded-2xl shadow-xl border border-[#054335] py-2 z-[100]">
+        <div className="absolute top-full left-0 w-56 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 py-2 z-[100]">
           <button onClick={() => { navigate('/category/all'); setOpen(false); }}
-            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-brand-orange hover:bg-brand-orange/10 transition-colors">
+            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-600/10 transition-colors">
             <Grid3X3 className="w-4 h-4" /> All Categories
           </button>
-          <div className="border-t border-[#054335] my-1" />
+          <div className="border-t border-gray-800 my-1" />
           {categories.map(cat => (
             <button key={cat.id} onClick={() => { navigate(`/category/${cat.id}`); setOpen(false); }}
-              className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-brand-orange/10 hover:text-brand-orange transition-colors">
+              className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-indigo-600/10 hover:text-indigo-600 transition-colors">
               {cat.name}
             </button>
           ))}
@@ -121,21 +121,21 @@ function OffersDropdown() {
     <div ref={ref} className="relative py-4 -my-4"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-colors">
+      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-indigo-600 transition-colors">
         Offers <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 w-64 bg-[#022A21] rounded-2xl shadow-xl border border-[#054335] py-2 z-[100]">
+        <div className="absolute top-full left-0 w-64 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 py-2 z-[100]">
           <button onClick={() => { navigate('/offers'); setOpen(false); }}
-            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-brand-orange hover:bg-brand-orange/10 transition-colors">
+            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-600/10 transition-colors">
             <Tag className="w-4 h-4" /> View All Offers
           </button>
-          {offers.length > 0 && <div className="border-t border-[#054335] my-1" />}
+          {offers.length > 0 && <div className="border-t border-gray-800 my-1" />}
           {offers.slice(0, 6).map(offer => (
             <button key={offer.id} onClick={() => { navigate(`/offers?id=${offer.id}`); setOpen(false); }}
-              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-brand-orange/10 transition-colors">
+              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-indigo-600/10 transition-colors">
               <span className="text-sm font-semibold text-gray-300 truncate">{offer.name || offer.code}</span>
-              <span className="text-xs font-bold text-brand-orange ml-2 shrink-0">
+              <span className="text-xs font-bold text-indigo-600 ml-2 shrink-0">
                 {offer.discount_type === 'flat' ? `₹${offer.discount_percent}` : `${offer.discount_percent}%`} OFF
               </span>
             </button>
@@ -153,63 +153,63 @@ function DesktopFullHeader({ cartCount, wishlistCount, token, user, handleLogout
   return (
     <>
       <div className="h-[90px] lg:h-[110px] hidden md:block" />
-      <header className="fixed top-0 left-0 z-50 w-full bg-[#022A21] border-b border-[#054335] shadow-sm px-6 md:px-10 lg:px-12 py-2 hidden md:block transition-all duration-300">
+      <header className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm px-6 md:px-10 lg:px-12 py-2 hidden md:block transition-all duration-300">
         <div className="w-full max-w-[1600px] mx-auto flex items-center justify-between gap-4">
 
           {/* Navigation Links */}
           <nav className="flex-1 hidden lg:flex items-center justify-start gap-8">
-            <Link to="/" className="text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-all relative group">
+            <Link to="/" className="text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-all relative group">
               Home
-              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-brand-orange group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
+              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
             </Link>
             <CategoriesDropdown />
             <OffersDropdown />
-            <Link to="/about" className="text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-all relative group">
+            <Link to="/about" className="text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-all relative group">
               About
-              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-brand-orange group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
+              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
             </Link>
-            <Link to="/contact" className="text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-all relative group">
+            <Link to="/contact" className="text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-all relative group">
               Contact
-              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-brand-orange group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
+              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
             </Link>
-            <Link to="/my-orders" className="text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-brand-orange transition-all relative group">
+            <Link to="/my-orders" className="text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-all relative group">
               Orders
-              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-brand-orange group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
+              <span className="absolute -bottom-1.5 left-1/2 w-0 h-0.5 bg-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
             </Link>
           </nav>
 
           {/* Centered Logo */}
           <Link to="/" className="shrink-0 flex items-center justify-center mx-4 group lg:mx-0 relative -ml-2 md:-ml-8 lg:-ml-16">
-            <img src={logo} alt="Logo" className="relative z-10 h-20 md:h-28 lg:h-32 w-auto max-w-[320px] lg:max-w-[400px] object-contain transition-all duration-500 group-hover:scale-105 filter drop-shadow-md" />
+            <img src={logo} alt="Logo" className="relative z-10 h-20 md:h-24 lg:h-28 w-auto max-w-[320px] lg:max-w-[400px] object-contain transition-all duration-500 group-hover:scale-105 filter drop-shadow-sm" />
           </Link>
 
           {/* Right Action Icons & Search */}
           <div className="flex-1 flex items-center justify-end gap-5 lg:gap-8">
             <div className="relative hidden xl:block w-[260px] group">
-              <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-brand-orange transition-colors z-10" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-indigo-600 transition-colors z-10" />
               <input type="text" placeholder="Search products..."
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && e.target.value.trim())
                     window.location.href = `/category/all?search=${encodeURIComponent(e.target.value.trim())}`;
                 }}
-                className="w-full bg-[#054335] hover:bg-[#075c47] border border-[#065A46] rounded-full py-2.5 pl-11 pr-4 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-brand-orange focus:border-brand-orange/50 transition-all"
+                className="w-full bg-[#f8f9fa] hover:bg-gray-100 border border-gray-200 rounded-full py-2.5 pl-11 pr-4 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600/50 transition-all"
               />
             </div>
 
             <div className="flex items-center gap-4 lg:gap-5">
-              <Link to="/wishlist" className="relative p-2.5 cursor-pointer bg-[#054335] hover:bg-[#075c47] rounded-full border border-[#065A46] hover:border-brand-orange/40 hover:-translate-y-1 transition-all group">
-                <Heart className="w-5 h-5 text-gray-300 group-hover:text-brand-orange transition-colors" strokeWidth={1.5} />
+              <Link to="/wishlist" className="relative p-2.5 cursor-pointer bg-[#f8f9fa] hover:bg-gray-100 rounded-full border border-gray-200 hover:border-indigo-600/40 hover:-translate-y-1 transition-all group">
+                <Heart className="w-5 h-5 text-gray-700 group-hover:text-indigo-600 transition-colors" strokeWidth={1.5} />
                 {wishlistCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-brand-orange text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border border-white">
+                  <span className="absolute -top-1.5 -right-1.5 bg-indigo-600 text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border border-white">
                     {wishlistCount}
                   </span>
                 )}
               </Link>
 
-              <Link to="/cart" className="relative p-2.5 cursor-pointer bg-[#054335] hover:bg-[#075c47] rounded-full border border-[#065A46] hover:border-brand-orange/40 hover:-translate-y-1 transition-all group">
-                <ShoppingCart className="w-5 h-5 text-gray-300 group-hover:text-brand-orange transition-colors" strokeWidth={1.5} />
+              <Link to="/cart" className="relative p-2.5 cursor-pointer bg-[#f8f9fa] hover:bg-gray-100 rounded-full border border-gray-200 hover:border-indigo-600/40 hover:-translate-y-1 transition-all group">
+                <ShoppingCart className="w-5 h-5 text-gray-700 group-hover:text-indigo-600 transition-colors" strokeWidth={1.5} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-brand-orange text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border border-[#022A21] animate-pulse">
+                  <span className="absolute -top-1.5 -right-1.5 bg-indigo-600 text-white text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full border border-white animate-pulse">
                     {cartCount}
                   </span>
                 )}
@@ -220,7 +220,7 @@ function DesktopFullHeader({ cartCount, wishlistCount, token, user, handleLogout
                   <AvatarDropdown user={user} onLogout={handleLogout} />
                 </div>
               ) : (
-                <Link to="/login" className="flex items-center gap-2 text-sm font-bold text-white bg-brand-blue hover:bg-blue-700 px-5 lg:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all ml-2 group">
+                <Link to="/login" className="flex items-center gap-2 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 px-5 lg:px-6 py-2.5 rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ml-2 group">
                   <LogIn className="w-4 h-4 group-hover:scale-110 transition-transform" />
                   <span className="tracking-wide">Login</span>
                 </Link>
@@ -287,7 +287,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
 
               <div className="p-4 flex items-center justify-between border-b border-gray-100 bg-orange-50/50">
                 <div className="flex items-center gap-3">
-                  <img src={logo} alt="Logo" className="h-24 w-auto max-w-[240px] object-contain" />
+                  <img src={logo} alt="Logo" className="h-28 w-auto max-w-[240px] object-contain" />
                 </div>
                 <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 rounded-full border border-gray-200 transition-colors shadow-sm">
                   <X className="w-5 h-5" />
@@ -300,9 +300,9 @@ export function Header({ variant = 'default', title, showShare = false }) {
                 {/* Categories accordion */}
                 <motion.div variants={itemVariants}>
                   <button onClick={() => setMobileCatsOpen(o => !o)}
-                    className="w-full flex items-center justify-between text-gray-900 font-bold text-base py-3 px-4 rounded-xl hover:bg-gray-50 hover:text-brand-orange transition-all">
+                    className="w-full flex items-center justify-between text-gray-900 font-bold text-base py-3 px-4 rounded-xl hover:bg-gray-50 hover:text-indigo-600 transition-all">
                     Categories
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileCatsOpen ? 'rotate-180 text-brand-orange' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileCatsOpen ? 'rotate-180 text-indigo-600' : ''}`} />
                   </button>
                   <AnimatePresence initial={false}>
                     {mobileCatsOpen && (
@@ -311,7 +311,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                         transition={{ duration: 0.2 }} className="overflow-hidden">
                         <div className="ml-5 border-l-2 border-gray-100 pl-4 py-2 space-y-1 mt-1 mb-2">
                           <Link to="/category/all" onClick={() => setMobileMenuOpen(false)}
-                            className="block text-sm font-extrabold text-brand-orange py-2.5 px-3 rounded-lg hover:bg-orange-50 transition-colors">
+                            className="block text-sm font-extrabold text-indigo-600 py-2.5 px-3 rounded-lg hover:bg-orange-50 transition-colors">
                             All Categories
                           </Link>
                           {categories.map(cat => (
@@ -329,7 +329,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                 {navLinks.map(link => (
                   <motion.div key={link.name} variants={itemVariants}>
                     <Link to={link.path} onClick={() => setMobileMenuOpen(false)}
-                      className="block text-gray-900 font-bold text-base py-3 px-4 rounded-xl hover:bg-gray-50 hover:text-brand-orange transition-all">
+                      className="block text-gray-900 font-bold text-base py-3 px-4 rounded-xl hover:bg-gray-50 hover:text-indigo-600 transition-all">
                       {link.name}
                     </Link>
                   </motion.div>
@@ -350,50 +350,47 @@ export function Header({ variant = 'default', title, showShare = false }) {
         </AnimatePresence>
 
         <div className="h-[110px]" />
-        <header className="fixed top-0 left-0 z-50 w-full bg-[#022A21] px-4 py-3 shadow-md border-b border-[#054335]">
+        <header className="fixed top-0 left-0 z-50 w-full bg-indigo-600 px-4 py-4 shadow-sm border-b-0">
           <div className="w-full max-w-lg mx-auto">
             {/* Title and Actions row */}
             <div className="flex items-center justify-between">
               
-              {/* Left Side: Menu */}
+              {/* Left Side: Logo */}
               <div className="flex items-center flex-1">
-                <button
-                  onClick={() => setMenuOpen(true)}
-                  className="relative p-2.5 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
-                >
-                  <Menu className="w-5 h-5 text-white" />
-                </button>
-              </div>
-
-              {/* Center: Logo */}
-              <div className="flex items-center justify-center shrink-0 mx-2">
-                <Link to="/" className="flex items-center justify-center relative group">
-                  <div className="absolute inset-0 bg-white/10 blur-[24px] rounded-full scale-[1.3] group-hover:bg-white/20 transition-all duration-300"></div>
-                  <img src={logo} alt="Logo" className="h-24 md:h-28 w-auto max-w-[260px] object-contain relative z-10 filter drop-shadow-[0_4px_24px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-transform duration-500" />
+                <Link to="/" className="flex items-center justify-center relative group gap-2">
+                  <img src={logo} alt="Logo" className="h-16 md:h-20 w-auto object-contain invert brightness-0 scale-[1.3] origin-left" />
                 </Link>
               </div>
 
-              {/* Right Side: Search + Cart */}
-              <div className="flex items-center justify-end gap-2.5 flex-1">
+              {/* Right Side: Search, Cart, Notification */}
+              <div className="flex items-center justify-end gap-3 md:gap-4 shrink-0">
                 {/* Search Icon */}
                 <button
                   onClick={() => navigate('/search')}
-                  className="relative p-2 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
+                  className="relative p-1.5 transition-colors"
                 >
-                  <Search className="w-5 h-5 text-white" />
+                  <Search className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </button>
 
                 {/* Cart icon */}
                 <button
                   onClick={() => navigate('/cart')}
-                  className="relative p-2 rounded-full border border-[#065A46] bg-[#054335] hover:bg-[#076655] transition-colors"
+                  className="relative p-1.5 transition-colors"
                 >
-                  <ShoppingCart className="w-5 h-5 text-white" />
+                  <ShoppingCart className="w-6 h-6 text-white" strokeWidth={1.5} />
                   {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-brand-orange rounded-full text-white text-[10px] font-black flex items-center justify-center border-2 border-[#022A21]">
+                    <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-white rounded-full text-indigo-600 text-[10px] font-black flex items-center justify-center">
                       {cartCount > 9 ? '9+' : cartCount}
                     </span>
                   )}
+                </button>
+
+                {/* Menu icon */}
+                <button
+                  onClick={() => setMenuOpen(true)}
+                  className="relative p-1.5 transition-colors"
+                >
+                  <Menu className="w-6 h-6 text-white" strokeWidth={1.5} />
                 </button>
               </div>
             </div>
@@ -420,15 +417,15 @@ export function Header({ variant = 'default', title, showShare = false }) {
               style={{ boxShadow: '-8px 0 40px rgba(0,0,0,0.5)' }}
             >
               {/* Top green accent bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-[#022A21] via-brand-orange to-yellow-400" />
+              <div className="h-1 w-full bg-gradient-to-r from-[#022A21] via-indigo-600 to-yellow-400" />
 
               {/* Header */}
               <div className="flex items-center justify-between px-5 pt-8 pb-5 border-b border-white/[0.07]">
                 <div>
-                  <p className="text-white font-extrabold text-xl tracking-widest" style={{ fontFamily: 'Georgia, serif' }}>
+                  <p className="text-white font-extrabold text-xl tracking-widest" style={{ fontFamily: 'inherit' }}>
                     Aradhana Apparels
                   </p>
-                  <p className="text-brand-orange text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5">
+                  <p className="text-indigo-600 text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5">
                     Your Choice, From Anywhere.
                   </p>
                 </div>
@@ -442,7 +439,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
               <div className="px-5 py-4 border-b border-white/[0.07]">
                 {token && user ? (
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange to-yellow-400 flex items-center justify-center shadow-lg shadow-brand-orange/30">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-600 to-yellow-400 flex items-center justify-center shadow-lg shadow-indigo-600/30">
                       <span className="text-white font-black text-lg">{user.name?.[0]?.toUpperCase() || 'U'}</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -457,7 +454,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                 ) : (
                   <div className="flex gap-2">
                     <button onClick={() => { navigate('/login'); setMenuOpen(false); }}
-                      className="flex-1 bg-gradient-to-r from-brand-orange to-yellow-400 text-white font-bold py-2.5 rounded-xl text-sm shadow-md hover:shadow-brand-orange/40 hover:opacity-90 transition-all">
+                      className="flex-1 bg-gradient-to-r from-indigo-600 to-yellow-400 text-white font-bold py-2.5 rounded-xl text-sm shadow-md hover:shadow-indigo-600/40 hover:opacity-90 transition-all">
                       Login
                     </button>
                     <button onClick={() => { navigate('/signup'); setMenuOpen(false); }}
@@ -480,7 +477,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                   { icon: <Package className="w-4.5 h-4.5" />, label: 'My Orders', path: '/my-orders', color: 'text-blue-400', badge: null },
                   { icon: <Heart className="w-4.5 h-4.5" />, label: 'Wishlist', path: '/wishlist', color: 'text-red-400', badge: wishlistCount > 0 ? wishlistCount : null },
                   { icon: <ShoppingCart className="w-4.5 h-4.5" />, label: 'Cart', path: '/cart', color: 'text-green-400', badge: cartCount > 0 ? cartCount : null },
-                  { icon: <User className="w-4.5 h-4.5" />, label: 'My Profile', path: token ? '/profile' : '/login', color: 'text-brand-orange' },
+                  { icon: <User className="w-4.5 h-4.5" />, label: 'My Profile', path: token ? '/profile' : '/login', color: 'text-indigo-600' },
                   { icon: <Gift className="w-4.5 h-4.5" />, label: 'Refer & Earn', path: '/refer', color: 'text-pink-400' },
                 ].map(item => (
                   <button key={item.path}
@@ -491,7 +488,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                     </div>
                     <span className="text-white/85 font-semibold text-[14px] group-hover:text-white transition-colors flex-1">{item.label}</span>
                     {item.badge && (
-                      <span className="bg-brand-orange text-white text-[10px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{item.badge}</span>
+                      <span className="bg-indigo-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center">{item.badge}</span>
                     )}
                     <ChevronRight className="w-3.5 h-3.5 text-white/20 group-hover:text-white/40 transition-colors" />
                   </button>
@@ -506,7 +503,7 @@ export function Header({ variant = 'default', title, showShare = false }) {
                         onClick={() => { navigate(`/category/${cat.slug || cat.id}`); setMenuOpen(false); }}
                         className="w-full flex items-center gap-3.5 px-3 py-2.5 rounded-xl hover:bg-white/[0.06] transition-colors text-left group mb-0.5">
                         <div className="w-8 h-8 rounded-xl bg-white/[0.07] flex items-center justify-center shrink-0 group-hover:bg-white/[0.12] transition-colors">
-                          <Tag className="w-4 h-4 text-brand-orange/70" />
+                          <Tag className="w-4 h-4 text-indigo-600/70" />
                         </div>
                         <span className="text-white/70 font-medium text-[14px] group-hover:text-white transition-colors flex-1">{cat.name}</span>
                         <ChevronRight className="w-3.5 h-3.5 text-white/15 group-hover:text-white/35 transition-colors" />

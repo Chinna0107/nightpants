@@ -101,7 +101,7 @@ export function AdminSubscriptionsPage() {
       {/* Plans */}
       <div>
         <h2 className="font-bold text-gray-700 text-base mb-4 flex items-center gap-2">
-          <CreditCard className="w-5 h-5 text-[#036e26]" /> Subscription Plans
+          <CreditCard className="w-5 h-5 text-gray-900" /> Subscription Plans
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {plans.map(plan => (
@@ -117,7 +117,7 @@ export function AdminSubscriptionsPage() {
               </div>
 
               <div className="flex items-end gap-1 mb-4">
-                <span className="text-[#036e26] font-extrabold text-2xl">₹{plan.price}</span>
+                <span className="text-gray-900 font-extrabold text-2xl">₹{plan.price}</span>
               </div>
               
               <div className="space-y-2 mb-6">
@@ -133,7 +133,7 @@ export function AdminSubscriptionsPage() {
                   {plan.is_active ? 'Disable' : 'Enable'}
                 </button>
                 <button onClick={() => setEditingPlan({ ...plan })}
-                  className="flex items-center gap-1.5 text-sm font-semibold text-[#036e26] bg-[#036e26]/10 hover:bg-[#036e26]/20 px-3 py-1.5 rounded-lg transition-colors">
+                  className="flex items-center gap-1.5 text-sm font-semibold text-gray-900 bg-gray-900/10 hover:bg-gray-900/20 px-3 py-1.5 rounded-lg transition-colors">
                   <Edit2 className="w-4 h-4" /> Edit Plan
                 </button>
               </div>
@@ -207,7 +207,7 @@ export function AdminSubscriptionsPage() {
             <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
               <div>
                 <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  Edit Plan: <span className="text-[#036e26]">{editingPlan.name}</span>
+                  Edit Plan: <span className="text-gray-900">{editingPlan.name}</span>
                 </h3>
                 <p className="text-sm text-gray-500 mt-0.5">Configure pricing and specific feature limits</p>
               </div>
@@ -287,7 +287,7 @@ export function AdminSubscriptionsPage() {
                         <input type="checkbox" className="sr-only peer"
                           checked={editingPlan.features?.[f.key] === true || editingPlan.features?.[f.key] === "true"}
                           onChange={e => handleFeatureChange(f.key, e.target.checked)} />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#036e26]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#036e26]"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#036e26]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gray-900"></div>
                       </div>
                       <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">{f.label}</span>
                     </label>
@@ -303,7 +303,7 @@ export function AdminSubscriptionsPage() {
                 Cancel
               </button>
               <button type="button" onClick={handleSavePlan}
-                className="px-6 py-2.5 text-sm font-bold text-white bg-[#036e26] hover:bg-[#025a1f] rounded-xl transition-colors shadow-sm shadow-[#036e26]/20">
+                className="px-6 py-2.5 text-sm font-bold text-white bg-gray-900 hover:bg-[#025a1f] rounded-xl transition-colors shadow-sm shadow-[#036e26]/20">
                 Save Changes
               </button>
             </div>

@@ -82,7 +82,7 @@ export function VendorProductsPage() {
 
   if (loading) return (
     <div className="flex items-center justify-center h-64">
-      <div className="w-8 h-8 border-4 border-gray-200 border-t-[#fe6603] rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-gray-200 border-t-[#4f46e5] rounded-full animate-spin" />
     </div>
   );
 
@@ -117,7 +117,7 @@ export function VendorProductsPage() {
               placeholder="Search products..."
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="pl-9 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#fe6603]/20 w-full sm:w-56 text-sm transition-all"
+              className="pl-9 pr-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4f46e5]/20 w-full sm:w-56 text-sm transition-all"
             />
           </div>
           <div className="flex flex-col items-end gap-1">
@@ -125,7 +125,7 @@ export function VendorProductsPage() {
               onClick={() => navigate('/vendor/products/new')}
               disabled={!canAddProduct}
               title={limitMessage}
-              className="bg-[#fe6603] text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors flex items-center gap-2 whitespace-nowrap shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[#4f46e5] text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors flex items-center gap-2 whitespace-nowrap shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Plus className="w-4 h-4" /> Add Product
             </button>
@@ -172,7 +172,7 @@ export function VendorProductsPage() {
                 <h3 className="font-bold text-gray-900 text-sm line-clamp-2">{product.name}</h3>
                 {product.brand && <p className="text-xs text-gray-400">{product.brand}</p>}
                 <div className="flex items-center justify-between mt-auto pt-2">
-                  <p className="text-base font-bold text-[#fe6603]">₹{displayPrice}</p>
+                  <p className="text-base font-bold text-[#4f46e5]">₹{displayPrice}</p>
                   {product.stock != null && (
                     <span className="text-xs text-gray-400">Stock: {product.stock}</span>
                   )}
@@ -210,7 +210,7 @@ export function VendorProductsPage() {
           </p>
           {!searchTerm && canAddProduct && (
             <button onClick={() => navigate('/vendor/products/new')}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#fe6603] text-white font-semibold rounded-xl hover:bg-[#e55c02] transition-colors">
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#4f46e5] text-white font-semibold rounded-xl hover:bg-[#e55c02] transition-colors">
               <Plus className="w-4 h-4" /> Add Your First Product
             </button>
           )}

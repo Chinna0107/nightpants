@@ -36,7 +36,7 @@ function Field({ label, required, children, hint }) {
 function Input({ className = '', ...props }) {
   return (
     <input
-      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#fe6603]/30 focus:border-[#fe6603] transition-colors ${className}`}
+      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#4f46e5]/30 focus:border-[#4f46e5] transition-colors ${className}`}
       {...props}
     />
   );
@@ -45,7 +45,7 @@ function Input({ className = '', ...props }) {
 function Textarea({ className = '', ...props }) {
   return (
     <textarea
-      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#fe6603]/30 focus:border-[#fe6603] transition-colors resize-none ${className}`}
+      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#4f46e5]/30 focus:border-[#4f46e5] transition-colors resize-none ${className}`}
       {...props}
     />
   );
@@ -54,7 +54,7 @@ function Textarea({ className = '', ...props }) {
 function Select({ className = '', children, ...props }) {
   return (
     <select
-      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#fe6603]/30 focus:border-[#fe6603] transition-colors ${className}`}
+      className={`w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-[#4f46e5]/30 focus:border-[#4f46e5] transition-colors ${className}`}
       {...props}
     >
       {children}
@@ -327,7 +327,7 @@ export function VendorProductFormPage() {
   };
 
   const UploadBtn = ({ field, label, accept = 'image/*', onUpload, loading }) => (
-    <label className="relative inline-flex items-center gap-2 cursor-pointer px-4 py-2 bg-gray-50 border border-dashed border-gray-300 rounded-xl text-sm text-gray-600 hover:bg-orange-50 hover:border-[#fe6603] transition-colors">
+    <label className="relative inline-flex items-center gap-2 cursor-pointer px-4 py-2 bg-gray-50 border border-dashed border-gray-300 rounded-xl text-sm text-gray-600 hover:bg-orange-50 hover:border-[#4f46e5] transition-colors">
       <input type="file" accept={accept} onChange={onUpload} className="absolute inset-0 opacity-0 cursor-pointer" />
       <Upload className="w-4 h-4" />
       {loading ? 'Uploading...' : label}
@@ -430,13 +430,13 @@ export function VendorProductFormPage() {
                     </button>
                   </div>
                 ))}
-                <label className="w-20 h-20 rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-[#fe6603] hover:bg-orange-50 transition-colors relative">
+                <label className="w-20 h-20 rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-[#4f46e5] hover:bg-orange-50 transition-colors relative">
                   <input type="file" multiple accept="image/*" onChange={handleGalleryUpload} className="absolute inset-0 opacity-0 cursor-pointer" />
                   <Plus className="w-5 h-5 text-gray-400" />
                   <span className="text-[10px] text-gray-400 mt-1">Add</span>
                 </label>
               </div>
-              {uploadingImages && <p className="text-xs text-[#fe6603]">Uploading images...</p>}
+              {uploadingImages && <p className="text-xs text-[#4f46e5]">Uploading images...</p>}
             </Section>
 
             <Section title="Video & 360° View">
@@ -532,7 +532,7 @@ export function VendorProductFormPage() {
               <div className="flex flex-col gap-3">
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" checked={form.cod_available} onChange={e => set('cod_available', e.target.checked)}
-                    className="w-4 h-4 rounded border-gray-300 text-[#fe6603] focus:ring-[#fe6603]" />
+                    className="w-4 h-4 rounded border-gray-300 text-[#4f46e5] focus:ring-[#4f46e5]" />
                   <div>
                     <p className="text-sm font-semibold text-gray-800">Cash on Delivery (COD)</p>
                     <p className="text-xs text-gray-400">Allow customers to pay on delivery</p>
@@ -540,7 +540,7 @@ export function VendorProductFormPage() {
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer">
                   <input type="checkbox" checked={form.free_shipping} onChange={e => set('free_shipping', e.target.checked)}
-                    className="w-4 h-4 rounded border-gray-300 text-[#fe6603] focus:ring-[#fe6603]" />
+                    className="w-4 h-4 rounded border-gray-300 text-[#4f46e5] focus:ring-[#4f46e5]" />
                   <div>
                     <p className="text-sm font-semibold text-gray-800">Free Shipping</p>
                     <p className="text-xs text-gray-400">No shipping charge for this product</p>
@@ -568,9 +568,9 @@ export function VendorProductFormPage() {
 
             <Section title="Search Tags">
               <Field label="Search Tags" hint="Press Enter or comma to add a tag">
-                <div className="border border-gray-200 rounded-xl p-2 bg-white min-h-[48px] flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-[#fe6603]/30">
+                <div className="border border-gray-200 rounded-xl p-2 bg-white min-h-[48px] flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-[#4f46e5]/30">
                   {form.search_tags.map((tag, i) => (
-                    <span key={i} className="flex items-center gap-1 px-2.5 py-1 bg-orange-100 text-[#fe6603] rounded-lg text-xs font-semibold">
+                    <span key={i} className="flex items-center gap-1 px-2.5 py-1 bg-orange-100 text-[#4f46e5] rounded-lg text-xs font-semibold">
                       {tag}
                       <button type="button" onClick={() => set('search_tags', form.search_tags.filter((_, idx) => idx !== i))}>
                         <X className="w-3 h-3" />
@@ -617,7 +617,7 @@ export function VendorProductFormPage() {
               <div className="flex gap-6">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input type="checkbox" checked={form.refund_available} onChange={e => set('refund_available', e.target.checked)}
-                    className="w-4 h-4 rounded border-gray-300 text-[#fe6603] focus:ring-[#fe6603]" />
+                    className="w-4 h-4 rounded border-gray-300 text-[#4f46e5] focus:ring-[#4f46e5]" />
                   <span className="text-sm font-medium text-gray-700">Refund Available</span>
                 </label>
               </div>
@@ -717,7 +717,7 @@ export function VendorProductFormPage() {
                         ) : field.type === 'upload' ? (
                           <div className="flex items-center gap-3">
                             {val && <a href={val} target="_blank" rel="noreferrer" className="text-xs text-blue-500 underline">View File</a>}
-                            <label className="relative inline-flex items-center gap-2 cursor-pointer px-3 py-2 bg-gray-50 border border-dashed border-gray-300 rounded-xl text-xs text-gray-600 hover:bg-orange-50 hover:border-[#fe6603] transition-colors">
+                            <label className="relative inline-flex items-center gap-2 cursor-pointer px-3 py-2 bg-gray-50 border border-dashed border-gray-300 rounded-xl text-xs text-gray-600 hover:bg-orange-50 hover:border-[#4f46e5] transition-colors">
                               <input type="file" accept="image/*,application/pdf"
                                 onChange={async (e) => {
                                   const file = e.target.files[0];
@@ -771,7 +771,7 @@ export function VendorProductFormPage() {
               <Save className="w-4 h-4" /> Save Draft
             </button>
             <button onClick={() => handleSave('publish')} disabled={!!saving}
-              className="flex items-center gap-2 px-4 py-2 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50 shadow-sm">
+              className="flex items-center gap-2 px-4 py-2 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50 shadow-sm">
               <Send className="w-4 h-4" />
               {saving === 'publish' ? 'Submitting...' : 'Submit for Approval'}
             </button>
@@ -788,7 +788,7 @@ export function VendorProductFormPage() {
                 const Icon = tab.icon;
                 return (
                   <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${activeTab === tab.id ? 'bg-[#fe6603]/10 text-[#fe6603] font-semibold' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'}`}>
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors text-left ${activeTab === tab.id ? 'bg-[#4f46e5]/10 text-[#4f46e5] font-semibold' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-50'}`}>
                     <Icon className="w-4 h-4 flex-shrink-0" />
                     {tab.label}
                     {activeTab === tab.id && <ChevronRight className="w-3.5 h-3.5 ml-auto" />}
@@ -813,7 +813,7 @@ export function VendorProductFormPage() {
                 const Icon = tab.icon;
                 return (
                   <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-                    className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${activeTab === tab.id ? 'bg-[#fe6603] text-white' : 'bg-white text-gray-500 border border-gray-200'}`}>
+                    className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${activeTab === tab.id ? 'bg-[#4f46e5] text-white' : 'bg-white text-gray-500 border border-gray-200'}`}>
                     <Icon className="w-3.5 h-3.5" />
                     {tab.label}
                   </button>

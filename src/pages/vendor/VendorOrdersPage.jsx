@@ -222,7 +222,7 @@ export function VendorOrdersPage() {
             placeholder="Search by Order ID..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#fe6603]"
+            className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#4f46e5]"
           />
         </div>
       </div>
@@ -262,7 +262,7 @@ export function VendorOrdersPage() {
                         onClick={() => setExpanded(expanded === order.id ? null : order.id)}
                       >
                         <td className="px-6 py-4">
-                          <div className="font-semibold text-gray-900 group-hover:text-[#fe6603] transition-colors">{order.order_number || order.id}</div>
+                          <div className="font-semibold text-gray-900 group-hover:text-[#4f46e5] transition-colors">{order.order_number || order.id}</div>
                         </td>
                         <td className="px-6 py-4 text-gray-500">
                           {new Date(order.created_at).toLocaleString()}
@@ -336,7 +336,7 @@ export function VendorOrdersPage() {
                                             </div>
                                           </div>
                                           <div className="text-right shrink-0">
-                                            <p className="font-bold text-brand-orange">₹{((item.variant?.price || item.product?.price || 0) * item.qty).toLocaleString()}</p>
+                                            <p className="font-bold text-indigo-600">₹{((item.variant?.price || item.product?.price || 0) * item.qty).toLocaleString()}</p>
                                           </div>
                                         </div>
                                       ))}

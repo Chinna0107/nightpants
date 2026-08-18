@@ -68,10 +68,10 @@ export function SignupPage() {
       <div className="relative flex flex-col items-center pt-12 pb-24 px-6 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full border border-white/[0.06]" />
-          <div className="absolute bottom-8 left-[-40px] w-48 h-48 rounded-full border border-brand-orange/[0.08]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-brand-orange/[0.06] rounded-full blur-3xl" />
+          <div className="absolute bottom-8 left-[-40px] w-48 h-48 rounded-full border border-indigo-600/[0.08]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-indigo-600/[0.06] rounded-full blur-3xl" />
           {[...Array(8)].map((_, i) => (
-            <div key={i} className="absolute w-1 h-1 rounded-full bg-brand-orange/25"
+            <div key={i} className="absolute w-1 h-1 rounded-full bg-indigo-600/25"
               style={{ top: `${8 + i * 11}%`, left: `${5 + i * 12}%` }} />
           ))}
         </div>
@@ -86,21 +86,21 @@ export function SignupPage() {
             <div className="w-[88px] h-[88px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.15] flex items-center justify-center overflow-hidden shadow-2xl">
               <img src={logo} alt="Aradhana Apparels" className="h-20 w-20 scale-[1.25] object-contain drop-shadow-xl" />
             </div>
-            <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-brand-orange to-yellow-500 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
+            <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-indigo-600 to-yellow-500 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
               <span className="text-white text-[9px] font-black">✦</span>
             </div>
           </div>
-          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.15em' }}>
+          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'inherit', letterSpacing: '0.15em' }}>
             Aradhana Apparels
           </h1>
-          <p className="text-brand-orange text-[10px] font-bold tracking-[0.25em] uppercase mt-0.5">Your Choice, From Anywhere.</p>
+          <p className="text-indigo-600 text-[10px] font-bold tracking-[0.25em] uppercase mt-0.5">Your Choice, From Anywhere.</p>
 
           {step === 'form' && (
             <div className="mt-5 space-y-2">
               {perks.map(p => (
                 <div key={p} className="flex items-center gap-2.5">
-                  <div className="w-4 h-4 rounded-full bg-brand-orange/20 border border-brand-orange/40 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-3 h-3 text-brand-orange" />
+                  <div className="w-4 h-4 rounded-full bg-indigo-600/20 border border-indigo-600/40 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3 h-3 text-indigo-600" />
                   </div>
                   <span className="text-white/75 text-[12px] font-medium">{p}</span>
                 </div>
@@ -110,8 +110,8 @@ export function SignupPage() {
 
           {step === 'otp' && (
             <div className="mt-5 text-center">
-              <div className="w-14 h-14 rounded-full bg-brand-orange/15 border-2 border-brand-orange/30 flex items-center justify-center mx-auto mb-3">
-                <ShieldCheck className="w-7 h-7 text-brand-orange" />
+              <div className="w-14 h-14 rounded-full bg-indigo-600/15 border-2 border-indigo-600/30 flex items-center justify-center mx-auto mb-3">
+                <ShieldCheck className="w-7 h-7 text-indigo-600" />
               </div>
               <p className="text-white/60 text-xs font-medium">OTP sent to</p>
               <p className="text-white font-bold text-sm mt-0.5">{form.email}</p>
@@ -128,7 +128,7 @@ export function SignupPage() {
           {step === 'form' ? (
             <>
               <div className="mb-6">
-                <h2 className="text-2xl font-extrabold text-[#022A21]" style={{ fontFamily: 'Georgia, serif' }}>Create Account ✨</h2>
+                <h2 className="text-2xl font-extrabold text-gray-900" style={{ fontFamily: 'inherit' }}>Create Account ✨</h2>
                 <p className="text-[13px] text-gray-500 mt-1.5">Join thousands of happy Aradhana Apparels</p>
               </div>
 
@@ -156,13 +156,13 @@ export function SignupPage() {
                   <input name="password" type={showPass ? 'text' : 'password'} value={form.password}
                     onChange={handleChange} required minLength={6} placeholder="Password (min. 6 characters)" className={inputClass + ' pr-12'} />
                   <button type="button" onClick={() => setShowPass(!showPass)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-orange transition-colors">
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-indigo-600 transition-colors">
                     {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
 
                 <button type="submit" disabled={loading}
-                  className="w-full bg-gradient-to-r from-brand-orange to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.4)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.5)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-1">
+                  className="w-full bg-gradient-to-r from-indigo-600 to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.4)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.5)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-1">
                   {loading ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending OTP...</> : 'Continue →'}
                 </button>
               </form>
@@ -185,14 +185,14 @@ export function SignupPage() {
                 <div className="flex-1 h-px bg-gray-100" />
               </div>
               <Link to="/login"
-                className="flex items-center justify-center w-full border-2 border-[#022A21]/15 text-[#022A21] font-bold py-3.5 rounded-2xl text-[15px] hover:bg-[#022A21]/5 hover:border-[#022A21]/40 transition-all">
+                className="flex items-center justify-center w-full border-2 border-[#022A21]/15 text-gray-900 font-bold py-3.5 rounded-2xl text-[15px] hover:bg-gray-900/5 hover:border-[#022A21]/40 transition-all">
                 Login
               </Link>
             </>
           ) : (
             <>
               <div className="mb-7">
-                <h2 className="text-2xl font-extrabold text-[#022A21]" style={{ fontFamily: 'Georgia, serif' }}>Verify Email 📧</h2>
+                <h2 className="text-2xl font-extrabold text-gray-900" style={{ fontFamily: 'inherit' }}>Verify Email 📧</h2>
                 <p className="text-[13px] text-gray-500 mt-1.5">Enter the 6-digit code sent to your inbox</p>
               </div>
 
@@ -213,7 +213,7 @@ export function SignupPage() {
                       onChange={(e) => handleOtpChange(e.target.value, idx)}
                       onKeyDown={(e) => handleOtpKeyDown(e, idx)}
                       className={`flex-1 h-14 text-center text-xl font-extrabold rounded-2xl border-2 focus:outline-none transition-all
-                        ${digit ? 'border-brand-orange text-brand-orange shadow-[0_0_0_4px_rgba(254,102,3,0.12)]' : 'border-gray-200 bg-gray-50 text-[#022A21] focus:border-[#022A21] focus:bg-white focus:shadow-[0_0_0_4px_rgba(2,42,33,0.08)]'}`}
+                        ${digit ? 'border-indigo-600 text-indigo-600 shadow-[0_0_0_4px_rgba(254,102,3,0.12)]' : 'border-gray-200 bg-gray-50 text-gray-900 focus:border-[#022A21] focus:bg-white focus:shadow-[0_0_0_4px_rgba(2,42,33,0.08)]'}`}
                       style={digit ? { background: 'rgba(254,102,3,0.06)' } : {}}
                     />
                   ))}
@@ -225,7 +225,7 @@ export function SignupPage() {
                 </button>
 
                 <button type="button" onClick={() => { setStep('form'); setOtp(['','','','','','']); }}
-                  className="flex items-center justify-center gap-1 w-full text-[13px] text-gray-400 hover:text-[#022A21] font-medium transition-colors pt-1">
+                  className="flex items-center justify-center gap-1 w-full text-[13px] text-gray-400 hover:text-gray-900 font-medium transition-colors pt-1">
                   <ArrowLeft className="w-3.5 h-3.5" /> Change my details
                 </button>
               </form>

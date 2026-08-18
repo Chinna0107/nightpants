@@ -8,7 +8,7 @@ export function StarRating({ rating, reviewsCount, className }) {
 
   return (
     <div className={cn("flex items-center gap-1", className)}>
-      <div className="flex bg-brand-green text-white px-1.5 py-0.5 rounded text-xs font-bold items-center gap-0.5">
+      <div className="flex bg-indigo-600 text-white px-1.5 py-0.5 rounded text-xs font-bold items-center gap-0.5">
         <span>{rating}</span>
         <Star className="w-3 h-3 fill-current" />
       </div>

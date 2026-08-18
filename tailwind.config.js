@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         'brand-orange': '#fe6603',
+        'brand-primary': '#4f46e5', // indigo-600 used in screenshot
+        'brand-bg': '#f9fafb', // Light gray bg
         'brand-maroon': '#036e26', // Note: Using the green from the logo
         'brand-gold': '#C9971C',
         'brand-cream': '#FFF8EE',

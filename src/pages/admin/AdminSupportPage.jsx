@@ -83,7 +83,7 @@ function AddAgentModal({ onClose, onAdd, accent }) {
                 <label key={page.path} className="flex items-center gap-2 cursor-pointer text-sm text-gray-700">
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-[#036e26] focus:ring-[#036e26]"
+                    className="rounded border-gray-300 text-gray-900 focus:ring-[#036e26]"
                     checked={form.access_pages.includes(page.path)}
                     onChange={(e) => {
                       if (e.target.checked) {
@@ -181,7 +181,7 @@ export function AdminSupportPage() {
         {TABS.map(t => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-colors -mb-px whitespace-nowrap ${
-              tab === t.key ? "border-[#036e26] text-[#036e26]" : "border-transparent text-gray-400 hover:text-gray-700"
+              tab === t.key ? "border-gray-800 text-gray-900" : "border-transparent text-gray-400 hover:text-gray-700"
             }`}>
             {t.icon} {t.label}
           </button>
@@ -246,7 +246,7 @@ export function AdminSupportPage() {
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm text-gray-500">{agents.length} member{agents.length !== 1 ? "s" : ""}</p>
                 <button onClick={() => setShowModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-[#036e26] text-white rounded-xl text-sm font-semibold hover:bg-[#025a1f] transition-colors">
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-[#025a1f] transition-colors">
                   <Plus className="w-4 h-4" /> Add Member
                 </button>
               </div>
@@ -256,7 +256,7 @@ export function AdminSupportPage() {
                   <Users className="w-10 h-10 text-gray-200 mx-auto mb-3" />
                   <p className="text-gray-400 text-sm">No support members yet.</p>
                   <button onClick={() => setShowModal(true)}
-                    className="mt-4 px-5 py-2 bg-[#036e26] text-white rounded-xl text-sm font-semibold hover:bg-[#025a1f] transition-colors">
+                    className="mt-4 px-5 py-2 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-[#025a1f] transition-colors">
                     Add First Member
                   </button>
                 </div>
@@ -264,7 +264,7 @@ export function AdminSupportPage() {
                 <div className="space-y-3">
                   {agents.map(agent => (
                     <div key={agent.id} className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#036e26]/10 flex items-center justify-center flex-shrink-0 font-bold text-[#036e26] text-sm">
+                      <div className="w-10 h-10 rounded-xl bg-gray-900/10 flex items-center justify-center flex-shrink-0 font-bold text-gray-900 text-sm">
                         {agent.name?.[0]?.toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -274,8 +274,8 @@ export function AdminSupportPage() {
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${agent.is_active ? "bg-green-100 text-green-700" : "bg-red-100 text-red-500"}`}>
                         {agent.is_active ? "Active" : "Inactive"}
                       </span>
-                      <button onClick={() => handleToggle(agent.id)} className="text-gray-400 hover:text-[#036e26] transition-colors flex-shrink-0" title="Toggle active">
-                        {agent.is_active ? <ToggleRight className="w-5 h-5 text-[#036e26]" /> : <ToggleLeft className="w-5 h-5" />}
+                      <button onClick={() => handleToggle(agent.id)} className="text-gray-400 hover:text-gray-900 transition-colors flex-shrink-0" title="Toggle active">
+                        {agent.is_active ? <ToggleRight className="w-5 h-5 text-gray-900" /> : <ToggleLeft className="w-5 h-5" />}
                       </button>
                       <button onClick={() => handleDelete(agent.id)} className="text-gray-300 hover:text-red-500 transition-colors flex-shrink-0">
                         <Trash2 className="w-4 h-4" />

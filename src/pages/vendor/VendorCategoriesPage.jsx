@@ -44,7 +44,7 @@ export function VendorCategoriesPage() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {categories.map(category => (
-              <div key={category.id} className="p-4 border border-gray-100 rounded-xl hover:border-[#fe6603]/30 transition-colors">
+              <div key={category.id} className="p-4 border border-gray-100 rounded-xl hover:border-[#4f46e5]/30 transition-colors">
                 <img src={category.image_url || '/placeholder.png'} alt={category.name} className="w-full h-32 object-cover rounded-lg bg-gray-50 mb-3" />
                 <h3 className="font-medium text-gray-900 text-center">{category.name}</h3>
               </div>

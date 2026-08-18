@@ -34,7 +34,7 @@ function AddressModal({ onClose, onSave }) {
           </label>
         </div>
         <button onClick={() => onSave(form)}
-          className="w-full mt-4 bg-brand-orange text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors">
+          className="w-full mt-4 bg-indigo-600 text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors">
           Save Address
         </button>
       </div>
@@ -64,7 +64,7 @@ function EditProfileModal({ user, onClose, onSave }) {
           </div>
         </div>
         <button onClick={() => onSave(form.name, form.phone)}
-          className="w-full mt-4 bg-brand-orange text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors">
+          className="w-full mt-4 bg-indigo-600 text-white font-bold py-3 rounded-xl text-sm hover:bg-orange-600 transition-colors">
           Save Changes
         </button>
       </div>
@@ -117,7 +117,7 @@ export function DashboardPage() {
 
       <div className="max-w-4xl mx-auto">
         {/* User Profile Header */}
-        <div className="bg-brand-orange text-white px-6 pt-8 pb-8 md:rounded-3xl md:mt-6 rounded-b-[2.5rem] shadow-sm">
+        <div className="bg-indigo-600 text-white px-6 pt-8 pb-8 md:rounded-3xl md:mt-6 rounded-b-[2.5rem] shadow-sm">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border-2 border-white/40 shrink-0">
               <User className="w-8 h-8 text-white" />
@@ -138,7 +138,7 @@ export function DashboardPage() {
           {tabs.map((tab) => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)}
               className={`flex-1 py-2.5 text-xs md:text-sm font-bold rounded-lg transition-colors ${
-                activeTab === tab.id ? 'bg-brand-orange text-white shadow-sm' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                activeTab === tab.id ? 'bg-indigo-600 text-white shadow-sm' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
               }`}>
               {tab.label}
             </button>
@@ -152,7 +152,7 @@ export function DashboardPage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: 'Orders', value: orders.length, color: 'bg-orange-50 text-brand-orange' },
+                { label: 'Orders', value: orders.length, color: 'bg-orange-50 text-indigo-600' },
                 { label: 'Addresses', value: addresses.length, color: 'bg-blue-50 text-blue-600' },
                 { label: 'Wishlist', value: 0, color: 'bg-pink-50 text-pink-600' },
               ].map((stat) => (
@@ -202,7 +202,7 @@ export function DashboardPage() {
               <div className="text-center py-16">
                 <Package className="w-12 h-12 text-gray-300 mx-auto mb-3" />
                 <p className="text-sm font-semibold text-gray-500">No orders yet</p>
-                <Link to="/" className="mt-3 inline-block text-xs text-brand-orange font-bold">Start Shopping →</Link>
+                <Link to="/" className="mt-3 inline-block text-xs text-indigo-600 font-bold">Start Shopping →</Link>
               </div>
             ) : (
               orders.map((order) => (
@@ -230,7 +230,7 @@ export function DashboardPage() {
         {activeTab === 'addresses' && (
           <div className="space-y-3">
             <button onClick={() => setShowAddressModal(true)}
-              className="w-full flex items-center justify-center gap-2 border-2 border-dashed border-orange-300 rounded-xl py-4 text-brand-orange text-sm font-semibold hover:bg-orange-50 transition-colors">
+              className="w-full flex items-center justify-center gap-2 border-2 border-dashed border-orange-300 rounded-xl py-4 text-indigo-600 text-sm font-semibold hover:bg-orange-50 transition-colors">
               <Plus className="w-4 h-4" /> Add New Address
             </button>
             {addresses.length === 0 ? (

@@ -83,7 +83,7 @@ export function AdminProductsPage() {
             <option value="rejected">Rejected</option>
           </select>
           <button onClick={() => navigate('/admin/products/new')}
-            className="bg-[#036e26] text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-[#02561d] transition-colors shadow-sm">
+            className="bg-gray-900 text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-[#02561d] transition-colors shadow-sm">
             <Plus className="w-4 h-4" /> Add Product
           </button>
         </div>
@@ -133,7 +133,7 @@ export function AdminProductsPage() {
                     <td className="px-5 py-3.5 text-gray-500 text-xs">
                       {p.vendor_id ? `Vendor #${p.vendor_id}` : 'Admin'}
                     </td>
-                    <td className="px-5 py-3.5 font-semibold text-[#036e26]">₹{p.price || 0}</td>
+                    <td className="px-5 py-3.5 font-semibold text-gray-900">₹{p.price || 0}</td>
                     <td className="px-5 py-3.5 text-gray-600">{p.stock ?? '—'}</td>
                     <td className="px-5 py-3.5">
                       <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold ${S.cls}`}>
@@ -143,7 +143,7 @@ export function AdminProductsPage() {
                     <td className="px-5 py-3.5 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <button onClick={() => navigate(`/admin/products/${p.id}/edit`)}
-                          className="p-1.5 text-gray-400 hover:text-[#036e26] bg-white border border-gray-200 rounded-lg shadow-sm transition-colors">
+                          className="p-1.5 text-gray-400 hover:text-gray-900 bg-white border border-gray-200 rounded-lg shadow-sm transition-colors">
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button onClick={() => handleDelete(p.id)}

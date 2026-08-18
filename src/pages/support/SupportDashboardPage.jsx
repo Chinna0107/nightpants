@@ -34,8 +34,8 @@ export function SupportDashboardPage() {
 
   const STAT_CARDS = [
     { label: "Total Orders", value: stats.orders, icon: <ShoppingBag className="w-5 h-5" />, color: "text-blue-600 bg-blue-50" },
-    { label: "Total Products", value: stats.products, icon: <Package className="w-5 h-5" />, color: "text-[#036e26] bg-[#036e26]/10" },
-    { label: "Categories", value: stats.categories, icon: <Layers className="w-5 h-5" />, color: "text-[#fe6603] bg-[#fe6603]/10" },
+    { label: "Total Products", value: stats.products, icon: <Package className="w-5 h-5" />, color: "text-gray-900 bg-gray-900/10" },
+    { label: "Categories", value: stats.categories, icon: <Layers className="w-5 h-5" />, color: "text-[#4f46e5] bg-[#4f46e5]/10" },
   ];
 
   if (loading) return (
@@ -69,7 +69,7 @@ export function SupportDashboardPage() {
       {/* Recent Orders */}
       <div className="bg-white rounded-2xl border border-gray-100 p-5">
         <div className="flex items-center gap-2 mb-4">
-          <TrendingUp className="w-4 h-4 text-[#036e26]" />
+          <TrendingUp className="w-4 h-4 text-gray-900" />
           <h2 className="font-bold text-gray-900 text-sm">Recent Orders</h2>
         </div>
         {recentOrders.length === 0 ? (

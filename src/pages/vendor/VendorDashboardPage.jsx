@@ -41,7 +41,7 @@ export function VendorDashboardPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
-          <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-[#fe6603]">
+          <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-[#4f46e5]">
             <IndianRupee className="w-7 h-7" />
           </div>
           <div>
@@ -84,7 +84,7 @@ export function VendorDashboardPage() {
             <Clock className="w-5 h-5 text-gray-400" />
             <h3 className="text-lg font-bold text-gray-900">Recent Orders</h3>
           </div>
-          <button onClick={() => navigate('/vendor/orders')} className="text-sm font-medium text-[#fe6603] hover:underline">
+          <button onClick={() => navigate('/vendor/orders')} className="text-sm font-medium text-[#4f46e5] hover:underline">
             View All →
           </button>
         </div>

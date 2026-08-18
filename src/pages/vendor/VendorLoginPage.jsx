@@ -119,7 +119,7 @@ export function VendorLoginPage() {
             <img src={logo} alt="Aradhana Apparels" className="h-12 mx-auto mix-blend-multiply" />
           </Link>
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Store className="w-6 h-6 text-[#fe6603]" />
+            <Store className="w-6 h-6 text-[#4f46e5]" />
             <h1 className="text-3xl font-bold text-gray-900">
               {step === 'login' ? 'Vendor Portal' : step === 'forgot_reset' ? 'Create New Password' : 'Reset Password'}
             </h1>
@@ -132,11 +132,11 @@ export function VendorLoginPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#fe6603]/10 relative">
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#4f46e5]/10 relative">
           {step !== 'login' && (
             <button 
               onClick={() => { setStep('login'); clearForm(); }}
-              className="absolute top-6 left-6 text-gray-400 hover:text-[#fe6603] transition-colors flex items-center gap-1 text-sm font-medium"
+              className="absolute top-6 left-6 text-gray-400 hover:text-[#4f46e5] transition-colors flex items-center gap-1 text-sm font-medium"
             >
               <ArrowLeft className="w-4 h-4" /> Back
             </button>
@@ -152,7 +152,7 @@ export function VendorLoginPage() {
                   </div>
                   <input
                     type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                    className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                     placeholder="vendor@example.com"
                   />
                 </div>
@@ -166,7 +166,7 @@ export function VendorLoginPage() {
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'} required value={password} onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                     placeholder="••••••••"
                   />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -177,15 +177,15 @@ export function VendorLoginPage() {
 
               <div className="flex items-center justify-between">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#fe6603] focus:ring-[#fe6603]" />
+                  <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#4f46e5] focus:ring-[#4f46e5]" />
                   <span className="text-sm text-gray-600">Remember me</span>
                 </label>
-                <button type="button" onClick={() => { setStep('forgot_email'); clearForm(); }} className="text-sm font-medium text-[#fe6603] hover:text-[#e55c00]">
+                <button type="button" onClick={() => { setStep('forgot_email'); clearForm(); }} className="text-sm font-medium text-[#4f46e5] hover:text-[#e55c00]">
                   Forgot password?
                 </button>
               </div>
 
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#fe6603] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#4f46e5] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
                 {loading ? 'Signing in...' : 'Sign In'} {!loading && <ArrowRight className="w-5 h-5" />}
               </button>
             </form>
@@ -201,12 +201,12 @@ export function VendorLoginPage() {
                   </div>
                   <input
                     type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                    className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                     placeholder="Enter your registered email"
                   />
                 </div>
               </div>
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#fe6603] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#4f46e5] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
                 {loading ? 'Sending OTP...' : 'Send OTP'}
               </button>
             </form>
@@ -218,12 +218,12 @@ export function VendorLoginPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">Enter OTP</label>
                 <input
                   type="text" required maxLength={6} value={otp} onChange={(e) => setOtp(e.target.value)}
-                  className="block w-full text-center tracking-widest text-lg font-bold py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                  className="block w-full text-center tracking-widest text-lg font-bold py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                   placeholder="6-digit OTP"
                 />
                 <p className="text-xs text-gray-500 mt-2 text-center">Sent to {email}</p>
               </div>
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#fe6603] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#4f46e5] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
                 {loading ? 'Verifying...' : 'Verify OTP'}
               </button>
             </form>
@@ -239,7 +239,7 @@ export function VendorLoginPage() {
                   </div>
                   <input
                     type={showNewPassword ? 'text' : 'password'} required minLength={6} value={newPassword} onChange={(e) => setNewPassword(e.target.value)}
-                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                     placeholder="New password"
                   />
                   <button type="button" onClick={() => setShowNewPassword(!showNewPassword)} className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -256,7 +256,7 @@ export function VendorLoginPage() {
                   </div>
                   <input
                     type={showConfirmPassword ? 'text' : 'password'} required minLength={6} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#fe6603] focus:border-transparent transition-all"
+                    className="block w-full pl-11 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent transition-all"
                     placeholder="Confirm password"
                   />
                   <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -265,7 +265,7 @@ export function VendorLoginPage() {
                 </div>
               </div>
 
-              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#fe6603] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
+              <button type="submit" disabled={loading} className="w-full flex items-center justify-center gap-2 bg-[#4f46e5] text-white py-3.5 rounded-xl font-medium hover:bg-[#e55c00] transition-colors disabled:opacity-50">
                 {loading ? 'Resetting...' : 'Reset Password'}
               </button>
             </form>
@@ -274,7 +274,7 @@ export function VendorLoginPage() {
           {step === 'login' && (
             <p className="mt-8 text-center text-gray-600">
               Want to become a vendor?{' '}
-              <Link to="/vendor-signup" className="text-[#fe6603] font-medium hover:underline">
+              <Link to="/vendor-signup" className="text-[#4f46e5] font-medium hover:underline">
                 Apply Now
               </Link>
             </p>

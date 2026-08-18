@@ -56,7 +56,7 @@ export function ProductDetailPage() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 border-4 border-brand-orange/20 border-t-brand-orange rounded-full animate-spin" />
+          <div className="w-10 h-10 border-4 border-indigo-600/20 border-t-indigo-600 rounded-full animate-spin" />
           <p className="text-gray-500 text-sm font-medium">Loading product...</p>
         </div>
       </div>
@@ -70,7 +70,7 @@ export function ProductDetailPage() {
           <Package className="w-10 h-10 text-gray-400" />
         </div>
         <p className="text-lg font-bold text-gray-700">Product not found</p>
-        <button onClick={() => navigate('/')} className="bg-[#022A21] text-white px-6 py-3 rounded-2xl font-semibold hover:bg-[#054335] transition-all shadow-md">
+        <button onClick={() => navigate('/')} className="bg-gray-900 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-gray-800 transition-all shadow-md">
           Go Home
         </button>
       </div>
@@ -129,7 +129,7 @@ export function ProductDetailPage() {
             <div className="flex gap-3">
               <button onClick={(e) => { e.stopPropagation(); toggleWishlist(product.id); }}
                 className="w-11 h-11 bg-white/70 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.1)] active:scale-95 transition-transform">
-                <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-brand-orange text-brand-orange' : 'text-gray-900'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
+                <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-indigo-600 text-indigo-600' : 'text-gray-900'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
               </button>
               <button onClick={handleShare}
                 className="w-11 h-11 bg-white/70 backdrop-blur-md border border-white/40 rounded-full flex items-center justify-center shadow-[0_4px_15px_rgba(0,0,0,0.1)] active:scale-95 transition-transform">
@@ -157,7 +157,7 @@ export function ProductDetailPage() {
           <div className="flex gap-2 px-4 py-3 bg-white border-b border-gray-100 overflow-x-auto hide-scrollbar">
             {productImages.map((img, i) => (
               <button key={i} onClick={() => { setMainImg(img); setImgError(false); }}
-                className={`w-16 h-16 rounded-xl flex-shrink-0 overflow-hidden border-2 transition-all ${mainImg === img ? 'border-brand-orange' : 'border-transparent'}`}>
+                className={`w-16 h-16 rounded-xl flex-shrink-0 overflow-hidden border-2 transition-all ${mainImg === img ? 'border-indigo-600' : 'border-transparent'}`}>
                 <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover" onError={(e) => { e.target.src = PLACEHOLDER; }} />
               </button>
             ))}
@@ -176,7 +176,7 @@ export function ProductDetailPage() {
               <div className="flex flex-col gap-2 w-[72px]">
                 {productImages.map((img, i) => (
                   <button key={i} onClick={() => setMainImg(img)}
-                    className={`w-16 h-16 rounded-xl border-2 p-1 flex-shrink-0 transition-all overflow-hidden ${mainImg === img ? 'border-brand-orange shadow-sm bg-orange-50' : 'border-gray-200 bg-white hover:border-brand-orange'}`}>
+                    className={`w-16 h-16 rounded-xl border-2 p-1 flex-shrink-0 transition-all overflow-hidden ${mainImg === img ? 'border-indigo-600 shadow-sm bg-orange-50' : 'border-gray-200 bg-white hover:border-indigo-600'}`}>
                     <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover rounded-lg"
                       onError={(e) => { e.target.src = PLACEHOLDER; }} />
                   </button>
@@ -192,7 +192,7 @@ export function ProductDetailPage() {
                   <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-500'}`} strokeWidth={isWishlisted ? 0 : 1.5} />
                 </button>
                 <button onClick={handleShare}
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 hover:scale-110 hover:border-brand-orange transition-all shadow-sm">
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 hover:scale-110 hover:border-indigo-600 transition-all shadow-sm">
                   <Share2 className="w-5 h-5 text-gray-500" strokeWidth={1.5} />
                 </button>
               </div>
@@ -210,12 +210,12 @@ export function ProductDetailPage() {
           {/* Desktop action buttons */}
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex gap-4 mt-6">
             <button onClick={handleAddToCart}
-              className="group flex-1 bg-[#022A21]/5 border border-[#022A21]/20 text-[#022A21] font-bold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 hover:bg-[#022A21] hover:text-white hover:border-[#022A21] transition-all duration-300 shadow-sm active:scale-95">
+              className="group flex-1 bg-[#f8f9fa] border border-gray-200 text-gray-900 font-bold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 hover:bg-gray-100 hover:border-gray-300 transition-all duration-300 shadow-sm active:scale-95">
               <ShoppingCart className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" /> Add to Cart
             </button>
             <button onClick={handleBuyNow}
-              className="group flex-[1.4] relative overflow-hidden bg-gradient-to-r from-brand-orange via-yellow-500 to-brand-orange bg-[length:200%_auto] hover:bg-right text-white font-extrabold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(255,165,0,0.4)] hover:shadow-[0_12px_30px_rgba(255,165,0,0.5)] hover:-translate-y-1 transition-all duration-500 active:scale-95">
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none rounded-[1.25rem]"></div>
+              className="group flex-[1.4] relative overflow-hidden bg-indigo-600 text-white font-extrabold py-4 rounded-[1.25rem] text-[16px] flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(79,70,229,0.3)] hover:shadow-[0_12px_30px_rgba(79,70,229,0.4)] hover:-translate-y-1 transition-all duration-500 active:scale-95">
+              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none rounded-[1.25rem]"></div>
               <Zap className="w-5 h-5 fill-white group-hover:scale-110 transition-transform duration-300 relative z-10" /> 
               <span className="relative z-10 tracking-wide">Buy Now</span>
             </button>
@@ -227,21 +227,21 @@ export function ProductDetailPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="bg-white rounded-t-3xl md:rounded-[2rem] md:shadow-2xl md:border md:border-gray-100 px-5 py-8 md:p-10 relative -mt-6 z-20 md:mt-0 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] pb-32 md:pb-10"
+          className="bg-white rounded-t-3xl md:rounded-2xl md:shadow-2xl md:border md:border-gray-100 px-5 py-8 md:p-10 relative -mt-6 z-20 md:mt-0 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] pb-32 md:pb-10"
         >
           {/* Mobile Drag Handle Indicator */}
           <div className="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6 md:hidden"></div>
 
           {/* Category tag */}
           {product.category && (
-            <div className="inline-flex items-center gap-2 bg-[#FFF8E7] text-brand-orange px-3 py-1 rounded-full text-xs font-extrabold mb-3 uppercase tracking-widest shadow-[0_2px_10px_rgba(255,165,0,0.05)] w-fit border border-[#FDE1B9]/30">
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-600 px-3 py-1 rounded-full text-xs font-extrabold mb-3 uppercase tracking-widest shadow-[0_2px_10px_rgba(79,70,229,0.05)] w-fit border border-indigo-100">
+              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
               {product.category}
             </div>
           )}
 
           {/* Title */}
-          <h1 className="text-3xl md:text-[2.5rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+          <h1 className="text-3xl md:text-[2.5rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-4" style={{ fontFamily: 'inherit' }}>
             {product.name}
           </h1>
 
@@ -258,7 +258,7 @@ export function ProductDetailPage() {
             {originalPrice > selectedSizeObj.price && (
               <div className="flex items-center gap-3 pb-1">
                 <span className="text-lg text-gray-400 line-through font-medium">₹{originalPrice.toLocaleString()}</span>
-                <span className="text-xs font-bold text-white bg-gradient-to-r from-brand-orange to-yellow-500 px-3 py-1 rounded-full shadow-md shadow-brand-orange/20 tracking-wider">
+                <span className="text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-yellow-500 px-3 py-1 rounded-full shadow-md shadow-indigo-600/20 tracking-wider">
                   {discountPercent}% OFF
                 </span>
               </div>
@@ -277,8 +277,8 @@ export function ProductDetailPage() {
                   <button key={idx}
                     onClick={() => { setSelectedVariantIdx(idx); setSelectedSizeIdx(0); }}
                     className={`px-4 py-2 rounded-xl border-2 transition-all text-sm font-semibold ${selectedVariantIdx === idx
-                      ? 'border-brand-orange text-brand-orange bg-orange-50'
-                      : 'border-gray-200 text-gray-600 hover:border-brand-orange/50'}`}>
+                      ? 'border-indigo-600 text-indigo-600 bg-orange-50'
+                      : 'border-gray-200 text-gray-600 hover:border-indigo-600/50'}`}>
                     {variant.color}
                   </button>
                 ))}
@@ -298,8 +298,8 @@ export function ProductDetailPage() {
                   <button key={idx}
                     onClick={() => setSelectedSizeIdx(idx)}
                     className={`px-5 py-2.5 rounded-xl transition-all duration-300 text-sm font-bold shadow-sm ${selectedSizeIdx === idx
-                      ? 'bg-brand-orange text-white shadow-brand-orange/30 translate-y-[1px]'
-                      : 'bg-white border-2 border-gray-100 text-gray-600 hover:border-brand-orange/50 hover:text-brand-orange'}`}>
+                      ? 'bg-indigo-600 text-white shadow-indigo-600/30 translate-y-[1px]'
+                      : 'bg-white border-2 border-gray-100 text-gray-600 hover:border-indigo-600/50 hover:text-indigo-600'}`}>
                     {sizeObj.size}
                   </button>
                 ))}
@@ -323,12 +323,12 @@ export function ProductDetailPage() {
           <div className="mb-8 bg-[#FFFBF4] rounded-[1.5rem] p-5 shadow-sm border border-[#F4E6D4]/50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/40 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
             <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-4">Delivery Options</span>
-            <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 mb-4 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-gray-100 focus-within:ring-2 focus-within:ring-brand-orange/20 transition-all">
-              <MapPin className="w-5 h-5 text-brand-orange shrink-0" />
+            <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3.5 mb-4 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-gray-100 focus-within:ring-2 focus-within:ring-indigo-600/20 transition-all">
+              <MapPin className="w-5 h-5 text-indigo-600 shrink-0" />
               <input type="text" placeholder="Enter pincode"
                 value={pincode} onChange={(e) => setPincode(e.target.value)}
                 className="flex-1 outline-none text-[15px] placeholder-gray-400 font-medium bg-transparent text-gray-900" maxLength={6} />
-              <button className="text-brand-orange font-bold text-sm hover:opacity-80 transition-opacity bg-brand-orange/10 px-4 py-1.5 rounded-lg">Check</button>
+              <button className="text-indigo-600 font-bold text-sm hover:opacity-80 transition-opacity bg-indigo-600/10 px-4 py-1.5 rounded-lg">Check</button>
             </div>
             <div className="space-y-1">
               <p className="text-[15px] text-gray-700 font-medium flex items-center gap-2">
@@ -344,9 +344,9 @@ export function ProductDetailPage() {
           {/* Trust badges */}
           <div className="grid grid-cols-3 gap-3 mb-8 pb-8 border-b border-gray-100">
             {[
-              { icon: <Truck className="w-6 h-6 text-brand-orange" strokeWidth={1.5} />, label: 'Free Delivery', bg: 'bg-brand-orange/10' },
+              { icon: <Truck className="w-6 h-6 text-indigo-600" strokeWidth={1.5} />, label: 'Free Delivery', bg: 'bg-indigo-600/10' },
               { icon: <ShieldCheck className="w-6 h-6 text-[#3EA361]" strokeWidth={1.5} />, label: '100% Genuine', bg: 'bg-[#3EA361]/10' },
-              { icon: <RefreshCcw className="w-6 h-6 text-[#022A21]" strokeWidth={1.5} />, label: 'Easy Returns', bg: 'bg-[#022A21]/10' },
+              { icon: <RefreshCcw className="w-6 h-6 text-gray-900" strokeWidth={1.5} />, label: 'Easy Returns', bg: 'bg-gray-900/10' },
             ].map(b => (
               <div key={b.label} className="flex flex-col items-center gap-3 p-4 bg-white rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
                 <div className={`${b.bg} p-3.5 rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
@@ -359,8 +359,8 @@ export function ProductDetailPage() {
 
           {/* Description */}
           <div className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'Georgia, serif' }}>
-              <span className="w-1.5 h-6 bg-gradient-to-b from-brand-orange to-yellow-500 rounded-full" />
+            <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'inherit' }}>
+              <span className="w-1.5 h-6 bg-gradient-to-b from-indigo-600 to-yellow-500 rounded-full" />
               Product Description
             </h2>
             <div className="bg-gray-50/80 p-5 rounded-[1.5rem] border border-gray-100">
@@ -373,7 +373,7 @@ export function ProductDetailPage() {
           {/* Specs */}
           {(product.category || currentVariant?.color || Object.keys(customAttrs).length > 0) && (
             <div className="mb-4">
-              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'Georgia, serif' }}>
+              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3" style={{ fontFamily: 'inherit' }}>
                 <span className="w-1.5 h-6 bg-gradient-to-b from-[#022A21] to-[#054335] rounded-full" />
                 Specifications
               </h2>
@@ -387,7 +387,7 @@ export function ProductDetailPage() {
                     <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider">{row.k}</span>
                     <span className="text-[14px] text-gray-900 font-extrabold truncate">
                       {String(row.v).startsWith('http')
-                        ? <a href={row.v} target="_blank" rel="noreferrer" className="text-brand-orange hover:underline">View Link</a>
+                        ? <a href={row.v} target="_blank" rel="noreferrer" className="text-indigo-600 hover:underline">View Link</a>
                         : row.v}
                     </span>
                   </div>
@@ -402,7 +402,7 @@ export function ProductDetailPage() {
       {relatedProducts.length > 0 && (
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 mt-8">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-xl font-bold text-gray-900" style={{ fontFamily: 'Georgia, serif' }}>You may also like</h2>
+            <h2 className="text-xl font-bold text-gray-900" style={{ fontFamily: 'inherit' }}>You may also like</h2>
           </div>
           <div className="flex overflow-x-auto gap-4 hide-scrollbar pb-4 snap-x">
             {relatedProducts.map(rp => (
@@ -419,11 +419,11 @@ export function ProductDetailPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-white via-white/95 to-white/0 pointer-events-none -top-8"></div>
         <div className="relative bg-white/80 backdrop-blur-xl border-t border-gray-100/50 flex gap-3 px-5 py-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pb-safe-4">
           <button onClick={handleAddToCart}
-            className="group flex-[1] bg-[#022A21]/5 text-[#022A21] border border-[#022A21]/20 font-bold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:bg-[#022A21] hover:text-white">
+            className="group flex-[1] bg-gray-900/5 text-gray-900 border border-[#022A21]/20 font-bold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:bg-gray-900 hover:text-white">
             <ShoppingCart className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" /> Cart
           </button>
           <button onClick={handleBuyNow}
-            className="group flex-[1.5] relative overflow-hidden bg-gradient-to-r from-brand-orange via-yellow-500 to-brand-orange bg-[length:200%_auto] hover:bg-right text-white font-extrabold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-500 shadow-[0_8px_20px_rgba(255,165,0,0.3)] flex items-center justify-center gap-2">
+            className="group flex-[1.5] relative overflow-hidden bg-indigo-600 text-white font-extrabold py-4 rounded-[1.25rem] text-[15px] active:scale-95 transition-all duration-500 shadow-[0_8px_20px_rgba(79,70,229,0.3)] flex items-center justify-center gap-2">
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out pointer-events-none rounded-[1.25rem]"></div>
             <Zap className="w-5 h-5 fill-white group-hover:scale-110 transition-transform relative z-10" /> 
             <span className="relative z-10 tracking-wide">Buy Now</span>
@@ -454,7 +454,7 @@ export function ProductDetailPage() {
                 <div className="flex gap-2 overflow-x-auto hide-scrollbar max-w-full pb-2">
                   {productImages.map((img, i) => (
                     <button key={i} onClick={() => setMainImg(img)}
-                      className={`w-14 h-14 rounded-xl border-2 p-0.5 flex-shrink-0 overflow-hidden transition-all ${mainImg === img ? 'border-brand-orange' : 'border-white/20'}`}>
+                      className={`w-14 h-14 rounded-xl border-2 p-0.5 flex-shrink-0 overflow-hidden transition-all ${mainImg === img ? 'border-indigo-600' : 'border-white/20'}`}>
                       <img src={img} alt={`thumb-${i}`} className="w-full h-full object-cover rounded-lg"
                         onError={(e) => { e.target.src = PLACEHOLDER; }} />
                     </button>

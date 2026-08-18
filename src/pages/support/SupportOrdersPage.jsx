@@ -51,8 +51,8 @@ export function SupportOrdersPage() {
           <button key={s} onClick={() => setStatusFilter(s)}
             className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-bold capitalize transition-colors ${
               statusFilter === s
-                ? "bg-[#036e26] text-white shadow-sm"
-                : "bg-white border border-gray-200 text-gray-600 hover:border-[#036e26]/40"
+                ? "bg-gray-900 text-white shadow-sm"
+                : "bg-white border border-gray-200 text-gray-600 hover:border-gray-800/40"
             }`}>
             {s === "all" ? `All (${orders.length})` : `${s} (${orders.filter(o => o.status === s).length})`}
           </button>

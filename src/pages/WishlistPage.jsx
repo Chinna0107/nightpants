@@ -38,17 +38,17 @@ export function WishlistPage() {
               </div>
               <div className="relative z-10">
                 <div className="text-[12px] text-gray-500">Hello,</div>
-                <div className="font-bold text-[16px] text-[#022A21]">Aradhana Apparels User</div>
+                <div className="font-bold text-[16px] text-gray-900">Aradhana Apparels User</div>
               </div>
            </div>
            
            <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
-             <div className="border-b border-gray-100 p-5 hover:bg-gray-50 cursor-pointer font-bold text-gray-600 hover:text-brand-orange transition-all" onClick={() => navigate('/my-orders')}>
+             <div className="border-b border-gray-100 p-5 hover:bg-gray-50 cursor-pointer font-bold text-gray-600 hover:text-indigo-600 transition-all" onClick={() => navigate('/my-orders')}>
                My Orders
              </div>
-             <div className="p-5 bg-orange-50 cursor-pointer font-bold text-brand-orange border-l-4 border-brand-orange transition-all flex items-center justify-between">
+             <div className="p-5 bg-orange-50 cursor-pointer font-bold text-indigo-600 border-l-4 border-indigo-600 transition-all flex items-center justify-between">
                <span>My Wishlist</span>
-               <span className="bg-brand-orange text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">{wishlistProducts.length}</span>
+               <span className="bg-indigo-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-sm">{wishlistProducts.length}</span>
              </div>
            </div>
         </div>
@@ -56,8 +56,8 @@ export function WishlistPage() {
         {/* Main Content Area */}
         <div className="flex-1 bg-white rounded-3xl shadow-xl border border-gray-100 min-h-[60vh] overflow-hidden">
           <div className="px-6 py-5 border-b border-gray-100 bg-gray-50">
-            <h1 className="text-xl font-bold text-[#022A21] flex items-center gap-2 font-serif">
-              <span className="w-1.5 h-6 bg-brand-orange rounded-full inline-block shadow-sm"></span>
+            <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2 font-sans">
+              <span className="w-1.5 h-6 bg-indigo-600 rounded-full inline-block shadow-sm"></span>
               My Wishlist <span className="font-medium text-gray-500 text-[14px] ml-2">({wishlistProducts.length})</span>
             </h1>
           </div>
@@ -65,13 +65,13 @@ export function WishlistPage() {
           {wishlistProducts.length === 0 ? (
              <div className="flex flex-col items-center justify-center py-24 text-center px-4">
                <div className="mb-6 w-32 h-32 bg-orange-50 rounded-full flex items-center justify-center border border-orange-100 shadow-inner">
-                 <Heart className="w-16 h-16 text-brand-orange/40" />
+                 <Heart className="w-16 h-16 text-indigo-600/40" />
                </div>
-               <h2 className="text-xl font-bold text-[#022A21] mb-2 font-serif">Empty Wishlist</h2>
+               <h2 className="text-xl font-bold text-gray-900 mb-2 font-sans">Empty Wishlist</h2>
                <p className="text-gray-500 text-[15px] mb-8 max-w-sm">
                  You have no items in your wishlist. Start adding your favorite pieces!
                </p>
-               <Link to="/category/all" className="bg-gradient-to-r from-brand-orange to-yellow-500 text-white px-8 py-3.5 rounded-xl font-bold text-[15px] shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
+               <Link to="/category/all" className="bg-gradient-to-r from-indigo-600 to-yellow-500 text-white px-8 py-3.5 rounded-xl font-bold text-[15px] shadow-md hover:shadow-lg hover:-translate-y-1 transition-all">
                  Explore Products
                </Link>
              </div>
@@ -122,19 +122,19 @@ export function WishlistPage() {
                     <div className="flex flex-col flex-grow justify-center">
                       <div className="flex justify-between items-start gap-4">
                         <div className="pr-12">
-                          <h3 className="text-[16px] md:text-lg font-bold text-[#022A21] group-hover:text-brand-orange transition-colors line-clamp-2 leading-snug mb-2 font-serif">{product.name}</h3>
+                          <h3 className="text-[16px] md:text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-2 font-sans">{product.name}</h3>
                           
                           <div className="flex items-center gap-2 mb-4">
-                            <div className="flex items-center gap-1 bg-orange-50 border border-brand-orange/20 text-brand-orange px-2 py-0.5 rounded-full text-xs font-bold shadow-sm">
+                            <div className="flex items-center gap-1 bg-orange-50 border border-indigo-600/20 text-indigo-600 px-2 py-0.5 rounded-full text-xs font-bold shadow-sm">
                               4.5 <Star className="w-3 h-3 fill-current" />
                             </div>
                             <span className="text-gray-500 font-medium text-[13px]">(1,245 reviews)</span>
                           </div>
 
                           <div className="flex items-baseline gap-3 mb-2">
-                            <span className="text-2xl font-extrabold text-[#022A21]">₹{displayPrice}</span>
+                            <span className="text-2xl font-extrabold text-gray-900">₹{displayPrice}</span>
                             <span className="text-gray-400 line-through text-[14px]">₹{originalPrice}</span>
-                            <span className="text-brand-orange font-bold text-[14px]">{discountPercent}% off</span>
+                            <span className="text-indigo-600 font-bold text-[14px]">{discountPercent}% off</span>
                           </div>
                         </div>
 
@@ -160,7 +160,7 @@ export function WishlistPage() {
                               addToCart(product, defaultSize);
                               navigate('/cart');
                             }}
-                            className="bg-gradient-to-r from-brand-orange to-yellow-500 text-white px-6 py-2.5 text-[14px] font-bold rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                            className="bg-gradient-to-r from-indigo-600 to-yellow-500 text-white px-6 py-2.5 text-[14px] font-bold rounded-xl flex items-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
                          >
                             <ShoppingCart className="w-4 h-4" /> Add to Cart
                          </button>

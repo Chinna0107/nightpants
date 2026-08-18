@@ -37,7 +37,7 @@ export function VendorWalletPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Balance Card */}
-        <div className="bg-gradient-to-br from-[#fe6603] to-[#e55c00] p-8 rounded-3xl text-white shadow-lg relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#4f46e5] to-[#e55c00] p-8 rounded-3xl text-white shadow-lg relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-white opacity-10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-6">

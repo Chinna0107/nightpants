@@ -3,7 +3,7 @@ import { Plus, Trash2, Edit2, X, Percent, Ticket, CheckCircle2, ChevronRight, To
 import { toast } from 'react-toastify';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
-const accent = '#fe6603';
+const accent = '#4f46e5';
 
 const EMPTY_OFFER = {
   name: '', discount_percent: '', scope: 'all',
@@ -40,7 +40,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
     finally { setSaving(false); }
   };
 
-  const inputCls = 'w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#fe6603] focus:border-transparent';
+  const inputCls = 'w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#4f46e5] focus:border-transparent';
 
   const ScopeStep = () => (
     <>
@@ -48,7 +48,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
       <div className="grid grid-cols-3 gap-3">
         {[{ v: 'all', label: 'All My Products' }, { v: 'category', label: 'Categories' }, { v: 'product', label: 'Products' }].map(opt => (
           <button key={opt.v} type="button" onClick={() => set('scope', opt.v)}
-            className={`p-3 rounded-xl border-2 text-sm font-semibold transition-all ${form.scope === opt.v ? 'bg-[#fe6603] border-[#fe6603] text-white' : 'border-gray-200 text-gray-600 hover:border-[#fe6603]/40'}`}>
+            className={`p-3 rounded-xl border-2 text-sm font-semibold transition-all ${form.scope === opt.v ? 'bg-[#4f46e5] border-[#4f46e5] text-white' : 'border-gray-200 text-gray-600 hover:border-[#4f46e5]/40'}`}>
             {opt.label}
           </button>
         ))}
@@ -58,7 +58,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
           {categories.map(c => (
             <label key={c.id} className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 cursor-pointer">
               <input type="checkbox" checked={(form.category_ids || []).includes(c.id)}
-                onChange={() => toggleArr('category_ids', c.id)} className="w-4 h-4 rounded accent-[#fe6603]" />
+                onChange={() => toggleArr('category_ids', c.id)} className="w-4 h-4 rounded accent-[#4f46e5]" />
               <span className="text-sm text-gray-700">{c.name}</span>
             </label>
           ))}
@@ -69,7 +69,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
           {products.map(p => (
             <label key={p.id} className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-gray-50 cursor-pointer">
               <input type="checkbox" checked={(form.product_ids || []).includes(p.id)}
-                onChange={() => toggleArr('product_ids', p.id)} className="w-4 h-4 rounded accent-[#fe6603]" />
+                onChange={() => toggleArr('product_ids', p.id)} className="w-4 h-4 rounded accent-[#4f46e5]" />
               {p.image_url && <img src={p.image_url} className="w-8 h-8 rounded-lg object-cover" />}
               <span className="text-sm text-gray-700 truncate">{p.name}</span>
               <span className="ml-auto text-xs text-gray-400 flex-shrink-0">₹{p.price}</span>
@@ -87,10 +87,10 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
           <div className="flex items-center gap-3">
             {Array.from({ length: totalSteps }, (_, i) => i + 1).map(n => (
               <React.Fragment key={n}>
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${step >= n ? 'bg-[#fe6603] text-white' : 'bg-gray-100 text-gray-400'}`}>
+                <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${step >= n ? 'bg-[#4f46e5] text-white' : 'bg-gray-100 text-gray-400'}`}>
                   {step > n ? <CheckCircle2 className="w-4 h-4" /> : n}
                 </div>
-                {n < totalSteps && <div className={`w-8 h-0.5 rounded ${step > n ? 'bg-[#fe6603]' : 'bg-gray-200'}`} />}
+                {n < totalSteps && <div className={`w-8 h-0.5 rounded ${step > n ? 'bg-[#4f46e5]' : 'bg-gray-200'}`} />}
               </React.Fragment>
             ))}
           </div>
@@ -120,7 +120,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
                 <input type="date" value={form.expires_at} onChange={e => set('expires_at', e.target.value)} className={inputCls} />
               </div>
               <label className="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" checked={form.is_active} onChange={e => set('is_active', e.target.checked)} className="w-4 h-4 rounded accent-[#fe6603]" />
+                <input type="checkbox" checked={form.is_active} onChange={e => set('is_active', e.target.checked)} className="w-4 h-4 rounded accent-[#4f46e5]" />
                 <span className="text-sm font-medium text-gray-700">Active</span>
               </label>
             </>
@@ -182,7 +182,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
                 <div className="grid grid-cols-2 gap-3">
                   {[{ v: 'single', label: 'Single Use', sub: 'Once per user' }, { v: 'multiple', label: 'Multiple Use', sub: 'Unlimited times' }].map(opt => (
                     <button key={opt.v} type="button" onClick={() => set('usage_type', opt.v)}
-                      className={`p-3 rounded-xl border-2 text-left transition-all ${form.usage_type === opt.v ? 'bg-[#fe6603] border-[#fe6603] text-white' : 'border-gray-200 hover:border-[#fe6603]/40'}`}>
+                      className={`p-3 rounded-xl border-2 text-left transition-all ${form.usage_type === opt.v ? 'bg-[#4f46e5] border-[#4f46e5] text-white' : 'border-gray-200 hover:border-[#4f46e5]/40'}`}>
                       <p className="font-semibold text-sm">{opt.label}</p>
                       <p className={`text-xs mt-0.5 ${form.usage_type === opt.v ? 'text-white/70' : 'text-gray-400'}`}>{opt.sub}</p>
                     </button>
@@ -190,7 +190,7 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
                 </div>
               </div>
               <label className="flex items-center gap-3 cursor-pointer">
-                <input type="checkbox" checked={form.is_active} onChange={e => set('is_active', e.target.checked)} className="w-4 h-4 rounded accent-[#fe6603]" />
+                <input type="checkbox" checked={form.is_active} onChange={e => set('is_active', e.target.checked)} className="w-4 h-4 rounded accent-[#4f46e5]" />
                 <span className="text-sm font-medium text-gray-700">Active (visible to customers)</span>
               </label>
             </>
@@ -206,12 +206,12 @@ function Wizard({ type, initial, categories, products, onSave, onClose }) {
           )}
           {step < totalSteps ? (
             <button onClick={() => setStep(s => s + 1)}
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold bg-[#fe6603] text-white hover:bg-[#e55c02] transition-colors">
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold bg-[#4f46e5] text-white hover:bg-[#e55c02] transition-colors">
               Continue <ChevronRight className="w-4 h-4" />
             </button>
           ) : (
             <button onClick={handleSave} disabled={saving}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-[#fe6603] text-white hover:bg-[#e55c02] transition-colors disabled:opacity-50">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold bg-[#4f46e5] text-white hover:bg-[#e55c02] transition-colors disabled:opacity-50">
               {saving ? 'Saving...' : initial?.id ? `Update ${type === 'offer' ? 'Offer' : 'Coupon'}` : `Create ${type === 'offer' ? 'Offer' : 'Coupon'}`}
             </button>
           )}
@@ -287,7 +287,7 @@ export function VendorOffersPage() {
 
   if (loading) return (
     <div className="flex items-center justify-center py-20">
-      <div className="w-8 h-8 border-4 border-gray-200 border-t-[#fe6603] rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-gray-200 border-t-[#4f46e5] rounded-full animate-spin" />
     </div>
   );
 
@@ -307,7 +307,7 @@ export function VendorOffersPage() {
           <p className="text-gray-400 text-xs mt-0.5">Manage discounts and coupon codes for your store</p>
         </div>
         <button onClick={() => setWizard({ type: tab === 'offers' ? 'offer' : 'coupon', initial: {} })}
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
           <Plus className="w-4 h-4" /> {tab === 'offers' ? 'New Offer' : 'New Coupon'}
         </button>
       </div>
@@ -321,7 +321,7 @@ export function VendorOffersPage() {
           <button key={t.key} onClick={() => setTab(t.key)}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${tab === t.key ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
             {t.icon} {t.label}
-            <span className={`ml-1 text-xs px-1.5 py-0.5 rounded-full ${tab === t.key ? 'bg-[#fe6603] text-white' : 'bg-gray-200 text-gray-500'}`}>
+            <span className={`ml-1 text-xs px-1.5 py-0.5 rounded-full ${tab === t.key ? 'bg-[#4f46e5] text-white' : 'bg-gray-200 text-gray-500'}`}>
               {t.key === 'offers' ? offers.length : coupons.length}
             </span>
           </button>
@@ -341,7 +341,7 @@ export function VendorOffersPage() {
           {tab === 'offers' ? <Percent className="w-12 h-12 text-gray-200 mx-auto mb-3" /> : <Ticket className="w-12 h-12 text-gray-200 mx-auto mb-3" />}
           <p className="text-gray-400 text-sm mb-4">No {tab} yet.</p>
           <button onClick={() => setWizard({ type: tab === 'offers' ? 'offer' : 'coupon', initial: {} })}
-            className="px-5 py-2 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
+            className="px-5 py-2 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
             Create First {tab === 'offers' ? 'Offer' : 'Coupon'}
           </button>
         </div>
@@ -357,7 +357,7 @@ export function VendorOffersPage() {
                   <span className="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-500">Inactive</span>
                 )}
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center gap-1.5 bg-[#fe6603]/10 text-[#fe6603] px-3 py-1.5 rounded-lg text-sm font-bold tracking-wider">
+                  <div className="flex items-center gap-1.5 bg-[#4f46e5]/10 text-[#4f46e5] px-3 py-1.5 rounded-lg text-sm font-bold tracking-wider">
                     {isOffer ? <Percent className="w-3.5 h-3.5" /> : <Ticket className="w-3.5 h-3.5" />}
                     {isOffer ? item.name : item.code}
                   </div>
@@ -380,11 +380,11 @@ export function VendorOffersPage() {
                 </div>
                 <div className="flex items-center gap-2 pt-3 border-t border-gray-50">
                   <button onClick={() => toggleActive(item, tab === 'offers' ? 'offer' : 'coupon')}
-                    className={`transition-colors ${item.is_active ? 'text-[#fe6603]' : 'text-gray-400 hover:text-[#fe6603]'}`}>
+                    className={`transition-colors ${item.is_active ? 'text-[#4f46e5]' : 'text-gray-400 hover:text-[#4f46e5]'}`}>
                     {item.is_active ? <ToggleRight className="w-5 h-5" /> : <ToggleLeft className="w-5 h-5" />}
                   </button>
                   <button onClick={() => setWizard({ type: tab === 'offers' ? 'offer' : 'coupon', initial: { ...item, category_ids: catIds, product_ids: prdIds } })}
-                    className="ml-auto text-gray-400 hover:text-[#fe6603] p-1.5 rounded-lg hover:bg-gray-50 transition-colors">
+                    className="ml-auto text-gray-400 hover:text-[#4f46e5] p-1.5 rounded-lg hover:bg-gray-50 transition-colors">
                     <Edit2 className="w-4 h-4" />
                   </button>
                   <button onClick={() => handleDelete(item.id, tab === 'offers' ? 'offer' : 'coupon')}

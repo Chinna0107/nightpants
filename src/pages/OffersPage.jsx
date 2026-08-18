@@ -46,7 +46,7 @@ export function OffersPage() {
     <div className="min-h-screen bg-transparent">
       <Header />
       <div className="flex items-center justify-center py-32">
-        <div className="w-8 h-8 border-4 border-white/10 border-t-brand-orange rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-white/10 border-t-indigo-600 rounded-full animate-spin" />
       </div>
     </div>
   );
@@ -57,7 +57,7 @@ export function OffersPage() {
 
       {/* Hero */}
       <div className="glass-panel bg-black/40 border-x-0 border-t-0 border-b border-white/10 px-6 py-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
-        <div className="inline-flex items-center gap-2 bg-brand-orange/20 border border-brand-orange/30 text-brand-orange shadow-[0_0_10px_rgba(255,123,0,0.2)] text-xs font-bold px-4 py-1.5 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 bg-indigo-600/20 border border-indigo-600/30 text-indigo-600 shadow-[0_0_10px_rgba(255,123,0,0.2)] text-xs font-bold px-4 py-1.5 rounded-full mb-4">
           <Tag className="w-3.5 h-3.5" /> EXCLUSIVE DEALS
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Offers & Coupons</h1>
@@ -70,7 +70,7 @@ export function OffersPage() {
         {coupons.length > 0 && (
           <section>
             <div className="flex items-center gap-2 mb-6 px-2">
-              <Ticket className="w-6 h-6 text-brand-orange" />
+              <Ticket className="w-6 h-6 text-indigo-600" />
               <h2 className="text-xl font-bold text-white">Coupon Codes</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -80,7 +80,7 @@ export function OffersPage() {
                 return (
                   <motion.div key={c.id}
                     initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
-                    className={`glass-panel bg-gradient-to-br from-[#0a1128]/80 to-[#020617]/90 rounded-3xl border-2 p-6 relative overflow-hidden transition-all ${isHighlighted ? 'border-brand-orange shadow-[0_0_30px_rgba(255,123,0,0.3)]' : 'border-white/10 hover:border-white/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]'}`}>
+                    className={`glass-panel bg-gradient-to-br from-[#0a1128]/80 to-[#020617]/90 rounded-3xl border-2 p-6 relative overflow-hidden transition-all ${isHighlighted ? 'border-indigo-600 shadow-[0_0_30px_rgba(255,123,0,0.3)]' : 'border-white/10 hover:border-white/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]'}`}>
                     
                     {/* decorative circles */}
                     <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-[#020617] rounded-full border-r-2 border-dashed border-white/20" />
@@ -88,7 +88,7 @@ export function OffersPage() {
 
                     <div className="flex items-start justify-between mb-5">
                       <div>
-                        <p className="text-3xl font-black text-brand-orange glow-text">{discountLabel(c)}</p>
+                        <p className="text-3xl font-black text-indigo-600 glow-text">{discountLabel(c)}</p>
                         {restriction && <p className="text-xs text-brand-text-muted mt-1">{restriction}</p>}
                       </div>
                       {c.usage === 'one_time' || c.usage_type === 'single'
@@ -97,10 +97,10 @@ export function OffersPage() {
                       }
                     </div>
 
-                    <div className="flex items-center gap-3 bg-brand-orange/10 border border-dashed border-brand-orange/50 rounded-xl px-5 py-3 shadow-[0_0_15px_rgba(255,123,0,0.1)]">
+                    <div className="flex items-center gap-3 bg-indigo-600/10 border border-dashed border-indigo-600/50 rounded-xl px-5 py-3 shadow-[0_0_15px_rgba(255,123,0,0.1)]">
                       <span className="flex-1 font-bold tracking-widest text-white text-base">{c.code}</span>
                       <button onClick={() => handleCopy(c.code, c.id)}
-                        className="flex items-center gap-1.5 text-sm font-bold text-brand-orange hover:text-orange-400 hover:shadow-[0_0_10px_rgba(255,123,0,0.3)] transition-all bg-brand-orange/20 px-3 py-1.5 rounded-lg">
+                        className="flex items-center gap-1.5 text-sm font-bold text-indigo-600 hover:text-orange-400 hover:shadow-[0_0_10px_rgba(255,123,0,0.3)] transition-all bg-indigo-600/20 px-3 py-1.5 rounded-lg">
                         {copied === c.id ? <><Check className="w-4 h-4" /> Copied</> : <><Copy className="w-4 h-4" /> Copy</>}
                       </button>
                     </div>
@@ -121,7 +121,7 @@ export function OffersPage() {
         {productOffers.length > 0 && (
           <section>
             <div className="flex items-center gap-2 mb-6 px-2">
-              <Tag className="w-6 h-6 text-brand-orange" />
+              <Tag className="w-6 h-6 text-indigo-600" />
               <h2 className="text-xl font-bold text-white">Active Offers</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -129,7 +129,7 @@ export function OffersPage() {
                 <motion.div key={o.id}
                   initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
                   className="glass-panel bg-white/5 rounded-3xl border border-white/10 p-6 hover:border-white/30 hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all">
-                  <p className="text-2xl font-black text-brand-orange glow-text mb-2">{discountLabel(o)}</p>
+                  <p className="text-2xl font-black text-indigo-600 glow-text mb-2">{discountLabel(o)}</p>
                   <p className="text-base font-bold text-white mb-1.5">{o.name}</p>
                   <p className="text-xs text-brand-text-muted capitalize">
                     {o.scope === 'all' ? 'On all products' : o.scope === 'category' ? 'On selected categories' : 'On selected products'}
@@ -150,7 +150,7 @@ export function OffersPage() {
             <Tag className="w-16 h-16 text-white/20 mx-auto mb-4" />
             <p className="text-brand-text-muted mb-6 text-lg">No active offers right now. Check back soon!</p>
             <button onClick={() => navigate('/')}
-              className="flex items-center justify-center gap-2 mx-auto px-6 py-3 bg-brand-orange text-white rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(255,123,0,0.4)] hover:bg-orange-500 transition-all hover:-translate-y-0.5 w-max">
+              className="flex items-center justify-center gap-2 mx-auto px-6 py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-[0_0_15px_rgba(255,123,0,0.4)] hover:bg-orange-500 transition-all hover:-translate-y-0.5 w-max">
               <ShoppingBag className="w-4 h-4" /> Shop Now
             </button>
           </div>

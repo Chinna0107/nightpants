@@ -75,7 +75,7 @@ function AddAgentModal({ onClose, onAdd, accent }) {
                 <label key={page.path} className="flex items-center gap-2 cursor-pointer text-sm text-gray-700">
                   <input
                     type="checkbox"
-                    className="rounded border-gray-300 text-[#fe6603] focus:ring-[#fe6603]"
+                    className="rounded border-gray-300 text-[#4f46e5] focus:ring-[#4f46e5]"
                     checked={form.access_pages.includes(page.path)}
                     onChange={(e) => {
                       if (e.target.checked) {
@@ -92,7 +92,7 @@ function AddAgentModal({ onClose, onAdd, accent }) {
           </div>
 
           <button type="submit" disabled={loading}
-            className="w-full py-3 rounded-xl bg-[#fe6603] text-white text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50">
+            className="w-full py-3 rounded-xl bg-[#4f46e5] text-white text-sm font-semibold hover:bg-[#e55c02] transition-colors disabled:opacity-50">
             {loading ? "Adding..." : "Add Member"}
           </button>
         </form>
@@ -171,7 +171,7 @@ export function VendorSupportPage() {
         {TABS.map(t => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold border-b-2 transition-colors -mb-px whitespace-nowrap ${
-              tab === t.key ? "border-[#fe6603] text-[#fe6603]" : "border-transparent text-gray-400 hover:text-gray-700"
+              tab === t.key ? "border-[#4f46e5] text-[#4f46e5]" : "border-transparent text-gray-400 hover:text-gray-700"
             }`}>
             {t.icon} {t.label}
           </button>
@@ -180,7 +180,7 @@ export function VendorSupportPage() {
 
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="w-8 h-8 border-4 border-gray-200 border-t-[#fe6603] rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-gray-200 border-t-[#4f46e5] rounded-full animate-spin" />
         </div>
       ) : (
         <>
@@ -236,7 +236,7 @@ export function VendorSupportPage() {
               <div className="flex items-center justify-between mb-4">
                 <p className="text-sm text-gray-500">{agents.length} member{agents.length !== 1 ? "s" : ""}</p>
                 <button onClick={() => setShowModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
+                  className="flex items-center gap-2 px-4 py-2 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
                   <Plus className="w-4 h-4" /> Add Member
                 </button>
               </div>
@@ -246,7 +246,7 @@ export function VendorSupportPage() {
                   <Users className="w-10 h-10 text-gray-200 mx-auto mb-3" />
                   <p className="text-gray-400 text-sm">No support members yet.</p>
                   <button onClick={() => setShowModal(true)}
-                    className="mt-4 px-5 py-2 bg-[#fe6603] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
+                    className="mt-4 px-5 py-2 bg-[#4f46e5] text-white rounded-xl text-sm font-semibold hover:bg-[#e55c02] transition-colors">
                     Add First Member
                   </button>
                 </div>
@@ -254,7 +254,7 @@ export function VendorSupportPage() {
                 <div className="space-y-3">
                   {agents.map(agent => (
                     <div key={agent.id} className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#fe6603]/10 flex items-center justify-center flex-shrink-0 font-bold text-[#fe6603] text-sm">
+                      <div className="w-10 h-10 rounded-xl bg-[#4f46e5]/10 flex items-center justify-center flex-shrink-0 font-bold text-[#4f46e5] text-sm">
                         {agent.name?.[0]?.toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -264,8 +264,8 @@ export function VendorSupportPage() {
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${agent.is_active ? "bg-green-100 text-green-700" : "bg-red-100 text-red-500"}`}>
                         {agent.is_active ? "Active" : "Inactive"}
                       </span>
-                      <button onClick={() => handleToggle(agent.id)} className="text-gray-400 hover:text-[#fe6603] transition-colors flex-shrink-0">
-                        {agent.is_active ? <ToggleRight className="w-5 h-5 text-[#fe6603]" /> : <ToggleLeft className="w-5 h-5" />}
+                      <button onClick={() => handleToggle(agent.id)} className="text-gray-400 hover:text-[#4f46e5] transition-colors flex-shrink-0">
+                        {agent.is_active ? <ToggleRight className="w-5 h-5 text-[#4f46e5]" /> : <ToggleLeft className="w-5 h-5" />}
                       </button>
                       <button onClick={() => handleDelete(agent.id)} className="text-gray-300 hover:text-red-500 transition-colors flex-shrink-0">
                         <Trash2 className="w-4 h-4" />

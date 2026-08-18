@@ -57,19 +57,19 @@ export function AdminLayout({ children }) {
 
   if (!admin) return (
     <div className="min-h-screen bg-[#FDFBF7] flex items-center justify-center">
-      <div className="w-10 h-10 border-4 border-[#036e26]/20 border-t-[#036e26] rounded-full animate-spin" />
+      <div className="w-10 h-10 border-4 border-gray-800/20 border-t-[#036e26] rounded-full animate-spin" />
     </div>
   );
 
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex">
       {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-[#036e26]/10 px-4 py-3 flex items-center justify-between z-50">
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-800/10 px-4 py-3 flex items-center justify-between z-50">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Aradhana Apparels" className="h-8 object-contain mix-blend-multiply" />
-          <span className="font-bold text-lg"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span> <span className="text-sm font-normal text-gray-500">Admin</span></span>
+          <span className="font-bold text-lg"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span> <span className="text-sm font-normal text-gray-500">Admin</span></span>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#036e26]">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-gray-900">
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -80,39 +80,39 @@ export function AdminLayout({ children }) {
       )}
 
       {/* Sidebar */}
-      <aside className={`w-64 bg-white border-r border-[#036e26]/10 flex flex-col fixed h-full z-50 transition-transform ${
+      <aside className={`w-64 bg-white border-r border-gray-800/10 flex flex-col fixed h-full z-50 transition-transform ${
         mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       }`}>
-        <div className="p-5 border-b border-[#036e26]/10">
+        <div className="p-5 border-b border-gray-800/10">
           <div className="flex items-center gap-3">
             <img src={logo} alt="Aradhana Apparels" className="h-10 object-contain mix-blend-multiply" />
             <div>
-              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#fe6603]">Ind</span><span className="text-[#036e26]">basket</span></p>
+              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span></p>
               <div className="flex items-center gap-1 mt-1">
-                <Shield className="w-3 h-3 text-[#036e26]" />
-                <p className="text-[#036e26] text-[10px] font-sans font-semibold">Admin Panel</p>
+                <Shield className="w-3 h-3 text-gray-900" />
+                <p className="text-gray-900 text-[10px] font-sans font-semibold">Admin Panel</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-4 border-b border-[#036e26]/10">
-          <p className="font-sans font-semibold text-[#036e26] text-sm truncate">{admin.name}</p>
-          <p className="text-[#036e26]/40 text-[10px] font-sans truncate">{admin.email}</p>
+        <div className="p-4 border-b border-gray-800/10">
+          <p className="font-sans font-semibold text-gray-900 text-sm truncate">{admin.name}</p>
+          <p className="text-gray-900/40 text-[10px] font-sans truncate">{admin.email}</p>
         </div>
 
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {NAV.map((item) => (
             <Link key={item.href} to={item.href} onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium transition-colors ${
-                pathname === item.href ? "bg-[#036e26]/10 text-[#036e26]" : "text-[#036e26]/60 hover:text-[#036e26] hover:bg-[#FDFBF7]"
+                pathname === item.href ? "bg-gray-900/10 text-gray-900" : "text-gray-900/60 hover:text-gray-900 hover:bg-[#FDFBF7]"
               }`}>
               {item.icon} {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="p-4 border-t border-[#036e26]/10">
+        <div className="p-4 border-t border-gray-800/10">
           <button onClick={handleLogout}
             className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors w-full">
             <LogOut className="w-4 h-4" /> Logout

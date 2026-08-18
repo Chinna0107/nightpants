@@ -100,10 +100,10 @@ export function LoginPage() {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full border border-white/[0.05]" />
           <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full border border-white/[0.07]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-orange/[0.05] rounded-full blur-3xl" />
-          <div className="absolute -bottom-4 -left-12 w-48 h-48 rounded-full border border-brand-orange/[0.07]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-600/[0.05] rounded-full blur-3xl" />
+          <div className="absolute -bottom-4 -left-12 w-48 h-48 rounded-full border border-indigo-600/[0.07]" />
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="absolute w-1 h-1 rounded-full bg-brand-orange/20"
+            <div key={i} className="absolute w-1 h-1 rounded-full bg-indigo-600/20"
               style={{ top: `${10 + i * 13}%`, left: `${8 + i * 14}%` }} />
           ))}
         </div>
@@ -118,16 +118,16 @@ export function LoginPage() {
             <div className="w-[90px] h-[90px] rounded-[1.75rem] bg-white/[0.08] border border-white/[0.14] flex items-center justify-center overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]">
               <img src={logo} alt="Aradhana Apparels" className="h-20 w-20 scale-[1.25] object-contain drop-shadow-2xl" />
             </div>
-            <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-brand-orange to-yellow-400 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
+            <div className="absolute -bottom-1.5 -right-1.5 w-7 h-7 bg-gradient-to-br from-indigo-600 to-yellow-400 rounded-full border-[3px] border-[#022A21] flex items-center justify-center shadow-lg">
               <ShieldCheck className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
           </div>
-          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'Georgia, serif', letterSpacing: '0.18em' }}>Aradhana Apparels</h1>
-          <p className="text-brand-orange text-[10px] font-bold tracking-[0.28em] uppercase mt-1">Your Choice, From Anywhere.</p>
+          <h1 className="text-white text-[22px] font-extrabold tracking-widest" style={{ fontFamily: 'inherit', letterSpacing: '0.18em' }}>Aradhana Apparels</h1>
+          <p className="text-indigo-600 text-[10px] font-bold tracking-[0.28em] uppercase mt-1">Your Choice, From Anywhere.</p>
           <div className="flex items-center gap-5 mt-5">
             {['10K+ Members', '100% Secure', 'Free Replacements'].map(t => (
               <div key={t} className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-orange/70" />
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-600/70" />
                 <span className="text-white/50 text-[10px] font-medium">{t}</span>
               </div>
             ))}
@@ -141,7 +141,7 @@ export function LoginPage() {
           <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-6" />
 
           <div className="mb-6">
-            <h2 className="text-2xl font-extrabold text-[#022A21]" style={{ fontFamily: 'Georgia, serif' }}>
+            <h2 className="text-2xl font-extrabold text-gray-900" style={{ fontFamily: 'inherit' }}>
               {meta.title} {meta.emoji}
             </h2>
             <p className="text-[13px] text-gray-500 mt-1.5">{meta.sub}</p>
@@ -171,12 +171,12 @@ export function LoginPage() {
                 <div className="relative">
                   <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                   <input name="password" type={showPass ? 'text' : 'password'} value={form.password} onChange={handleChange} required placeholder="Password" className={inputClass + ' pr-12'} />
-                  <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-orange transition-colors">
+                  <button type="button" onClick={() => setShowPass(!showPass)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-indigo-600 transition-colors">
                     {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
                 <div className="flex justify-end -mt-1">
-                  <button type="button" onClick={() => { setStep('forgot_email'); clearMessages(); }} className="text-[13px] font-semibold text-brand-orange hover:underline underline-offset-2">Forgot Password?</button>
+                  <button type="button" onClick={() => { setStep('forgot_email'); clearMessages(); }} className="text-[13px] font-semibold text-indigo-600 hover:underline underline-offset-2">Forgot Password?</button>
                 </div>
                 <button type="submit" disabled={loading}
                   className="w-full bg-gradient-to-r from-[#022A21] to-[#054335] text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(2,42,33,0.3)] hover:shadow-[0_8px_30px_rgba(2,42,33,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-1">
@@ -197,7 +197,7 @@ export function LoginPage() {
                 <GoogleIcon />
                 Continue with Google
               </button>
-              <Link to="/signup" className="flex items-center justify-center w-full border-2 border-brand-orange/25 text-brand-orange font-bold py-3.5 rounded-2xl text-[15px] hover:bg-brand-orange/5 hover:border-brand-orange/50 transition-all">
+              <Link to="/signup" className="flex items-center justify-center w-full border-2 border-indigo-600/25 text-indigo-600 font-bold py-3.5 rounded-2xl text-[15px] hover:bg-indigo-600/5 hover:border-indigo-600/50 transition-all">
                 Create Account
               </Link>
             </>
@@ -211,7 +211,7 @@ export function LoginPage() {
                 <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="Registered email address" className={inputClass} />
               </div>
               <button type="submit" disabled={loading}
-                className="w-full bg-gradient-to-r from-brand-orange to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.35)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2">
+                className="w-full bg-gradient-to-r from-indigo-600 to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.35)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2 mt-2">
                 {loading ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</> : 'Send OTP →'}
               </button>
             </form>
@@ -226,7 +226,7 @@ export function LoginPage() {
                   placeholder="Enter 6-digit OTP" className={inputClass + ' tracking-[0.5em] text-center text-lg font-bold pl-4'} />
               </div>
               <button type="submit" disabled={loading}
-                className="w-full bg-gradient-to-r from-brand-orange to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.35)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2">
+                className="w-full bg-gradient-to-r from-indigo-600 to-yellow-400 text-white font-bold py-4 rounded-2xl text-[15px] shadow-[0_4px_20px_rgba(254,102,3,0.35)] hover:shadow-[0_8px_30px_rgba(254,102,3,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all disabled:opacity-60 flex items-center justify-center gap-2">
                 {loading ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Verifying...</> : 'Verify OTP →'}
               </button>
             </form>
@@ -242,7 +242,7 @@ export function LoginPage() {
                 <div key={f.name} className="relative">
                   <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                   <input name={f.name} type={f.show ? 'text' : 'password'} value={form[f.name]} onChange={handleChange} required minLength={6} placeholder={f.placeholder} className={inputClass + ' pr-12'} />
-                  <button type="button" onClick={f.toggle} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-orange transition-colors">
+                  <button type="button" onClick={f.toggle} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-indigo-600 transition-colors">
                     {f.show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
