@@ -82,19 +82,19 @@ function CategoriesDropdown() {
     <div ref={ref} className="relative py-4 -my-4"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-indigo-600 transition-colors">
+      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-colors">
         Categories <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 w-56 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 py-2 z-[100]">
+        <div className="absolute top-full left-0 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-[100]">
           <button onClick={() => { navigate('/category/all'); setOpen(false); }}
-            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-600/10 transition-colors">
+            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-50 transition-colors">
             <Grid3X3 className="w-4 h-4" /> All Categories
           </button>
-          <div className="border-t border-gray-800 my-1" />
+          <div className="border-t border-gray-100 my-1" />
           {categories.map(cat => (
             <button key={cat.id} onClick={() => { navigate(`/category/${cat.id}`); setOpen(false); }}
-              className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-gray-300 hover:bg-indigo-600/10 hover:text-indigo-600 transition-colors">
+              className="w-full flex items-center px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
               {cat.name}
             </button>
           ))}
@@ -121,20 +121,20 @@ function OffersDropdown() {
     <div ref={ref} className="relative py-4 -my-4"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-300 hover:text-indigo-600 transition-colors">
+      <button className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold text-gray-800 hover:text-indigo-600 transition-colors">
         Offers <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute top-full left-0 w-64 bg-gray-900 rounded-2xl shadow-xl border border-gray-800 py-2 z-[100]">
+        <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-[100]">
           <button onClick={() => { navigate('/offers'); setOpen(false); }}
-            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-600/10 transition-colors">
+            className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-indigo-600 hover:bg-indigo-50 transition-colors">
             <Tag className="w-4 h-4" /> View All Offers
           </button>
-          {offers.length > 0 && <div className="border-t border-gray-800 my-1" />}
+          {offers.length > 0 && <div className="border-t border-gray-100 my-1" />}
           {offers.slice(0, 6).map(offer => (
             <button key={offer.id} onClick={() => { navigate(`/offers?id=${offer.id}`); setOpen(false); }}
-              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-indigo-600/10 transition-colors">
-              <span className="text-sm font-semibold text-gray-300 truncate">{offer.name || offer.code}</span>
+              className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-indigo-50 transition-colors">
+              <span className="text-sm font-semibold text-gray-700 truncate">{offer.name || offer.code}</span>
               <span className="text-xs font-bold text-indigo-600 ml-2 shrink-0">
                 {offer.discount_type === 'flat' ? `₹${offer.discount_percent}` : `${offer.discount_percent}%`} OFF
               </span>
@@ -180,7 +180,7 @@ function DesktopFullHeader({ cartCount, wishlistCount, token, user, handleLogout
 
           {/* Centered Logo */}
           <Link to="/" className="shrink-0 flex items-center justify-center mx-4 group lg:mx-0 relative -ml-2 md:-ml-8 lg:-ml-16">
-            <img src={logo} alt="Logo" className="relative z-10 h-20 md:h-24 lg:h-28 w-auto max-w-[320px] lg:max-w-[400px] object-contain transition-all duration-500 group-hover:scale-105 filter drop-shadow-sm" />
+            <img src={logo} alt="Logo" className="relative z-10 h-20 md:h-24 lg:h-28 w-auto max-w-[320px] lg:max-w-[400px] object-contain transition-all duration-500 group-hover:scale-105 filter drop-shadow-sm brightness-0" />
           </Link>
 
           {/* Right Action Icons & Search */}

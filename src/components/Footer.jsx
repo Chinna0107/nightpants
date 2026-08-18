@@ -109,7 +109,7 @@ export function Footer() {
               <div className="w-9 h-9 rounded-full bg-gray-800 border border-indigo-600/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-all text-indigo-600 group-hover:text-white">
                 <MapPin className="w-4 h-4" />
               </div>
-              <span className="leading-relaxed mt-1 group-hover:text-white transition-colors">1-1-738, Vinayaka temple road,<br/>Koratla, Telangana, India<br/><span className="text-[11px] text-indigo-600/70 font-medium tracking-wider">GSTIN: 36BANPK1643M1ZC</span></span>
+              <span className="leading-relaxed mt-1 group-hover:text-white transition-colors">1-1-738, Vinayaka temple road,<br/>Koratla, Telangana, India<br/><span className="text-[11px] text-indigo-600/70 font-medium tracking-wider"></span></span>
             </div>
             <div className="flex items-center gap-3 text-[14px] text-gray-300 group cursor-default">
               <div className="w-9 h-9 rounded-full bg-gray-800 border border-indigo-600/20 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:border-indigo-600 transition-all text-indigo-600 group-hover:text-white">

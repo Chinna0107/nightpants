@@ -63,7 +63,7 @@ export function HomePage() {
           </div>
 
           {/* Banner Images Decoration */}
-          <div className="absolute right-[-10%] top-0 bottom-0 w-[55%] flex items-center justify-center opacity-90 mix-blend-luminosity">
+          <div className="absolute right-[-10%] top-0 bottom-0 w-[55%] flex items-center justify-center opacity-100">
             <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80" alt="Gear" className="w-full h-full object-cover rounded-l-full rotate-12 scale-150" />
           </div>
 
