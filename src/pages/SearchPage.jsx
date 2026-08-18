@@ -6,9 +6,9 @@ import { useStoreData } from '../store/useStoreData';
 import { motion } from 'framer-motion';
 
 const searchSuggestions = {
-  types: ['Cotton', 'Silk', 'Banarasi', 'Party Wear', 'Office Wear', 'Wedding', 'Festival'],
+  types: ['Activewear', 'Casual', 'Training', 'Running', 'Gym', 'Yoga', 'Outdoor'],
   prices: ['Under ₹1,000', 'Under ₹1,500', 'Under ₹2,000', 'Under ₹2,500', 'Under ₹3,000'],
-  regions: ['Kanchipuram', 'Hyderabad', 'Varanasi', 'Jaipur', 'Lucknow', 'Thrissur', 'Mumbai', 'New Delhi', 'Bengaluru']
+  activities: ['Running', 'Basketball', 'Football', 'Tennis', 'Gym', 'Cycling', 'Hiking', 'Swimming', 'Yoga']
 };
 
 export function SearchPage() {
@@ -48,7 +48,7 @@ export function SearchPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFDF9] font-sans pb-24">
+    <div className="flex-1 bg-[#FFFDF9] font-sans pb-4">
       {/* Search Header */}
       <div className="bg-[#FFFDF9] sticky top-0 z-40 px-4 py-4 flex items-center gap-3 border-b border-gray-100">
         <button onClick={() => navigate('/')} className="p-2 text-gray-700 hover:bg-gray-100 rounded-full transition-colors">
@@ -73,7 +73,7 @@ export function SearchPage() {
             </button>
           )}
         </div>
-        <button className="w-10 h-10 bg-[#8E112E] rounded-full flex items-center justify-center text-white shadow-sm hover:bg-[#720e25] transition-colors shrink-0">
+        <button className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-sm hover:bg-indigo-700 transition-colors shrink-0">
           <SlidersHorizontal className="w-4 h-4" />
         </button>
       </div>
@@ -85,10 +85,10 @@ export function SearchPage() {
             
             {/* Breadcrumb Context */}
             <div className="flex items-center text-sm font-medium">
-              <span className="text-[#8E112E] cursor-pointer hover:underline">Categories</span>
+              <span className="text-indigo-600 cursor-pointer hover:underline">Categories</span>
               <ChevronRight className="w-4 h-4 text-gray-400 mx-1" />
               <span className="text-gray-800 flex items-center gap-1">
-                <span className="text-base">🥻</span> Sarees
+                <span className="text-base">👕</span> Sports Wear
               </span>
             </div>
 
@@ -98,7 +98,7 @@ export function SearchPage() {
               <div className="flex flex-wrap gap-2.5">
                 {searchSuggestions.types.map(type => (
                   <button key={type} onClick={() => handleTagClick(type)}
-                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-[#8E112E] hover:text-[#8E112E] transition-colors shadow-sm">
+                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600 transition-colors shadow-sm">
                     {type}
                   </button>
                 ))}
@@ -111,21 +111,21 @@ export function SearchPage() {
               <div className="flex flex-wrap gap-2.5">
                 {searchSuggestions.prices.map(price => (
                   <button key={price} onClick={() => handleTagClick(price.split(' ')[1])}
-                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-[#8E112E] hover:text-[#8E112E] transition-colors shadow-sm">
+                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600 transition-colors shadow-sm">
                     {price}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* REGION */}
+            {/* ACTIVITIES */}
             <div>
-              <p className="text-[11px] font-bold text-gray-500 tracking-wider mb-3">REGION · SAREES</p>
+              <p className="text-[11px] font-bold text-gray-500 tracking-wider mb-3">ACTIVITIES</p>
               <div className="flex flex-wrap gap-2.5">
-                {searchSuggestions.regions.map(region => (
-                  <button key={region} onClick={() => handleTagClick(region)}
-                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-[#8E112E] hover:text-[#8E112E] transition-colors shadow-sm">
-                    {region}
+                {searchSuggestions.activities.map(activity => (
+                  <button key={activity} onClick={() => handleTagClick(activity)}
+                    className="px-4 py-1.5 bg-white border border-gray-200 rounded-full text-[13px] font-medium text-gray-700 hover:border-indigo-600 hover:text-indigo-600 transition-colors shadow-sm">
+                    {activity}
                   </button>
                 ))}
               </div>

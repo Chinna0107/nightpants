@@ -42,7 +42,7 @@ export function HomePage() {
   };
 
   return (
-    <div ref={container} className="bg-[#f8f9fa] min-h-screen pb-[76px]">
+    <div ref={container} className="bg-[#f8f9fa] flex-1 pb-4">
       <Header variant="home" />
 
       {/* 1. Hero Banner */}
