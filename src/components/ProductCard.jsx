@@ -113,7 +113,9 @@ export function ProductCard({ product, layout = 'grid' }) {
   }
 
   const firstImg = getFirstImage(product, parsedSizes);
-  const displayPrice = defaultSize.price || product.price || 0;
+  const displayPrice = defaultSize.our_price || defaultSize.price || product.price || 0;
+  const originalPrice = defaultSize.mrp || product.mrp || (displayPrice > 0 ? Math.round(displayPrice * 1.4) : 0);
+  const discountPercent = originalPrice > displayPrice ? Math.round(((originalPrice - displayPrice) / originalPrice) * 100) : 0;
   // firstImg always returns a valid URL (category fallback if needed)
   // onError swaps to category fallback in case of network issues
   const fallbackImg = getCategoryFallback(product);
@@ -149,6 +151,11 @@ export function ProductCard({ product, layout = 'grid' }) {
           <img src={imgErr ? fallbackImg : firstImg} alt={product.name}
             onError={() => setImgErr(true)}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+          {discountPercent > 0 && (
+            <div className="absolute top-2 left-2 bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm z-10 uppercase tracking-tight">
+              {discountPercent}% OFF
+            </div>
+          )}
         </div>
         <div className="flex flex-col justify-center flex-grow pr-2">
           <div className="flex justify-between items-start mb-1">
@@ -162,7 +169,9 @@ export function ProductCard({ product, layout = 'grid' }) {
           <div className="flex items-center justify-between mt-auto pt-2">
             <div className="flex items-center gap-2">
               <span className="text-lg font-black text-gray-900 tracking-tight">₹{displayPrice?.toLocaleString('en-IN')}</span>
-              <span className="text-xs text-gray-400 line-through font-medium">₹{Math.round(displayPrice * 1.4)?.toLocaleString('en-IN')}</span>
+              {originalPrice > displayPrice && (
+                <span className="text-xs text-gray-400 line-through font-medium">₹{originalPrice?.toLocaleString('en-IN')}</span>
+              )}
             </div>
             <button onClick={handleAddToCart}
               className="bg-gray-900 hover:bg-indigo-600 transition-colors p-2.5 rounded-xl relative z-20 active:scale-95 shadow-sm hover:shadow-md hover:shadow-indigo-600/20">
@@ -188,6 +197,12 @@ export function ProductCard({ product, layout = 'grid' }) {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         
+        {discountPercent > 0 && (
+          <div className="absolute top-2 left-2 bg-red-500 text-white text-[11px] font-extrabold px-2 py-0.5 rounded shadow z-20 tracking-wide uppercase">
+            {discountPercent}% OFF
+          </div>
+        )}
+        
         {/* Wishlist Button Overlay */}
         <button onClick={handleWishlist}
           className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white flex items-center justify-center transition-all duration-200">
@@ -201,8 +216,11 @@ export function ProductCard({ product, layout = 'grid' }) {
           {product.name}
         </h3>
 
-        <div className="text-[15px] md:text-[16px] font-bold text-indigo-600 tracking-tight mb-3">
-          ₹{displayPrice?.toLocaleString('en-IN')}
+        <div className="text-[15px] md:text-[16px] font-bold text-indigo-600 tracking-tight mb-3 flex items-center gap-2">
+          <span>₹{displayPrice?.toLocaleString('en-IN')}</span>
+          {originalPrice > displayPrice && (
+            <span className="text-xs text-gray-400 line-through font-medium">₹{originalPrice?.toLocaleString('en-IN')}</span>
+          )}
         </div>
         
         <div className="mt-auto pt-1">

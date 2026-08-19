@@ -98,8 +98,9 @@ export function ProductDetailPage() {
     }
   };
 
-  const originalPrice = selectedSizeObj ? Math.round(selectedSizeObj.price * 1.4) : 0;
-  const discountPercent = originalPrice > 0 ? Math.round(((originalPrice - selectedSizeObj.price) / originalPrice) * 100) : 0;
+  const displayPrice = selectedSizeObj ? (selectedSizeObj.our_price || selectedSizeObj.price || product?.price || 0) : 0;
+  const originalPrice = selectedSizeObj ? (selectedSizeObj.mrp || product?.mrp || (displayPrice > 0 ? Math.round(displayPrice * 1.4) : 0)) : 0;
+  const discountPercent = originalPrice > displayPrice ? Math.round(((originalPrice - displayPrice) / originalPrice) * 100) : 0;
 
   let customAttrs = {};
   try {
@@ -254,8 +255,8 @@ export function ProductDetailPage() {
 
           {/* Price */}
           <div className="flex items-end gap-3 mb-8">
-            <span className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">₹{selectedSizeObj.price.toLocaleString()}</span>
-            {originalPrice > selectedSizeObj.price && (
+            <span className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">₹{displayPrice.toLocaleString()}</span>
+            {originalPrice > displayPrice && (
               <div className="flex items-center gap-3 pb-1">
                 <span className="text-lg text-gray-400 line-through font-medium">₹{originalPrice.toLocaleString()}</span>
                 <span className="text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-yellow-500 px-3 py-1 rounded-full shadow-md shadow-indigo-600/20 tracking-wider">

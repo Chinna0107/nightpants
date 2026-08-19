@@ -14,15 +14,7 @@ const NAV = [
   { href: "/admin/banners", label: "Banners", icon: <ImageIcon className="w-4 h-4" /> },
   { href: "/admin/coupons", label: "Coupons", icon: <Tag className="w-4 h-4" /> },
   { href: "/admin/reports", label: "Reports", icon: <BarChart3 className="w-4 h-4" /> },
-  { href: "/admin/vendor-requests", label: "Vendor Requests", icon: <UserPlus className="w-4 h-4" /> },
-  { href: "/admin/vendor-profiles", label: "Vendor Profiles", icon: <UserCircle className="w-4 h-4" /> },
-  { href: "/admin/vendor-products", label: "Vendor Products", icon: <Store className="w-4 h-4" /> },
-  { href: "/admin/vendor-wallets", label: "Vendor Wallets", icon: <Wallet className="w-4 h-4" /> },
-  { href: "/admin/vendor-orders", label: "Vendor Orders", icon: <ShoppingBag className="w-4 h-4" /> },
-  { href: "/admin/support", label: "Support", icon: <HeadphonesIcon className="w-4 h-4" /> },
-  { href: "/admin/subscriptions", label: "Subscriptions", icon: <CreditCard className="w-4 h-4" /> },
   { href: "/admin/offers", label: "Offers", icon: <Percent className="w-4 h-4" /> },
-  { href: "/admin/product-requests", label: "Product Requests", icon: <ClipboardList className="w-4 h-4" /> },
 ];
 
 export function AdminLayout({ children }) {
@@ -64,12 +56,12 @@ export function AdminLayout({ children }) {
   return (
     <div className="min-h-screen bg-[#FDFBF7] flex">
       {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-800/10 px-4 py-3 flex items-center justify-between z-50">
+      <div className="md:hidden fixed top-0 left-0 right-0 bg-black border-b border-gray-800 px-4 py-3 flex items-center justify-between z-50">
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Aradhana Apparels" className="h-8 object-contain mix-blend-multiply" />
-          <span className="font-bold text-lg"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span> <span className="text-sm font-normal text-gray-500">Admin</span></span>
+          <img src={logo} alt="Aradhana Apparels" className="h-8 object-contain" />
+          <span className="font-bold text-lg"><span className="text-white">Aradhana Apparels</span> <span className="text-sm font-normal text-gray-400">Admin</span></span>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-gray-900">
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-white">
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -80,41 +72,41 @@ export function AdminLayout({ children }) {
       )}
 
       {/* Sidebar */}
-      <aside className={`w-64 bg-white border-r border-gray-800/10 flex flex-col fixed h-full z-50 transition-transform ${
+      <aside className={`w-64 bg-black border-r border-gray-800 flex flex-col fixed h-full z-50 transition-transform ${
         mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       }`}>
-        <div className="p-5 border-b border-gray-800/10">
+        <div className="p-5 border-b border-gray-800">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="Aradhana Apparels" className="h-10 object-contain mix-blend-multiply" />
+            <img src={logo} alt="Aradhana Apparels" className="h-10 object-contain" />
             <div>
-              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-[#4f46e5]">Ind</span><span className="text-gray-900">basket</span></p>
+              <p className="font-bold text-xl tracking-tight leading-none"><span className="text-white">Aradhana Apparels</span></p>
               <div className="flex items-center gap-1 mt-1">
-                <Shield className="w-3 h-3 text-gray-900" />
-                <p className="text-gray-900 text-[10px] font-sans font-semibold">Admin Panel</p>
+                <Shield className="w-3 h-3 text-white" />
+                <p className="text-white text-[10px] font-sans font-semibold">Admin Panel</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-4 border-b border-gray-800/10">
-          <p className="font-sans font-semibold text-gray-900 text-sm truncate">{admin.name}</p>
-          <p className="text-gray-900/40 text-[10px] font-sans truncate">{admin.email}</p>
+        <div className="p-4 border-b border-gray-800">
+          <p className="font-sans font-semibold text-white text-sm truncate">{admin.name}</p>
+          <p className="text-gray-400 text-[10px] font-sans truncate">{admin.email}</p>
         </div>
 
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {NAV.map((item) => (
             <Link key={item.href} to={item.href} onClick={() => setMobileOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium transition-colors ${
-                pathname === item.href ? "bg-gray-900/10 text-gray-900" : "text-gray-900/60 hover:text-gray-900 hover:bg-[#FDFBF7]"
+                pathname === item.href ? "bg-white/10 text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
               }`}>
               {item.icon} {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="p-4 border-t border-gray-800/10">
+        <div className="p-4 border-t border-gray-800">
           <button onClick={handleLogout}
-            className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors w-full">
+            className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-sans font-medium text-red-400 hover:text-red-500 hover:bg-red-900/20 transition-colors w-full">
             <LogOut className="w-4 h-4" /> Logout
           </button>
         </div>

@@ -36,42 +36,13 @@ import { ReferPage } from './pages/ReferPage';
 import { AdminLayout } from './components/admin/AdminLayout';
 import { AdminDashboardPage } from './pages/admin/AdminDashboardPage';
 import { AdminProductsPage } from './pages/admin/AdminProductsPage';
-import { AdminProductFormPage } from './pages/admin/AdminProductFormPage';
 import { AdminOrdersPage } from './pages/admin/AdminOrdersPage';
 import { AdminCustomersPage } from './pages/admin/AdminCustomersPage';
 import { AdminBannersPage } from './pages/admin/AdminBannersPage';
 import { AdminCouponsPage } from './pages/admin/AdminCouponsPage';
 import { AdminReportsPage } from './pages/admin/AdminReportsPage';
 import { AdminCategoriesPage } from './pages/admin/AdminCategoriesPage';
-import { AdminVendorRequestsPage } from './pages/admin/AdminVendorRequestsPage';
-import { AdminVendorProfilesPage } from './pages/admin/AdminVendorProfilesPage';
-import { AdminVendorProductsPage } from './pages/admin/AdminVendorProductsPage';
-import { AdminVendorWalletsPage } from './pages/admin/AdminVendorWalletsPage';
-import { AdminVendorOrdersPage } from './pages/admin/AdminVendorOrdersPage';
-import { AdminSupportPage } from './pages/admin/AdminSupportPage';
-import { AdminSubscriptionsPage } from './pages/admin/AdminSubscriptionsPage';
 import { AdminOffersPage } from './pages/admin/AdminOffersPage';
-import { AdminProductRequestsPage } from './pages/admin/AdminProductRequestsPage';
-
-import { SupportLayout } from './components/support/SupportLayout';
-import { SupportLoginPage } from './pages/support/SupportLoginPage';
-import { SupportDashboardPage } from './pages/support/SupportDashboardPage';
-import { SupportOrdersPage } from './pages/support/SupportOrdersPage';
-import { SupportProductsPage } from './pages/support/SupportProductsPage';
-import { SupportCategoriesPage } from './pages/support/SupportCategoriesPage';
-
-import { VendorLayout } from './components/vendor/VendorLayout';
-import { VendorLoginPage } from './pages/vendor/VendorLoginPage';
-import { VendorSignupPage } from './pages/vendor/VendorSignupPage';
-import { VendorDashboardPage } from './pages/vendor/VendorDashboardPage';
-import { VendorProductsPage } from './pages/vendor/VendorProductsPage';
-import { VendorOrdersPage } from './pages/vendor/VendorOrdersPage';
-import { VendorCategoriesPage } from './pages/vendor/VendorCategoriesPage';
-import { VendorWalletPage } from './pages/vendor/VendorWalletPage';
-import { VendorProfilePage } from './pages/vendor/VendorProfilePage';
-import { VendorSupportPage } from './pages/vendor/VendorSupportPage';
-import { VendorOffersPage } from './pages/vendor/VendorOffersPage';
-import { VendorProductFormPage } from './pages/vendor/VendorProductFormPage';
 
 function PageTransition({ children }) {
   return (
@@ -139,9 +110,6 @@ function App() {
             {/* Auth pages — no layout */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/vendor-login" element={<VendorLoginPage />} />
-            <Route path="/vendor-signup" element={<VendorSignupPage />} />
-            <Route path="/support-login" element={<SupportLoginPage />} />
 
             {/* Admin — using AdminLayout */}
             <Route path="/admin/*" element={
@@ -151,70 +119,16 @@ function App() {
                   <Route path="/orders" element={<AdminOrdersPage />} />
                   <Route path="customers" element={<AdminCustomersPage />} />
                   <Route path="products" element={<AdminProductsPage />} />
-                  <Route path="products/new" element={<AdminProductFormPage />} />
-                  <Route path="products/:id/edit" element={<AdminProductFormPage />} />
                   <Route path="categories" element={<AdminCategoriesPage />} />
                   <Route path="banners" element={<AdminBannersPage />} />
                   <Route path="/coupons" element={<AdminCouponsPage />} />
                   <Route path="/reports" element={<AdminReportsPage />} />
-                  <Route path="vendor-requests" element={<AdminVendorRequestsPage />} />
-                  <Route path="vendor-profiles" element={<AdminVendorProfilesPage />} />
-                  <Route path="vendor-products" element={<AdminVendorProductsPage />} />
-                  <Route path="vendor-wallets" element={<AdminVendorWalletsPage />} />
-                  <Route path="vendor-orders" element={<AdminVendorOrdersPage />} />
-                  <Route path="support" element={<AdminSupportPage />} />
-                  <Route path="subscriptions" element={<AdminSubscriptionsPage />} />
                   <Route path="offers" element={<AdminOffersPage />} />
-                  <Route path="product-requests" element={<AdminProductRequestsPage />} />
                 </Routes>
               </AdminLayout>
             } />
 
-            {/* Support — using SupportLayout */}
-            <Route path="/support/*" element={
-              <SupportLayout>
-                <Routes>
-                  <Route path="/" element={<SupportDashboardPage />} />
-                  <Route path="dashboard" element={<SupportDashboardPage />} />
-                  <Route path="orders" element={<SupportOrdersPage />} />
-                  <Route path="products" element={<SupportProductsPage />} />
-                  <Route path="categories" element={<SupportCategoriesPage />} />
-                  {/* Admin-scope support pages */}
-                  <Route path="customers" element={<AdminCustomersPage />} />
-                  <Route path="banners" element={<AdminBannersPage />} />
-                  <Route path="coupons" element={<AdminCouponsPage />} />
-                  <Route path="reports" element={<AdminReportsPage />} />
-                  <Route path="vendor-requests" element={<AdminVendorRequestsPage />} />
-                  <Route path="vendor-profiles" element={<AdminVendorProfilesPage />} />
-                  <Route path="vendor-products" element={<AdminVendorProductsPage />} />
-                  <Route path="vendor-wallets" element={<AdminVendorWalletsPage />} />
-                  <Route path="vendor-orders" element={<AdminVendorOrdersPage />} />
-                  <Route path="subscriptions" element={<AdminSubscriptionsPage />} />
-                  <Route path="offers" element={<AdminOffersPage />} />
-                  {/* Vendor-scope support pages */}
-                  <Route path="wallet" element={<VendorWalletPage />} />
-                  <Route path="profile" element={<VendorProfilePage />} />
-                </Routes>
-              </SupportLayout>
-            } />
 
-            {/* Vendor — using VendorLayout */}
-            <Route path="/vendor/*" element={
-              <VendorLayout>
-                <Routes>
-                  <Route path="/" element={<VendorDashboardPage />} />
-                  <Route path="products" element={<VendorProductsPage />} />
-                  <Route path="products/new" element={<VendorProductFormPage />} />
-                  <Route path="products/:id/edit" element={<VendorProductFormPage />} />
-                  <Route path="orders" element={<VendorOrdersPage />} />
-                  <Route path="categories" element={<VendorCategoriesPage />} />
-                  <Route path="wallet" element={<VendorWalletPage />} />
-                  <Route path="profile" element={<VendorProfilePage />} />
-                  <Route path="support" element={<VendorSupportPage />} />
-                  <Route path="offers" element={<VendorOffersPage />} />
-                </Routes>
-              </VendorLayout>
-            } />
 
             {/* App pages — with AppLayout and Page Transitions */}
             <Route path="/*" element={

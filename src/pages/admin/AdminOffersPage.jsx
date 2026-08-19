@@ -234,16 +234,16 @@ export function AdminOffersPage() {
 
   const fetchAll = () => {
     Promise.all([
-      fetch(`${BACKEND_URL}/offers/admin?type=offer`, { headers }).then(r => r.json()),
-      fetch(`${BACKEND_URL}/offers/admin?type=coupon`, { headers }).then(r => r.json()),
-      fetch(`${BACKEND_URL}/admin/categories`, { headers }).then(r => r.json()),
-      fetch(`${BACKEND_URL}/admin/products`, { headers }).then(r => r.json()),
+      fetch(`${BACKEND_URL}/offers/admin?type=offer`, { headers }).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+      fetch(`${BACKEND_URL}/offers/admin?type=coupon`, { headers }).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+      fetch(`${BACKEND_URL}/admin/categories`, { headers }).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+      fetch(`${BACKEND_URL}/admin/products`, { headers }).then(r => r.ok ? r.json() : {}).catch(() => ({})),
     ]).then(([o, c, cats, prods]) => {
       setOffers(o.offers || []);
       setCoupons(c.offers || []);
       setCategories(cats.categories || []);
       setProducts(prods.products || []);
-    }).finally(() => setLoading(false));
+    }).catch(console.error).finally(() => setLoading(false));
   };
 
   useEffect(() => { fetchAll(); }, []);
